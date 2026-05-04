@@ -1,4 +1,4 @@
-import { supabase } from '@/lib/supabase';
+import { getSupabase } from '@/lib/supabase';
 
 export async function POST(request: Request) {
   try {
@@ -12,6 +12,7 @@ export async function POST(request: Request) {
       );
     }
 
+    const supabase = getSupabase();
     const { data, error } = await supabase
       .from('contact_submissions')
       .insert([
