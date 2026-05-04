@@ -89,6 +89,7 @@ export default function Home() {
           <li><a href="#services">Services</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li><a href="/ai" className="nav-highlight">AI Workshop</a></li>
         </ul>
       </nav>
 

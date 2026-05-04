@@ -85,9 +85,9 @@ export default function AIWorkshop() {
       <nav>
         <a href="/" className="nav-logo" style={{ textDecoration: 'none' }}>Khalid Bin Helaly</a>
         <ul className="nav-links">
+          <li><a href="/">Home</a></li>
           <li><a href="#workshop">Workshop</a></li>
           <li><a href="#curriculum">Curriculum</a></li>
-          <li><a href="#gallery">Gallery</a></li>
           <li><a href="#register">Register</a></li>
         </ul>
       </nav>
