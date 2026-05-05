@@ -447,9 +447,9 @@ export default function Home() {
       <footer>
         <span className="footer-copy">&copy; 2026 Khalid Bin Helaly. Dhaka, Bangladesh.</span>
         <ul className="footer-links">
-          <li><a href="https://linkedin.com/in/khalidbinhelaly">LinkedIn</a></li>
+          <li><a href="https://www.linkedin.com/in/khalid-bin-helaly/">LinkedIn</a></li>
           <li><a href="https://youtube.com/@khalidbinhelaly">YouTube</a></li>
-          <li><a href="https://facebook.com/khalidbinhelaly">Facebook</a></li>
+          <li><a href="https://www.facebook.com/khalidibnhelaly">Facebook</a></li>
         </ul>
       </footer>
       <div className="topzid-badge">

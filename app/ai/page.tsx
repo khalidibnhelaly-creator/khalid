@@ -368,7 +368,7 @@ export default function AIWorkshop() {
         <span className="footer-copy">&copy; 2026 Khalid Bin Helaly. Dhaka, Bangladesh.</span>
         <ul className="footer-links">
           <li><a href="/">Main Site</a></li>
-          <li><a href="https://linkedin.com/in/khalidbinhelaly">LinkedIn</a></li>
+          <li><a href="https://www.linkedin.com/in/khalid-bin-helaly/">LinkedIn</a></li>
           <li><a href="https://youtube.com/@khalidbinhelaly">YouTube</a></li>
         </ul>
       </footer>
