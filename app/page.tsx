@@ -452,6 +452,12 @@ export default function Home() {
           <li><a href="https://facebook.com/khalidbinhelaly">Facebook</a></li>
         </ul>
       </footer>
+      <div className="topzid-badge">
+        <a href="https://topzid.com" target="_blank" rel="noopener noreferrer" className="topzid-link">
+          <Image src="/Topzidlogo.png" alt="TOPZID" width={18} height={18} className="topzid-logo" />
+          <span>A TOPZID Venture</span>
+        </a>
+      </div>
     </>
   );
 }

@@ -5,6 +5,17 @@ export const metadata: Metadata = {
   title: "Khalid Bin Helaly — AI Creative Entrepreneur",
   description:
     "Bangladeshi AI creative entrepreneur. Building brands, films, automation systems, and AI-powered products at the intersection of technology and storytelling.",
+  icons: {
+    icon: "/Topzidlogo.png",
+    apple: "/Topzidlogo.png",
+  },
+  openGraph: {
+    title: "Khalid Bin Helaly — AI Creative Entrepreneur",
+    description:
+      "Bangladeshi AI creative entrepreneur. Building brands, films, automation systems, and AI-powered products at the intersection of technology and storytelling.",
+    images: ["/Topzidlogo.png"],
+    type: "website",
+  },
 };
 
 export default function RootLayout({
