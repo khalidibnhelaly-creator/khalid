@@ -47,9 +47,10 @@ export async function POST(request: Request) {
       { message: 'Registration successful' },
       { status: 201 }
     );
-  } catch {
+  } catch (err) {
+    console.error('Register API error:', err);
     return Response.json(
-      { error: 'Invalid request' },
+      { error: 'Invalid request', details: err instanceof Error ? err.message : String(err) },
       { status: 400 }
     );
   }

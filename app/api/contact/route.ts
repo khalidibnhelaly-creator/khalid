@@ -38,9 +38,10 @@ export async function POST(request: Request) {
       { message: 'Message sent successfully' },
       { status: 201 }
     );
-  } catch {
+  } catch (err) {
+    console.error('Contact API error:', err);
     return Response.json(
-      { error: 'Invalid request' },
+      { error: 'Invalid request', details: err instanceof Error ? err.message : String(err) },
       { status: 400 }
     );
   }
