@@ -14,7 +14,7 @@ export async function POST(request: Request) {
     }
 
     const supabase = getSupabase();
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from('workshop_registrations')
       .insert([
         {
@@ -26,7 +26,7 @@ export async function POST(request: Request) {
           registered_at: new Date().toISOString(),
         },
       ])
-      .select();
+
 
     if (error) {
       // Handle duplicate email
@@ -44,7 +44,7 @@ export async function POST(request: Request) {
     }
 
     return Response.json(
-      { message: 'Registration successful', data },
+      { message: 'Registration successful' },
       { status: 201 }
     );
   } catch {

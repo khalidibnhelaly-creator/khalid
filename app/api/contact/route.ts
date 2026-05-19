@@ -13,7 +13,7 @@ export async function POST(request: Request) {
     }
 
     const supabase = getSupabase();
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from('contact_submissions')
       .insert([
         {
@@ -24,7 +24,7 @@ export async function POST(request: Request) {
           submitted_at: new Date().toISOString(),
         },
       ])
-      .select();
+
 
     if (error) {
       console.error('Supabase error:', error);
@@ -35,7 +35,7 @@ export async function POST(request: Request) {
     }
 
     return Response.json(
-      { message: 'Message sent successfully', data },
+      { message: 'Message sent successfully' },
       { status: 201 }
     );
   } catch {
