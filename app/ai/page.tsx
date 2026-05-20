@@ -142,7 +142,7 @@ export default function AIWorkshop() {
           <p className="hero-desc" style={{ maxWidth: '44ch' }}>
             খালিদ বিন হিলালীর একটি হ্যান্ডস-অন ওয়ার্কশপ। শিখুন কিভাবে AI দিয়ে
             কনটেন্ট তৈরি করবেন, ওয়ার্কফ্লো অটোমেট করবেন, এবং জেনারেটিভ AI আপনার
-            ব্যবসায় ইন্টিগ্রেট করবেন — একটি ইনটেনসিভ সেশনে।
+            ব্যবসায় ইন্টিগ্রেট করবেন — দুই দিনের ইনটেনসিভ সেশনে।
           </p>
           <div className="hero-cta-row">
             <a href="#register" className="btn-primary">এখনই রেজিস্টার করুন</a>
@@ -175,7 +175,7 @@ export default function AIWorkshop() {
               <span className="stat-label">হ্যান্ডস-অন প্র্যাকটিস</span>
             </div>
             <div className="stat-block">
-              <span className="stat-num">১ দিন</span>
+              <span className="stat-num">২ দিন</span>
               <span className="stat-label">ইনটেনসিভ ফরম্যাট</span>
             </div>
           </div>
