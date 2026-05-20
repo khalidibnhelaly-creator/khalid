@@ -352,7 +352,7 @@ export default function AIWorkshop() {
             <p className="about-body">
               বাংলাদেশি AI ক্রিয়েটিভ উদ্যোক্তা। ১৩+ বছরের ডিজিটাল মার্কেটিং অভিজ্ঞতা,
               ৫০০+ AI-ড্রিভেন কমার্শিয়াল প্রোডিউসড। TOPZID AI ক্রিয়েটিভ স্টুডিওর ফাউন্ডার।
-              Asiatic MCL-এ ব্র্যান্ড স্ট্র্যাটেজিস্ট হিসেবে কাজের অভিজ্ঞতা।
+              Asiatic MCL-এ ৫০+ জনকে AI ট্রেনিং প্রদান করছেন। Chaldal PLC-র সাবেক অ্যাসিস্ট্যান্ট ডিরেক্টর অফ মার্কেটিং।
             </p>
             <p className="about-body" style={{ marginBottom: '1.5rem' }}>
               AI, স্টোরিটেলিং এবং বিজনেস স্ট্র্যাটেজির ইন্টারসেকশনে কাজ করেন — ব্র্যান্ড,
@@ -413,23 +413,6 @@ export default function AIWorkshop() {
           ].map((tool) => (
             <span className="tool-pill" key={tool}>{tool}</span>
           ))}
-        </div>
-      </section>
-
-      {/* Testimonials Placeholder */}
-      <section className="section" style={{ paddingBottom: '3rem' }}>
-        <div className="section-label">অংশগ্রহণকারীদের মতামত</div>
-        <h2 className="about-headline reveal" style={{ marginBottom: '2.5rem' }}>
-          যারা <em>শিখেছেন</em>, তারা কি বলেন
-        </h2>
-        <div className="testimonial-grid reveal" style={{ transitionDelay: '0.1s' }}>
-          <div className="testimonial-card">
-            <p className="testimonial-text">&ldquo;শীঘ্রই আসছে — আগের ব্যাচের অংশগ্রহণকারীদের রিভিউ এখানে দেখা যাবে।&rdquo;</p>
-            <div className="testimonial-author">
-              <span className="testimonial-name">আপনার রিভিউ এখানে আসতে পারে</span>
-              <span className="testimonial-role">পরবর্তী ব্যাচে জয়েন করুন</span>
-            </div>
-          </div>
         </div>
       </section>
 
