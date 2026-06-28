@@ -1,0 +1,226 @@
+/* ------------------------------------------------------------------
+   /ai workshop — scoped extensions to the main design system.
+   Bengali type runs in Hind Siliguri (--font-bangla); Latin falls
+   through to Inter Tight. Spacing/tracking tuned for Bengali script.
+------------------------------------------------------------------- */
+
+.ai-root {
+  font-family: var(--font-bangla), var(--font-sans), system-ui, sans-serif;
+}
+
+/* Bengali script needs taller leading and no negative tracking:
+   matras and conjuncts clip at display sizes otherwise. */
+.ai-root .mast-name {
+  font-size: clamp(2.6rem, 8vw, 6.5rem);
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+}
+
+.ai-root .k-h2 {
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  max-width: 26ch;
+}
+
+.ai-root .k-label,
+.ai-root .stat-label,
+.ai-root .router-meta,
+.ai-root .cap-index,
+.ai-root .chan-key {
+  letter-spacing: 0.05em;
+}
+
+.ai-root .mast-role {
+  line-height: 1.7;
+}
+
+.ai-root .k-body {
+  line-height: 1.8;
+}
+
+.ai-root .cap p {
+  line-height: 1.75;
+}
+
+/* accent word inside the Bangla headline */
+.ai-root .mast-name em,
+.ai-root .k-h2 em,
+.ai-root .price-line em {
+  font-style: normal;
+  color: var(--k-accent);
+}
+
+/* ---------- hero CTA row ---------- */
+
+.ai-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+/* ---------- WhatsApp (kept brand-green: recognition converts) ---------- */
+
+.btn-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: #25d366;
+  color: #ffffff;
+  border: 1px solid #25d366;
+  border-radius: 0.5rem;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.9rem 1.75rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-wa:hover {
+  background: #1da851;
+  border-color: #1da851;
+}
+
+/* ---------- gallery ---------- */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--k-line);
+  border: 1px solid var(--k-line);
+}
+
+.gallery-item {
+  background: var(--k-card);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+/* 5 photos fill the grid exactly when the first one is featured:
+   3-col: [2+1] + [1+1+1] · 2-col: [2] + [1+1] + [1+1] */
+.gallery-item:first-child {
+  grid-column: span 2;
+  aspect-ratio: auto;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.025);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-item:hover img {
+    transform: none;
+  }
+}
+
+/* ---------- tool pills ---------- */
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.pill {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--k-ink-2);
+  border: 1px solid var(--k-line-strong);
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  background: var(--k-card);
+}
+
+/* ---------- compact logo strip (instructor section) ---------- */
+
+.wall--compact .wall-cell {
+  height: 4.5rem;
+  padding: 0.875rem;
+}
+
+.wall--compact .wall-cell img {
+  max-height: 1.75rem;
+}
+
+/* ---------- FAQ (native details/summary, no JS) ---------- */
+
+.faq {
+  border-bottom: 1px solid var(--k-line);
+  max-width: 44rem;
+}
+
+.faq-item {
+  border-top: 1px solid var(--k-line);
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.15rem 0.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  font-family: var(--font-mono), monospace;
+  font-size: 1.1rem;
+  color: var(--k-accent);
+  flex-shrink: 0;
+}
+
+.faq-item[open] summary::after {
+  content: "−";
+}
+
+.faq-item .faq-a {
+  padding: 0 0.25rem 1.25rem;
+  color: var(--k-ink-2);
+  line-height: 1.8;
+  max-width: 60ch;
+}
+
+/* ---------- pricing ---------- */
+
+.price-line {
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.price-line em {
+  font-style: normal;
+  color: var(--k-accent);
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 48rem) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
