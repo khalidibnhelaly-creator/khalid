@@ -12,16 +12,21 @@
 ------------------------------------------------------------------- */
 
 .amc-root {
-  --paper: #f6f1e6;
-  --paper-2: #ece3cf;
-  --paper-3: #e1d5b9;
-  --ink: #1d1812;
-  --ink-soft: #4b4338;
-  --muted: #8a7f6c;
-  --line: #ddd0ad;
-  --line-2: #cdbd92;
-  --gold: #9c6418;
-  --gold-2: #c9852e;
+  /* Re-skinned to match the topzid.com main-site palette: Apple-school
+     neutrals + one trusted blue, instead of the original antique-paper/
+     gold treatment. Token names kept as-is so every rule below picks
+     up the new colors automatically. */
+  --paper: #fbfbfd;
+  --paper-2: #ffffff;
+  --paper-3: #f5f5f7;
+  --ink: #1d1d1f;
+  --ink-soft: #515154;
+  --muted: #86868b;
+  --line: rgba(29, 29, 31, 0.1);
+  --line-2: rgba(29, 29, 31, 0.22);
+  --gold: #0071e3;
+  --gold-2: #0077ed;
+  --danger: #d70015;
   --maxw: 1200px;
   --serif: var(--font-amc-serif), Georgia, serif;
   --sans: var(--font-amc-sans), system-ui, sans-serif;
@@ -130,7 +135,7 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(246, 241, 230, 0.88);
+  background: rgba(251, 251, 253, 0.88);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
 }
@@ -222,17 +227,17 @@
     linear-gradient(
       100deg,
       var(--paper) 0%,
-      rgba(246, 241, 230, 0.88) 24%,
-      rgba(246, 241, 230, 0.56) 44%,
-      rgba(246, 241, 230, 0.18) 64%,
-      rgba(246, 241, 230, 0) 82%
+      rgba(251, 251, 253, 0.88) 24%,
+      rgba(251, 251, 253, 0.56) 44%,
+      rgba(251, 251, 253, 0.18) 64%,
+      rgba(251, 251, 253, 0) 82%
     ),
     linear-gradient(
       180deg,
-      rgba(246, 241, 230, 0.3) 0%,
-      rgba(246, 241, 230, 0.02) 20%,
-      rgba(246, 241, 230, 0.04) 68%,
-      rgba(246, 241, 230, 0.55) 100%
+      rgba(251, 251, 253, 0.3) 0%,
+      rgba(251, 251, 253, 0.02) 20%,
+      rgba(251, 251, 253, 0.04) 68%,
+      rgba(251, 251, 253, 0.55) 100%
     );
 }
 
@@ -242,7 +247,7 @@
   right: 0;
   bottom: 0;
   height: 200px;
-  background: linear-gradient(180deg, rgba(246, 241, 230, 0) 0%, var(--paper) 90%);
+  background: linear-gradient(180deg, rgba(251, 251, 253, 0) 0%, var(--paper) 90%);
 }
 
 .amc-root .hero-content {
@@ -266,10 +271,10 @@
       linear-gradient(
         180deg,
         var(--paper) 0%,
-        rgba(246, 241, 230, 0.92) 30%,
-        rgba(246, 241, 230, 0.6) 52%,
-        rgba(246, 241, 230, 0.25) 70%,
-        rgba(246, 241, 230, 0.05) 85%
+        rgba(251, 251, 253, 0.92) 30%,
+        rgba(251, 251, 253, 0.6) 52%,
+        rgba(251, 251, 253, 0.25) 70%,
+        rgba(251, 251, 253, 0.05) 85%
       );
   }
 
@@ -361,14 +366,14 @@
 }
 
 .amc-root .btn-solid {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--gold);
+  color: #ffffff;
   font-weight: 500;
 }
 
 .amc-root .btn-solid:hover {
   transform: translateY(-2px);
-  background: #000;
+  background: #005bb8;
 }
 
 .amc-root .btn-wa {
@@ -594,7 +599,7 @@
   padding: 36px clamp(22px, 4vw, 40px);
   margin-bottom: 18px;
   background: var(--paper-2);
-  box-shadow: 0 10px 26px rgba(29, 24, 18, 0.07);
+  box-shadow: 0 10px 26px rgba(29, 29, 31, 0.07);
 }
 
 .amc-root .daycard .head {
@@ -764,7 +769,7 @@
 /* honesty */
 
 .amc-root .honesty {
-  background: var(--paper-2);
+  background: var(--paper-3);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
@@ -809,7 +814,7 @@
 /* apply */
 
 .amc-root .apply {
-  background: var(--paper-2);
+  background: var(--paper-3);
   border-top: 1px solid var(--line);
 }
 
@@ -860,7 +865,7 @@
   background: var(--paper);
   padding: clamp(24px, 4vw, 38px);
   max-width: 760px;
-  box-shadow: 0 10px 28px rgba(29, 24, 18, 0.08);
+  box-shadow: 0 10px 28px rgba(29, 29, 31, 0.08);
 }
 
 .amc-root .field {
@@ -908,20 +913,20 @@
 .amc-root .field select:focus,
 .amc-root .field textarea:focus {
   border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(156, 100, 24, 0.14);
+  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.14);
 }
 
 .amc-root .field.bad input,
 .amc-root .field.bad select,
 .amc-root .field.bad textarea {
-  border-color: #b3491f;
+  border-color: var(--danger);
 }
 
 .amc-root .field .err {
   display: none;
   font-family: var(--mono);
   font-size: 11px;
-  color: #b3491f;
+  color: var(--danger);
   margin-top: 6px;
 }
 
@@ -973,7 +978,7 @@
 }
 
 .amc-root .checkrow.bad {
-  border-color: #b3491f;
+  border-color: var(--danger);
 }
 
 .amc-root .form .btn-solid {
@@ -1004,7 +1009,7 @@
 .amc-root .form-error {
   font-family: var(--mono);
   font-size: 12px;
-  color: #b3491f;
+  color: var(--danger);
   text-align: center;
   margin: 0 0 16px;
 }
