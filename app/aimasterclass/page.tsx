@@ -166,7 +166,19 @@ export default function AIMasterclass() {
 
       {/* ================= HERO ================= */}
       <header className="hero">
-        <div className="wrap">
+        <div className="hero-media" aria-hidden="true">
+          <Image
+            src="/aimasterclass-hero.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="hero-media-img"
+          />
+          <div className="hero-scrim" />
+          <div className="hero-fade" />
+        </div>
+        <div className="wrap hero-content">
           <span className="eyebrow">Free. Live. Application Based.</span>
           <h1>The One Man AI OS.</h1>
           <p className="byline">by Khalid</p>

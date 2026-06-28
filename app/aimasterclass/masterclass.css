@@ -196,7 +196,86 @@
 /* ---------------- HERO ---------------- */
 
 .amc-root .hero {
-  padding: 64px 0 50px;
+  position: relative;
+  padding: 96px 0 120px;
+  min-height: 640px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.amc-root .hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.amc-root .hero-media-img {
+  object-fit: cover;
+  object-position: 56% 38%;
+}
+
+.amc-root .hero-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      100deg,
+      var(--paper) 0%,
+      rgba(246, 241, 230, 0.88) 24%,
+      rgba(246, 241, 230, 0.56) 44%,
+      rgba(246, 241, 230, 0.18) 64%,
+      rgba(246, 241, 230, 0) 82%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(246, 241, 230, 0.3) 0%,
+      rgba(246, 241, 230, 0.02) 20%,
+      rgba(246, 241, 230, 0.04) 68%,
+      rgba(246, 241, 230, 0.55) 100%
+    );
+}
+
+.amc-root .hero-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 200px;
+  background: linear-gradient(180deg, rgba(246, 241, 230, 0) 0%, var(--paper) 90%);
+}
+
+.amc-root .hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+@media (max-width: 760px) {
+  .amc-root .hero {
+    padding: 56px 0 60px;
+    min-height: 0;
+  }
+
+  .amc-root .hero-media-img {
+    object-position: 50% 30%;
+  }
+
+  .amc-root .hero-scrim {
+    background:
+      linear-gradient(
+        180deg,
+        var(--paper) 0%,
+        rgba(246, 241, 230, 0.92) 30%,
+        rgba(246, 241, 230, 0.6) 52%,
+        rgba(246, 241, 230, 0.25) 70%,
+        rgba(246, 241, 230, 0.05) 85%
+      );
+  }
+
+  .amc-root .hero-fade {
+    height: 120px;
+  }
 }
 
 .amc-root .byline {
@@ -335,6 +414,7 @@
 .amc-root .stat {
   padding: 28px 24px;
   border-right: 1px solid var(--line);
+  text-align: center;
 }
 
 .amc-root .stat:last-child {
