@@ -26,7 +26,7 @@ const INITIAL: FormState = {
   commit: false,
 };
 
-const WA_GROUP_LINK = "https://chat.whatsapp.com/EU6HAV9KjeBDdrEhwIIW85";
+const WA_GROUP_LINK = "https://chat.whatsapp.com/J6xjDAphCHrHB5SUloiIHE";
 
 /** Precomputed (server can't, and doesn't need to, build these at request
  *  time — the three session dates are fixed) Google Calendar links. */
