@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Operator Masterclass, 8 Weeks | The One Man AI OS by Khalid Bin Helaly</title>
+<meta name="description" content="Eight weeks. Eight four-hour live sessions. You build your own AI content and business system with direct feedback, and ship a portfolio grade reel. Founding batch." />
+<meta name="theme-color" content="#ffffff" />
+<meta property="og:title" content="The Operator Masterclass, 8 Weeks | The One Man AI OS" />
+<meta property="og:description" content="The free sessions were the proof. This is the build. 8 weeks, 32 live hours, your own AI system installed." />
+<meta property="og:image" content="https://www.topzid.com/Topzidlogo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Public+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#ffffff; --paper-2:#faf8f3; --paper-3:#f1ece1;
+    --ink:#1d1812; --ink-soft:#4b4338; --muted:#8a7f6c;
+    --line:#ece7dc; --line-2:#ddd3c1; --gold:#9c6418; --gold-2:#c9852e;
+    --maxw:1200px;
+    --serif:'Fraunces',Georgia,serif; --sans:'Public Sans',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.7; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  a{ color:inherit; text-decoration:none; }
+  img{ display:block; max-width:100%; }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 32px; }
+
+  .eyebrow{ font-family:var(--mono); font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); display:inline-flex; align-items:center; gap:10px; margin-bottom:22px; }
+  .eyebrow::before{ content:""; width:26px; height:1px; background:var(--gold); display:inline-block; }
+  .em{ color:var(--gold); font-weight:700; }
+  .it{ font-family:var(--serif); font-style:italic; font-weight:400; color:var(--gold); }
+  h1,h2,h3{ font-family:var(--serif); font-weight:600; line-height:1.1; letter-spacing:-.005em; margin:0; text-wrap:balance; }
+  h1{ font-size:clamp(38px,6.4vw,76px); line-height:1.04; }
+  h2{ font-size:clamp(26px,3.6vw,42px); }
+  h3{ font-size:21px; }
+
+  /* NAV */
+  nav{ position:sticky; top:0; z-index:50; background:rgba(255,255,255,.9); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
+  nav .wrap{ display:flex; align-items:center; justify-content:space-between; height:66px; }
+  .brand{ display:flex; align-items:center; gap:11px; font-family:var(--mono); font-size:13px; letter-spacing:.08em; }
+  .brand img{ width:26px; height:26px; object-fit:contain; }
+  .navlinks{ display:flex; gap:26px; font-family:var(--mono); font-size:12.5px; letter-spacing:.03em; color:var(--ink-soft); }
+  .navlinks a:hover{ color:var(--gold); }
+  .nav-cta{ font-family:var(--mono); font-size:12px; letter-spacing:.05em; padding:9px 16px; border-radius:2px; background:var(--ink); color:var(--paper); white-space:nowrap; }
+  .nav-cta:hover{ background:#000; }
+  @media(max-width:820px){ .navlinks{ display:none; } }
+
+  /* HERO */
+  .hero{ position:relative; border-bottom:1px solid var(--line); }
+  .hero-copy{ position:relative; z-index:2; padding-top:72px; padding-bottom:64px; }
+  .hero-copy .eyebrow{ color:var(--gold); }
+  .hero-copy .eyebrow::before{ background:var(--gold); }
+  .hero-copy h1{ color:var(--ink); }
+  .hero-copy .byline{ font-family:var(--serif); font-style:italic; font-size:clamp(18px,2vw,24px); color:var(--gold); margin:6px 0 0; }
+  .hero-copy .sub{ font-size:clamp(16.5px,1.9vw,19px); color:var(--ink-soft); max-width:60ch; margin:22px 0 0; }
+  .hero-copy .sub b{ color:var(--ink); font-weight:600; }
+
+  .facts{ display:flex; gap:10px; flex-wrap:wrap; margin:28px 0 22px; }
+  .fact{ border:1px solid var(--line-2); border-radius:3px; padding:11px 16px; font-family:var(--mono); font-size:12.5px; letter-spacing:.02em; color:var(--ink-soft); background:var(--paper-2); }
+  .fact b{ color:var(--gold); font-weight:600; }
+
+  .countdown{ display:flex; gap:12px; flex-wrap:wrap; margin:6px 0 8px; }
+  .cd-cell{ background:var(--paper-2); border:1px solid var(--line-2); border-radius:3px; padding:13px 17px; min-width:80px; text-align:center; }
+  .cd-cell b{ display:block; font-family:var(--serif); font-weight:600; font-size:32px; line-height:1; color:var(--ink); font-variant-numeric:tabular-nums; }
+  .cd-cell span{ font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-top:6px; display:block; }
+  .cd-label{ font-family:var(--mono); font-size:12px; letter-spacing:.05em; color:var(--ink-soft); margin:10px 0 30px; }
+  .cd-label b{ color:var(--gold); }
+
+  .cta-row{ display:flex; gap:14px; flex-wrap:wrap; align-items:center; }
+  .btn{ font-family:var(--mono); font-size:13px; letter-spacing:.03em; padding:16px 28px; border-radius:2px; cursor:pointer; border:1px solid transparent; transition:transform .14s ease, background .2s ease, border-color .2s ease, color .2s ease; display:inline-flex; align-items:center; gap:9px; }
+  .btn-solid{ background:var(--ink); color:var(--paper); font-weight:500; }
+  .btn-solid:hover{ transform:translateY(-2px); background:#000; }
+  .btn-ghost{ border-color:var(--line-2); color:var(--ink); }
+  .btn-ghost:hover{ border-color:var(--gold); color:var(--gold); }
+  .seatnote{ font-family:var(--mono); font-size:12px; color:var(--muted); margin-top:18px; }
+  .seatnote b{ color:var(--gold); }
+
+  /* proof strip */
+  .proof{ border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .proof .wrap{ display:grid; grid-template-columns:repeat(4,1fr); }
+  .pcell{ padding:26px 22px; border-right:1px solid var(--line); }
+  .pcell:last-child{ border-right:0; }
+  .pcell b{ display:block; font-family:var(--serif); font-weight:600; font-size:32px; line-height:1; color:var(--ink); }
+  .pcell span{ font-family:var(--mono); font-size:10.5px; letter-spacing:.06em; color:var(--muted); text-transform:uppercase; margin-top:8px; display:block; }
+  @media(max-width:680px){ .proof .wrap{ grid-template-columns:1fr 1fr; } .pcell:nth-child(2){ border-right:0; } .pcell:nth-child(1),.pcell:nth-child(2){ border-bottom:1px solid var(--line); } }
+
+  /* marquee */
+  .marquee{ overflow:hidden; border-bottom:1px solid var(--line); padding:16px 0; }
+  .marquee .track{ display:inline-flex; gap:34px; white-space:nowrap; font-family:var(--mono); font-size:13px; letter-spacing:.04em; color:var(--ink-soft); animation:scroll 42s linear infinite; }
+  .marquee .track span{ color:var(--muted); }
+  .marquee .track b{ color:var(--gold); font-weight:400; }
+  @keyframes scroll{ to{ transform:translateX(-50%); } }
+
+  section{ padding:88px 0; }
+  .sec-head{ max-width:62ch; margin-bottom:46px; }
+
+  /* about */
+  .about .wrap{ display:grid; grid-template-columns:.78fr 1.22fr; gap:46px; align-items:start; }
+  @media(max-width:880px){ .about .wrap{ grid-template-columns:1fr; gap:30px; } }
+  .about .photo img{ width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:3px; filter:grayscale(.15) sepia(.05); border:1px solid var(--line-2); }
+  .about p{ color:var(--ink-soft); font-size:17px; margin:0 0 16px; max-width:60ch; }
+  .about p b{ color:var(--ink); }
+  .brandwall{ margin-top:34px; }
+  .brandwall .lbl{ font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:16px; }
+  .brandwall .logos{ display:flex; flex-wrap:wrap; gap:14px 26px; align-items:center; }
+  .brandwall .logos img{ height:26px; width:auto; object-fit:contain; opacity:.68; filter:grayscale(1) contrast(1.15); }
+  .brandwall .logos img:hover{ opacity:1; }
+
+  /* DATA BLOCK signature */
+  .datablock{ background:var(--ink); color:var(--paper); }
+  .datablock .eyebrow{ color:var(--gold-2); } .datablock .eyebrow::before{ background:var(--gold-2); }
+  .datablock h2{ color:var(--paper); }
+  .datablock p{ color:#cdc5b6; max-width:64ch; font-size:18px; }
+  .datablock p b{ color:var(--paper); }
+  .readout{ margin-top:40px; border:1px solid #3a332b; border-radius:4px; overflow:hidden; }
+  .readrow{ display:grid; grid-template-columns:150px 1fr; gap:20px; padding:20px 26px; border-bottom:1px solid #3a332b; align-items:baseline; }
+  .readrow:last-child{ border-bottom:0; }
+  .readrow:nth-child(odd){ background:#241f19; }
+  .readrow b{ font-family:var(--serif); font-weight:600; font-size:clamp(26px,3vw,36px); color:var(--gold-2); line-height:1; font-variant-numeric:tabular-nums; }
+  .readrow span{ font-family:var(--mono); font-size:13.5px; color:#cdc5b6; line-height:1.6; }
+  .readrow span i{ color:var(--paper); font-style:normal; }
+  @media(max-width:600px){ .readrow{ grid-template-columns:1fr; gap:6px; } }
+  .datablock .punch{ font-family:var(--serif); font-style:italic; font-size:clamp(20px,2.6vw,27px); color:var(--gold-2); margin-top:38px; }
+
+  /* WEEKS */
+  .schedline{ font-family:var(--mono); font-size:12.5px; letter-spacing:.03em; color:var(--ink-soft); margin-bottom:36px; }
+  .schedline b{ color:var(--gold); }
+  .weeks{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media(max-width:760px){ .weeks{ grid-template-columns:1fr; } }
+  .weekcard{ border:1px solid var(--line); border-radius:4px; padding:28px 26px; background:var(--paper-2); box-shadow:0 8px 20px rgba(29,24,18,.05); }
+  .weekcard .top{ display:flex; align-items:baseline; gap:14px; margin-bottom:14px; }
+  .weekcard .wn{ font-family:var(--serif); font-weight:600; font-size:34px; color:var(--gold); line-height:1; }
+  .weekcard .wl{ font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; color:var(--muted); text-transform:uppercase; }
+  .weekcard h3{ font-size:20px; margin-bottom:10px; }
+  .weekcard p{ margin:0; color:var(--ink-soft); font-size:14.5px; }
+
+  /* deliverables */
+  .grid2col{ display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--line); border-radius:3px; overflow:hidden; background:var(--paper-2); }
+  @media(max-width:680px){ .grid2col{ grid-template-columns:1fr; } }
+  .gitem{ padding:24px 26px; border-bottom:1px solid var(--line); border-right:1px solid var(--line); }
+  .gitem:nth-child(2n){ border-right:0; }
+  .gitem:nth-last-child(-n+2){ border-bottom:0; }
+  @media(max-width:680px){ .gitem{ border-right:0; } .gitem:nth-last-child(-n+1){ border-bottom:0; } }
+  .gitem h3{ font-family:var(--sans); font-weight:700; font-size:16px; margin-bottom:6px; }
+  .gitem p{ margin:0; color:var(--ink-soft); font-size:14.5px; }
+
+  /* pricing */
+  .pricing{ background:var(--paper-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .tiers{ display:grid; grid-template-columns:1fr 1fr; gap:22px; align-items:stretch; }
+  @media(max-width:820px){ .tiers{ grid-template-columns:1fr; } }
+  .tier{ background:var(--paper); border:1px solid var(--line-2); border-radius:5px; padding:36px 32px; display:flex; flex-direction:column; box-shadow:0 12px 30px rgba(29,24,18,.08); }
+  .tier.hot{ border:2px solid var(--gold); position:relative; }
+  .tier .tag{ position:absolute; top:-13px; left:28px; background:var(--gold); color:var(--paper); font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; padding:5px 12px; border-radius:2px; }
+  .tier .tname{ font-family:var(--mono); font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; }
+  .tier h3{ font-size:26px; margin-bottom:8px; }
+  .tier .tdesc{ color:var(--ink-soft); font-size:15px; margin:0 0 22px; }
+  .tier .price b{ font-family:var(--serif); font-weight:600; font-size:44px; color:var(--ink); }
+  .tier .price s{ color:var(--muted); font-size:19px; margin-left:10px; }
+  .tier .pnote{ font-family:var(--mono); font-size:11.5px; color:var(--muted); margin:4px 0 24px; }
+  .tier .pnote b{ color:var(--gold); }
+  .tier ul{ list-style:none; margin:0 0 28px; padding:0; flex:1; }
+  .tier li{ position:relative; padding:7px 0 7px 24px; color:var(--ink-soft); font-size:15px; border-bottom:1px solid var(--line); }
+  .tier li:last-child{ border-bottom:0; }
+  .tier li::before{ content:"+"; position:absolute; left:0; color:var(--gold); font-weight:700; }
+  .tier li b{ color:var(--ink); }
+  .tier .btn{ width:100%; justify-content:center; }
+
+  /* guarantee */
+  .guarantee{ border:1px solid var(--line-2); border-left:4px solid var(--gold); background:var(--paper-2); border-radius:4px; padding:clamp(28px,4vw,44px); }
+  .guarantee h3{ font-size:clamp(22px,2.8vw,30px); margin-bottom:14px; }
+  .guarantee p{ color:var(--ink-soft); max-width:66ch; margin:0 0 12px; }
+  .guarantee p:last-child{ margin:0; }
+  .guarantee p b{ color:var(--ink); }
+
+  /* for/not */
+  .fornot{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  @media(max-width:720px){ .fornot{ grid-template-columns:1fr; } }
+  .fcol{ border:1px solid var(--line); border-radius:4px; padding:30px 28px; background:var(--paper-2); }
+  .fcol.yes{ border-top:3px solid var(--gold); }
+  .fcol.no{ border-top:3px solid var(--line-2); }
+  .fcol h3{ font-family:var(--mono); font-size:13px; letter-spacing:.12em; text-transform:uppercase; font-weight:500; margin-bottom:18px; }
+  .fcol.yes h3{ color:var(--gold); } .fcol.no h3{ color:var(--muted); }
+  .fcol ul{ list-style:none; margin:0; padding:0; }
+  .fcol li{ position:relative; padding:8px 0 8px 26px; color:var(--ink-soft); font-size:15.5px; border-bottom:1px solid var(--line); }
+  .fcol li:last-child{ border-bottom:0; }
+  .fcol.yes li::before{ content:"+"; position:absolute; left:0; color:var(--gold); font-weight:700; }
+  .fcol.no li::before{ content:"\2013"; position:absolute; left:0; color:var(--muted); }
+
+  /* faq */
+  .faq-item{ border-bottom:1px solid var(--line); }
+  .faq-q{ width:100%; text-align:left; background:none; border:0; cursor:pointer; padding:24px 38px 24px 0; position:relative; color:var(--ink); font-family:var(--sans); font-weight:600; font-size:18px; }
+  .faq-q::after{ content:"+"; position:absolute; right:4px; top:50%; transform:translateY(-50%); font-family:var(--mono); font-size:22px; color:var(--gold); }
+  .faq-item.open .faq-q::after{ content:"\2212"; }
+  .faq-a{ max-height:0; overflow:hidden; transition:max-height .28s ease; }
+  .faq-a p{ color:var(--ink-soft); padding:0 0 24px; margin:0; max-width:66ch; font-size:16px; }
+  .faq-a p b{ color:var(--ink); }
+
+  /* reserve */
+  .reserve{ background:var(--paper-2); border-top:1px solid var(--line); }
+  .reserve .wrap{ display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
+  @media(max-width:860px){ .reserve .wrap{ grid-template-columns:1fr; gap:34px; } }
+  .reserve .lead p{ color:var(--ink-soft); max-width:44ch; }
+  .form{ border:1px solid var(--line-2); border-radius:5px; background:var(--paper); padding:clamp(24px,4vw,36px); box-shadow:0 12px 30px rgba(29,24,18,.08); }
+  .field{ margin-bottom:20px; }
+  .field label{ display:block; font-weight:600; font-size:15px; color:var(--ink); margin-bottom:8px; }
+  .field input{ width:100%; padding:13px 14px; font-family:var(--sans); font-size:16px; background:var(--paper-2); color:var(--ink); border:1px solid var(--line-2); border-radius:2px; outline:none; transition:border-color .15s ease, box-shadow .15s ease; }
+  .field input::placeholder{ color:var(--muted); }
+  .field input:focus{ border-color:var(--gold); box-shadow:0 0 0 3px rgba(156,100,24,.14); }
+  .field.bad input{ border-color:#b3491f; }
+  .field .err{ display:none; font-family:var(--mono); font-size:11px; color:#b3491f; margin-top:6px; }
+  .field.bad .err{ display:block; }
+  .tierpick{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:22px; }
+  @media(max-width:520px){ .tierpick{ grid-template-columns:1fr; } }
+  .tp{ border:1px solid var(--line-2); border-radius:3px; padding:16px; cursor:pointer; background:var(--paper-2); transition:border-color .15s ease; }
+  .tp.sel{ border:2px solid var(--gold); padding:15px; }
+  .tp .tpn{ font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); margin-bottom:4px; }
+  .tp .tpp{ font-family:var(--serif); font-weight:600; font-size:22px; color:var(--ink); }
+  .form .btn-solid{ width:100%; justify-content:center; }
+  .formnote{ font-family:var(--mono); font-size:11px; color:var(--muted); text-align:center; margin-top:16px; line-height:1.8; }
+  .formnote b{ color:var(--gold); }
+  .paypanel{ display:none; } .paypanel.show{ display:block; }
+  .paypanel .ok{ width:50px; height:50px; border:1px solid var(--gold); color:var(--gold); border-radius:50%; display:grid; place-items:center; margin-bottom:18px; font-family:var(--serif); font-size:22px; }
+  .paypanel h3{ font-size:26px; margin-bottom:10px; }
+  .paypanel p{ color:var(--ink-soft); margin:0 0 18px; }
+  .paypanel .btn-solid{ width:100%; justify-content:center; }
+  .paysmall{ font-family:var(--mono); font-size:11px; color:var(--muted); text-align:center; margin-top:14px; line-height:1.8; }
+
+  .final{ text-align:center; }
+  .final h2{ max-width:22ch; margin:0 auto 20px; font-size:clamp(30px,5.4vw,58px); }
+  .final p{ color:var(--ink-soft); max-width:48ch; margin:0 auto 30px; }
+
+  footer{ border-top:1px solid var(--line); padding:38px 0 54px; }
+  footer .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:18px; }
+  footer .l{ font-family:var(--mono); font-size:12px; color:var(--muted); letter-spacing:.03em; }
+  footer .links{ display:flex; gap:22px; font-family:var(--mono); font-size:12px; color:var(--ink-soft); }
+  footer .links a:hover{ color:var(--gold); }
+
+  :focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
+  .reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){ *{ animation:none !important; transition:none !important; scroll-behavior:auto !important; } .reveal{ opacity:1; transform:none; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="https://www.topzid.com/">
+      <img src="https://www.topzid.com/Topzidlogo.png" alt="TOPZID" onerror="this.style.display='none'"/>
+      <span>Khalid Bin Helaly</span>
+    </a>
+    <div class="navlinks">
+      <a href="#program">The 8 Weeks</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#reserve">Reserve</a>
+    </div>
+    <a class="nav-cta" href="#reserve">Reserve My Seat</a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="hero-copy">
+    <div class="wrap">
+      <span class="eyebrow">The Operator Masterclass &middot; 8 Weeks &middot; Founding Batch</span>
+      <h1>The free sessions were the proof.<br/>This is the <span class="it">build.</span></h1>
+      <p class="byline">by Khalid</p>
+      <p class="sub">Eight weeks. Eight four-hour live sessions. Thirty two hours where you build your own AI content and business system with my direct feedback, and ship a portfolio grade reel. <b>Intensive, hands on, and priced like the system it installs.</b></p>
+
+      <div class="facts">
+        <div class="fact"><b>8</b> weeks</div>
+        <div class="fact"><b>8</b> live sessions</div>
+        <div class="fact"><b>4</b> hours each</div>
+        <div class="fact"><b>32</b> live hours</div>
+      </div>
+
+      <div class="countdown" id="countdown" aria-label="Founding price countdown">
+        <div class="cd-cell"><b id="cdD">0</b><span>Days</span></div>
+        <div class="cd-cell"><b id="cdH">0</b><span>Hours</span></div>
+        <div class="cd-cell"><b id="cdM">0</b><span>Minutes</span></div>
+        <div class="cd-cell"><b id="cdS">0</b><span>Seconds</span></div>
+      </div>
+      <div class="cd-label">Founding price <b>৳15,000</b> ends, then it becomes ৳30,000. The founding rate never returns.</div>
+
+      <div class="cta-row">
+        <a href="#reserve" class="btn btn-solid" data-tier="operator">Reserve My Seat &rarr;</a>
+        <a href="#program" class="btn btn-ghost">See the 8 weeks first</a>
+      </div>
+      <p class="seatnote">Capped at <b>50 seats.</b> Small on purpose. Feedback does not scale to a stadium. <b>15 seats are reserved, free, for people who want this badly and cannot pay.</b></p>
+    </div>
+  </div>
+</header>
+
+<!-- proof strip -->
+<div class="proof">
+  <div class="wrap">
+    <div class="pcell"><b>3</b><span>Free sessions delivered</span></div>
+    <div class="pcell"><b>2,759</b><span>Applications received</span></div>
+    <div class="pcell"><b>1,000+</b><span>Live attendees</span></div>
+    <div class="pcell"><b>500+</b><span>AI commercials shipped</span></div>
+  </div>
+</div>
+
+<!-- marquee -->
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    Customized Claude <span>·</span> <b>NotebookLM Systems</b> <span>·</span> Content Pipeline <span>·</span> Viral Hooks <span>·</span> Personal Branding <span>·</span> <b>Vibecoding</b> <span>·</span> Portfolio and Positioning <span>·</span> The First Client <span>·</span>&nbsp;
+    Customized Claude <span>·</span> <b>NotebookLM Systems</b> <span>·</span> Content Pipeline <span>·</span> Viral Hooks <span>·</span> Personal Branding <span>·</span> <b>Vibecoding</b> <span>·</span> Portfolio and Positioning <span>·</span> The First Client <span>·</span>&nbsp;
+  </div>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<section class="about reveal" id="about">
+  <div class="wrap">
+    <div class="photo">
+      <img src="https://www.topzid.com/khalid.jpg" alt="Khalid Bin Helaly" onerror="this.style.display='none'"/>
+    </div>
+    <div>
+      <span class="eyebrow">Who is teaching this</span>
+      <h2>Thirteen years in marketing. Now I build brands and content with AI, fully independent.</h2>
+      <div style="height:18px"></div>
+      <p>I spent seven years at Chaldal PLC and rose to Assistant Director of Marketing. Today I run my own studio, <b>TOPZID</b>, work as a Generative AI Consultant at Asiatic MCL, and build directly with brands like Berger, Marico, and Nutrition Depot.</p>
+      <p>Every day I run fifteen plus AI tools. Claude manages my projects, Higgsfield and Seedance handle video, NotebookLM handles research, and MCP connections tie it all together so I run five projects at once as one person. <b>Across eight weeks, I install that entire system inside you.</b></p>
+      <div class="brandwall">
+        <div class="lbl">Brands I've worked with</div>
+        <div class="logos">
+          <img src="https://www.topzid.com/brands/Berger.png" alt="Berger" onerror="this.style.display='none'"/>
+          <img src="https://www.topzid.com/brands/Marico.png" alt="Marico" onerror="this.style.display='none'"/>
+          <img src="https://www.topzid.com/brands/Asiatic%20MCL.png" alt="Asiatic MCL" onerror="this.style.display='none'"/>
+          <img src="https://www.topzid.com/brands/Chaldal.png" alt="Chaldal" onerror="this.style.display='none'"/>
+          <img src="https://www.topzid.com/brands/UPS.png" alt="UPS" onerror="this.style.display='none'"/>
+          <img src="https://www.topzid.com/brands/BIW.jpg" alt="BIW" onerror="this.style.display='none'"/>
+          <img src="https://www.topzid.com/brands/Nutrition%20Depot.png" alt="Nutrition Depot" onerror="this.style.display='none'"/>
+          <img src="https://www.topzid.com/brands/Vision%20Electronics.png" alt="Vision Electronics" onerror="this.style.display='none'"/>
+          <img src="https://www.topzid.com/brands/Finesse.png" alt="Finesse" onerror="this.style.display='none'"/>
+          <img src="https://www.topzid.com/brands/Plush%20Down%20BD.png" alt="Plush Down BD" onerror="this.style.display='none'"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DATA BLOCK ================= -->
+<section class="datablock reveal">
+  <div class="wrap">
+    <span class="eyebrow">What you told me</span>
+    <h2>I read all 2,759 applications. Every single one.</h2>
+    <p>Before building these eight weeks I went through the database, line by line. Not to flatter myself. To find out what you actually want. Here is what the data said, in your own words.</p>
+    <div class="readout">
+      <div class="readrow"><b>43%</b><span>wrote some version of one word: <i>income.</i> Earn, freelance, taka. Not certificates. Not theory. Money.</span></div>
+      <div class="readrow"><b>548</b><span>asked for a <i>system:</i> automate, workflow, repeatable. You want the machine, not the magic trick.</span></div>
+      <div class="readrow"><b>742</b><span>attached a <i>company name.</i> Owners and professionals who need this working inside a real business.</span></div>
+      <div class="readrow"><b>106</b><span>used AI to write their application. I noticed. Honestly, good instinct. Now learn to do it <i>properly.</i></span></div>
+    </div>
+    <p class="punch">So this is not a course. It is your system, installed, over eight weeks, with my hands on it.</p>
+  </div>
+</section>
+
+<!-- ================= THE 8 WEEKS ================= -->
+<section class="reveal" id="program">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The Program</span>
+      <h2>Eight weeks. Eight four-hour sessions. One working system.</h2>
+    </div>
+    <p class="schedline">Starts <b>Saturday, July 26, 2026</b> &middot; One live session every week, <b>4 hours, 8:00 PM to 12:00 AM</b> Dhaka time &middot; Recordings for members</p>
+
+    <div class="weeks">
+      <div class="weekcard"><div class="top"><span class="wn">01</span><span class="wl">Week One</span></div><h3>Your OS, installed.</h3><p>Customized Claude, Projects, preferences, and your prompt library. By the end of week one your machine is set up the way mine is, tuned to your work.</p></div>
+      <div class="weekcard"><div class="top"><span class="wn">02</span><span class="wl">Week Two</span></div><h3>The NotebookLM engine.</h3><p>Research, planning, mind maps, and the NotebookLM plus Claude pipeline that produces finished decks and briefs from raw material.</p></div>
+      <div class="weekcard"><div class="top"><span class="wn">03</span><span class="wl">Week Three</span></div><h3>The content pipeline.</h3><p>Storyboard method, single frame method, the full brief to reel flow across Seedance, Kling, and Omni Flash. You produce your first complete pieces.</p></div>
+      <div class="weekcard"><div class="top"><span class="wn">04</span><span class="wl">Week Four</span></div><h3>Make it go viral.</h3><p>Hooks, the viral formula, and the live build. You produce content designed to perform, and I review it in front of the room with real fixes.</p></div>
+      <div class="weekcard"><div class="top"><span class="wn">05</span><span class="wl">Week Five</span></div><h3>Branding around the content.</h3><p>Personal, product, and business branding. Consistency, positioning, and the one-minute branded asset. Your output stops looking like practice.</p></div>
+      <div class="weekcard"><div class="top"><span class="wn">06</span><span class="wl">Week Six</span></div><h3>Vibecoding your assets.</h3><p>Your portfolio site, a waitlist page, and simple apps, all built with zero coding. Describe it, deploy it, own it.</p></div>
+      <div class="weekcard"><div class="top"><span class="wn">07</span><span class="wl">Week Seven</span></div><h3>Positioning and distribution.</h3><p>LinkedIn as a portfolio, the CV replacement, triggering social media ethically, and the persona and privacy rules that protect you.</p></div>
+      <div class="weekcard"><div class="top"><span class="wn">08</span><span class="wl">Week Eight</span></div><h3>Turn it into income.</h3><p>Packaging, pricing, outreach scripts, and the first client. You ship your portfolio reel and leave with a concrete plan to get paid.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DELIVERABLES ================= -->
+<section class="reveal" style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">What you leave with</span>
+      <h2>Not notes. <span class="em">Assets.</span></h2>
+    </div>
+    <div class="grid2col">
+      <div class="gitem"><h3>A working AI content system</h3><p>Your own end to end pipeline, from brief to finished reel, running on your accounts.</p></div>
+      <div class="gitem"><h3>A portfolio grade reel, shipped</h3><p>One finished commercial quality piece, reviewed by me, live on your profiles.</p></div>
+      <div class="gitem"><h3>The Operator Prompt Library</h3><p>My working templates for Seedance 2, Kling, Omni Flash, and GPT Image 2.</p></div>
+      <div class="gitem"><h3>A vibecoded portfolio site</h3><p>Your own live site, built with zero coding, positioning your work properly.</p></div>
+      <div class="gitem"><h3>The First Client module</h3><p>Outreach scripts, pricing frameworks, and how to package AI content as a service.</p></div>
+      <div class="gitem"><h3>Community and office hours</h3><p>Private members group for eight weeks, plus office hours after the program ends.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRICING ================= -->
+<section class="pricing reveal" id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Founding Pricing</span>
+      <h2>What the best AI system is worth.</h2>
+      <p style="color:var(--ink-soft); font-size:17px; max-width:60ch; margin-top:16px;">One AI campaign from an agency costs a business <b>৳45,000 and up.</b> This is thirty two hours of me installing the system that makes those yourself, for the rest of your life. Price it against what it replaces, not against a course.</p>
+    </div>
+    <div class="tiers">
+      <div class="tier hot">
+        <span class="tag">Most chosen</span>
+        <div class="tname">Tier 01</div>
+        <h3>Operator</h3>
+        <p class="tdesc">For creators, freelancers, and professionals building their first income lane with AI content.</p>
+        <div class="price"><b>৳15,000</b><s>৳30,000</s></div>
+        <p class="pnote">Founding price. Becomes <b>৳30,000</b> when the timer ends.</p>
+        <ul>
+          <li>All <b>8 live sessions</b>, 4 hours each, 32 hours total</li>
+          <li>Live feedback on your actual work, every week</li>
+          <li>Operator Prompt Library and Pipeline SOPs</li>
+          <li>The First Client module</li>
+          <li>A vibecoded portfolio site, built with you</li>
+          <li>Portfolio reel shipped by week eight</li>
+          <li>Private community, office hours, and recordings</li>
+        </ul>
+        <a href="#reserve" class="btn btn-solid" data-tier="operator">Reserve Operator &rarr;</a>
+      </div>
+      <div class="tier">
+        <div class="tname">Tier 02 &middot; 15 seats only</div>
+        <h3>Business Track</h3>
+        <p class="tdesc">For owners and decision makers who want the system installed inside a real business, with my hands on it.</p>
+        <div class="price"><b>৳30,000</b></div>
+        <p class="pnote">Flat. Capped at <b>15 seats</b> so the 1:1 time stays real.</p>
+        <ul>
+          <li><b>Everything in Operator</b>, plus</li>
+          <li>Two private <b>1:1 implementation sessions</b> on your business</li>
+          <li>Business systems focus: ops, team workflows, client pipelines</li>
+          <li>Priority live feedback on your business content</li>
+          <li>Direct WhatsApp access to me for all 8 weeks</li>
+        </ul>
+        <a href="#reserve" class="btn btn-ghost" data-tier="business">Reserve Business Track &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SCHOLARSHIP ================= -->
+<section class="datablock reveal">
+  <div class="wrap">
+    <span class="eyebrow">15 seats, on me</span>
+    <h2>The price is what my time is worth. The free seats are why I do this.</h2>
+    <p>My time builds systems for national brands, and it is booked. Eight weeks of it, thirty two live hours, is a serious window, and the price reflects exactly that. <b>I am not doing this because I need to.</b> The proof is simple: <b>15 of the 50 seats are free,</b> reserved for people who want this badly and genuinely cannot pay.</p>
+    <p style="margin-top:16px;">Those seats are earned, not clicked. If that is you, there is a short application, and showing up every week and sharing your work publicly is the price instead of money. <b>Details go out in the WhatsApp group.</b> If you can pay, take a paid seat and leave a free one for someone who cannot.</p>
+    <p class="punch">Pay for the system, or earn your way in. Either way, you show up for eight weeks and you build.</p>
+  </div>
+</section>
+
+<!-- ================= GUARANTEE ================= -->
+<section class="reveal">
+  <div class="wrap">
+    <div class="guarantee">
+      <span class="eyebrow">The Guarantee</span>
+      <h3>Build it or it's free.</h3>
+      <p>Show up to the live sessions, submit the weekly work through all eight weeks, and ship your reel. If you complete the program that way and do not walk away with a working system and a portfolio grade reel, <b>you get every taka back.</b> No forms, no fight.</p>
+      <p>I can guarantee this because the deliverable is in my control, and eight weeks is enough time to make sure every operator ships. The only person who can break this guarantee is the one who stops showing up.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOR / NOT ================= -->
+<section class="reveal" style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Read this before paying</span>
+      <h2>Be honest with yourself. I will be with you.</h2>
+    </div>
+    <div class="fornot">
+      <div class="fcol yes">
+        <h3>This is for you if</h3>
+        <ul>
+          <li>You want your first paying client or income lane with AI content</li>
+          <li>You run a business and want the system working inside it</li>
+          <li>You can commit to one 4-hour live session a week for 8 weeks</li>
+          <li>You watched the free sessions and thought: I want mine</li>
+        </ul>
+      </div>
+      <div class="fcol no">
+        <h3>Skip it if</h3>
+        <ul>
+          <li>You collect courses and certificates instead of shipping</li>
+          <li>You cannot protect 4 hours a week for two months</li>
+          <li>You want passive income without touching the work</li>
+          <li>৳15,000 would genuinely strain you and you cannot commit to a free seat</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="reveal" style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Straight answers</span>
+      <h2>What a smart skeptic asks before paying.</h2>
+    </div>
+    <div class="faq">
+      <div class="faq-item"><button class="faq-q">The masterclass was free. Why is this paid?</button><div class="faq-a"><p>The free sessions showed you my system, and they were complete on their own. This is different work: <b>eight weeks where you build yours, and I give you direct feedback every week.</b> Watching scales to thousands. Feedback does not. That is what you pay for, and it is the only part I cannot give away.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Why 8 weeks and 4 hours each?</button><div class="faq-a"><p>Because a working system cannot be installed in a weekend. Thirty two hours is enough to set up your tools, build a real pipeline, ship a reel, and turn it into income, with feedback at every step. Intensive and practical, not a quick overview.</p></div></div>
+      <div class="faq-item"><button class="faq-q">What if I miss a session?</button><div class="faq-a"><p>Every session is recorded and shared with members. But be honest: the live feedback is where the value is. If you already know you will miss most weeks, this is not the right program for you yet.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Why is it priced this high?</button><div class="faq-a"><p>Because it replaces something far more expensive. One AI campaign from an agency runs ৳45,000 and up, and you pay it every campaign. Thirty two hours here hands you the system to make that yourself, for life. <b>The price reflects what my time is worth, not what a course costs.</b> And it is why 15 seats are free.</p></div></div>
+      <div class="faq-item"><button class="faq-q">How do I pay?</button><div class="faq-a"><p>bKash, Nagad, or bank transfer. Reserve your seat below and the payment details appear immediately, then you confirm on WhatsApp. Your seat locks when payment lands.</p></div></div>
+      <div class="faq-item"><button class="faq-q">How do the free seats work?</button><div class="faq-a"><p>15 of the 50 seats are free, for people who want this badly and cannot pay. They are earned through a short application, not a click, and the price is showing up every week and sharing your work publicly. <b>The application goes out in the WhatsApp group,</b> not on this page.</p></div></div>
+      <div class="faq-item"><button class="faq-q">How does the refund actually work?</button><div class="faq-a"><p>Complete the program: attend live, submit the weekly work across all eight weeks, ship your reel. If you do all of that and still do not have a working system and a finished portfolio piece, message me and <b>the full amount comes back.</b> Gated on doing the work, not on liking me.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RESERVE ================= -->
+<section class="reserve reveal" id="reserve">
+  <div class="wrap">
+    <div class="lead">
+      <span class="eyebrow">Reserve your seat</span>
+      <h2>Lock the founding price <span class="em">now.</span></h2>
+      <p>Reserve first, pay right after. Your seat holds for 12 hours once payment details are sent. 50 seats total, 15 in the Business Track.</p>
+      <div class="countdown" style="margin-top:26px;">
+        <div class="cd-cell"><b class="cd2D">0</b><span>Days</span></div>
+        <div class="cd-cell"><b class="cd2H">0</b><span>Hours</span></div>
+        <div class="cd-cell"><b class="cd2M">0</b><span>Minutes</span></div>
+        <div class="cd-cell"><b class="cd2S">0</b><span>Seconds</span></div>
+      </div>
+      <div class="cd-label">until founding pricing ends</div>
+    </div>
+
+    <!-- DEV NOTE (Shanto/Ayon): wire submitReservation() to Supabase cohort_orders.
+         create table cohort_orders (id uuid primary key default gen_random_uuid(),
+         created_at timestamptz default now(), name text not null, email text not null, whatsapp text not null,
+         tier text not null, amount int not null, txn_id text, status text default 'reserved');
+         Every reservation is a lead even if payment stalls. Follow up 'reserved' rows in 12h.
+         Replace bKash/Nagad numbers below before launch. -->
+    <div>
+      <form id="resForm" class="form" novalidate>
+        <div class="tierpick" role="radiogroup" aria-label="Choose your tier">
+          <div class="tp sel" data-tier="operator" tabindex="0" role="radio" aria-checked="true">
+            <div class="tpn">Operator</div><div class="tpp">৳15,000</div>
+          </div>
+          <div class="tp" data-tier="business" tabindex="0" role="radio" aria-checked="false">
+            <div class="tpn">Business Track</div><div class="tpp">৳30,000</div>
+          </div>
+        </div>
+        <div class="field" id="f-name">
+          <label for="name">Your name</label>
+          <input id="name" type="text" autocomplete="name" placeholder="e.g. Rakib Hasan"/>
+          <span class="err">Please add your name.</span>
+        </div>
+        <div class="field" id="f-email">
+          <label for="email">Email address</label>
+          <input id="email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com"/>
+          <span class="err">Add a valid email. Your seat details and receipt go here.</span>
+        </div>
+        <div class="field" id="f-whatsapp">
+          <label for="whatsapp">WhatsApp number</label>
+          <input id="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="01XXXXXXXXX"/>
+          <span class="err">Add a valid WhatsApp number. Payment confirmation happens there.</span>
+        </div>
+        <button type="submit" class="btn btn-solid">Reserve &rarr;</button>
+        <p class="formnote">Reserving costs nothing. I'll follow up with next steps personally.<br/><b>Founding price honored for every reservation made before the timer ends.</b></p>
+      </form>
+      <div class="paypanel form" id="payPanel" aria-live="polite">
+        <div class="ok">&check;</div>
+        <h3>Congratulations. You just entered the arena.</h3>
+        <p>Your seat is reserved and your details are in. See you soon, operator.</p>
+        <p class="paysmall">Keep an eye on your email and WhatsApp, I'll reach out with everything you need next.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL ================= -->
+<section class="final reveal">
+  <div class="wrap">
+    <span class="eyebrow" style="justify-content:center;">Last call</span>
+    <h2>The free sessions were the proof. This is the <span class="it">decision.</span></h2>
+    <p>Eight weeks from now you either have a working system and a shipped reel, or you have two more months of scrolling. Pay for a seat, or earn a free one. Either way you build.</p>
+    <a href="#reserve" class="btn btn-solid" data-tier="operator">Reserve My Seat &rarr;</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="l">&copy; 2026 Khalid Bin Helaly &middot; TOPZID &middot; Dhaka, Bangladesh</div>
+    <div class="links">
+      <a href="https://www.topzid.com/">Main site</a>
+      <a href="https://www.linkedin.com/in/khalid-bin-helaly/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://youtube.com/@khalidbinhelaly" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.facebook.com/khalidibnhelaly" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var DEADLINE = new Date("2026-07-12T23:59:59+06:00");
+  var WHATSAPP_NUMBER = "8801681096975";
+  var SUPABASE_URL = "https://yuxdvspnxwltqchqluso.supabase.co";
+  var SUPABASE_KEY = "sb_publishable_7vjFoH1Fio_PlwjSbWnfQw_8ng889Od";
+  var PRICES = { operator:{ label:"Operator", amount:"৳15,000" }, business:{ label:"Business Track", amount:"৳30,000" } };
+
+  function pad(n){ return String(n).padStart(2,"0"); }
+  function tick(){
+    var diff = DEADLINE - new Date();
+    if(diff<=0){
+      document.querySelectorAll("#cdD,#cdH,#cdM,#cdS,.cd2D,.cd2H,.cd2M,.cd2S").forEach(function(el){ el.textContent="0"; });
+      return;
+    }
+    var d=Math.floor(diff/86400000), h=Math.floor(diff%86400000/3600000), m=Math.floor(diff%3600000/60000), s=Math.floor(diff%60000/1000);
+    var set=function(sel,v){ document.querySelectorAll(sel).forEach(function(el){ el.textContent=v; }); };
+    set("#cdD, .cd2D",d); set("#cdH, .cd2H",h); set("#cdM, .cd2M",m); set("#cdS, .cd2S",s);
+  }
+  tick(); setInterval(tick,1000);
+
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }); },{threshold:.1});
+  document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+
+  document.querySelectorAll(".faq-item").forEach(function(item){
+    var q=item.querySelector(".faq-q"), a=item.querySelector(".faq-a");
+    q.addEventListener("click",function(){
+      var open=item.classList.contains("open");
+      document.querySelectorAll(".faq-item.open").forEach(function(o){ o.classList.remove("open"); o.querySelector(".faq-a").style.maxHeight=null; });
+      if(!open){ item.classList.add("open"); a.style.maxHeight=a.scrollHeight+"px"; }
+    });
+  });
+
+  var currentTier="operator";
+  function selectTier(t){
+    currentTier=t;
+    document.querySelectorAll(".tp").forEach(function(el){
+      var on=el.getAttribute("data-tier")===t;
+      el.classList.toggle("sel",on); el.setAttribute("aria-checked", on?"true":"false");
+    });
+  }
+  document.querySelectorAll(".tp").forEach(function(el){
+    el.addEventListener("click",function(){ selectTier(el.getAttribute("data-tier")); });
+    el.addEventListener("keydown",function(e){ if(e.key===" "||e.key==="Enter"){ e.preventDefault(); selectTier(el.getAttribute("data-tier")); } });
+  });
+  document.querySelectorAll("[data-tier]").forEach(function(el){
+    if(el.classList.contains("tp")) return;
+    el.addEventListener("click",function(){ selectTier(el.getAttribute("data-tier")); });
+  });
+
+  var form=document.getElementById("resForm"), panel=document.getElementById("payPanel");
+  function bad(id,is){ var el=document.getElementById(id); if(el) el.classList.toggle("bad",is); }
+  function submitReservation(data){
+    return fetch(SUPABASE_URL+"/rest/v1/masterclass_reservations",{
+      method:"POST",
+      headers:{
+        "apikey":SUPABASE_KEY,
+        "Authorization":"Bearer "+SUPABASE_KEY,
+        "Content-Type":"application/json",
+        "Prefer":"return=minimal"
+      },
+      body:JSON.stringify({
+        name:data.name, email:data.email, whatsapp:data.whatsapp,
+        tier:data.tier, amount:data.amount, status:data.status
+      })
+    }).then(function(r){
+      if(!r.ok){ return r.text().then(function(t){ throw new Error("Save failed "+r.status+" "+t); }); }
+    });
+  }
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    var name=document.getElementById("name").value.trim();
+    var email=document.getElementById("email").value.trim();
+    var whatsapp=document.getElementById("whatsapp").value.trim();
+    var emailOk=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    var waOk=whatsapp.replace(/\D/g,"").length>=11;
+    var err=false;
+    bad("f-name",!name); if(!name) err=true;
+    bad("f-email",!emailOk); if(!emailOk) err=true;
+    bad("f-whatsapp",!waOk); if(!waOk) err=true;
+    if(err) return;
+    var btn=form.querySelector('button[type="submit"]'); btn.textContent="Reserving..."; btn.disabled=true;
+    submitReservation({ name:name, email:email, whatsapp:whatsapp, tier:currentTier, amount: currentTier==="operator"?15000:30000, status:"reserved" })
+      .then(function(){
+        form.style.display="none"; panel.classList.add("show");
+        panel.scrollIntoView({ behavior:"smooth", block:"center" });
+      }).catch(function(){ btn.textContent="Try again"; btn.disabled=false; });
+  });
+})();
+</script>
+</body>
+</html>
