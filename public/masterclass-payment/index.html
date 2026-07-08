@@ -541,7 +541,7 @@
       sender_number: state.sendnum || null,
       status:        status
     };
-    return fetch(SUPABASE_URL + "/rest/v1/payments", {
+    return fetch(SUPABASE_URL + "/rest/v1/payments?on_conflict=ref_code", {
       method: "POST",
       headers: {
         "apikey":        SUPABASE_KEY,
