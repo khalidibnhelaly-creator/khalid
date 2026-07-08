@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Complete Your Payment | The Operator Masterclass</title>
+<meta name="theme-color" content="#f6f1e6" />
+<meta name="robots" content="noindex" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Public+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#f6f1e6; --paper-2:#ece3cf; --paper-3:#e1d5b9;
+    --ink:#1d1812; --ink-soft:#4b4338; --muted:#8a7f6c;
+    --line:#ddd0ad; --line-2:#cdbd92; --gold:#9c6418; --gold-2:#c9852e;
+    --green:#2e6b3e; --red:#b3491f;
+    --serif:'Fraunces',Georgia,serif;
+    --sans:'Public Sans',system-ui,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans); font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+  a{ color:inherit; }
+  .wrap{ max-width:620px; margin:0 auto; padding:0 20px; }
+  .eyebrow{ font-family:var(--mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); display:inline-flex; align-items:center; gap:9px; margin-bottom:16px; }
+  .eyebrow::before{ content:""; width:22px; height:1px; background:var(--gold); display:inline-block; }
+  h1{ font-family:var(--serif); font-weight:600; font-size:clamp(28px,7vw,40px); line-height:1.08; margin:0 0 12px; letter-spacing:-.01em; }
+  h2{ font-family:var(--serif); font-weight:600; font-size:20px; margin:0; }
+  .em{ color:var(--gold); }
+
+  header{ padding:44px 0 26px; }
+  header .sub{ color:var(--ink-soft); font-size:16.5px; max-width:52ch; margin:0; }
+  header .sub b{ color:var(--ink); }
+
+  /* stepper */
+  .steps{ display:flex; gap:8px; margin:26px 0 0; }
+  .step{ flex:1; text-align:center; font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); padding-top:12px; border-top:2px solid var(--line-2); transition:color .2s, border-color .2s; }
+  .step.on{ color:var(--gold); border-color:var(--gold); font-weight:600; }
+  .step.done{ color:var(--green); border-color:var(--green); }
+
+  section{ padding:14px 0 40px; }
+  .card{ background:var(--paper); border:1px solid var(--line-2); border-radius:6px; padding:26px 24px; box-shadow:0 10px 26px rgba(29,24,18,.07); margin-bottom:18px; }
+
+  .field{ margin-bottom:16px; }
+  .field label{ display:block; font-weight:600; font-size:14px; margin-bottom:7px; }
+  .field label span{ color:var(--muted); font-weight:400; }
+  .field input,.field select{ width:100%; padding:13px 14px; font-family:var(--sans); font-size:16px; background:var(--paper-2); color:var(--ink); border:1px solid var(--line-2); border-radius:3px; outline:none; transition:border-color .15s, box-shadow .15s; }
+  .field input:focus,.field select:focus{ border-color:var(--gold); box-shadow:0 0 0 3px rgba(156,100,24,.14); }
+  .field.bad input,.field.bad select{ border-color:var(--red); }
+  .field .err{ display:none; font-family:var(--mono); font-size:11px; color:var(--red); margin-top:6px; }
+  .field.bad .err{ display:block; }
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  @media(max-width:480px){ .grid2{ grid-template-columns:1fr; } }
+
+  .btn{ width:100%; font-family:var(--mono); font-size:13px; letter-spacing:.03em; padding:16px; border-radius:3px; cursor:pointer; border:1px solid transparent; background:var(--ink); color:var(--paper); font-weight:500; display:flex; align-items:center; justify-content:center; gap:8px; transition:transform .14s, background .2s; }
+  .btn:hover{ transform:translateY(-1px); background:#000; }
+  .btn:disabled{ opacity:.6; cursor:not-allowed; transform:none; }
+  .btn.ghost{ background:transparent; color:var(--ink); border-color:var(--line-2); }
+  .btn.ghost:hover{ background:var(--paper-2); border-color:var(--gold); color:var(--gold); }
+  .btn.wa{ background:var(--green); }
+  .btn.wa:hover{ background:#265a34; }
+
+  .hide{ display:none; }
+
+  /* amount pick */
+  .amtpick{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:6px; }
+  @media(max-width:480px){ .amtpick{ grid-template-columns:1fr; } }
+  .amt{ border:1px solid var(--line-2); border-radius:4px; padding:16px; cursor:pointer; background:var(--paper-2); transition:border-color .15s; }
+  .amt.sel{ border:2px solid var(--gold); padding:15px; background:#f3e4c6; }
+  .amt .an{ font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); }
+  .amt .ap{ font-family:var(--serif); font-weight:600; font-size:24px; }
+  .amt .ad{ font-size:12.5px; color:var(--ink-soft); margin-top:2px; }
+
+  /* reference banner */
+  .refbox{ background:var(--ink); color:var(--paper); border-radius:6px; padding:22px 24px; margin-bottom:20px; text-align:center; }
+  .refbox .lbl{ font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold-2); margin-bottom:8px; }
+  .refbox .code{ font-family:var(--mono); font-size:30px; font-weight:600; letter-spacing:.14em; color:var(--paper); }
+  .refbox .note{ font-size:13px; color:#cdc5b6; margin-top:10px; line-height:1.5; }
+  .refbox .note b{ color:var(--gold-2); }
+
+  /* pay method tabs */
+  .methods{ display:flex; gap:8px; margin-bottom:18px; }
+  .method{ flex:1; text-align:center; font-family:var(--mono); font-size:12px; letter-spacing:.04em; padding:11px 8px; border:1px solid var(--line-2); border-radius:3px; background:var(--paper-2); cursor:pointer; transition:all .15s; }
+  .method.sel{ border:2px solid var(--gold); background:#f3e4c6; font-weight:600; padding:10px 7px; }
+
+  .paydetail{ display:none; }
+  .paydetail.show{ display:block; }
+  .detailrow{ display:flex; justify-content:space-between; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid var(--line); }
+  .detailrow:last-child{ border-bottom:0; }
+  .detailrow .k{ font-family:var(--mono); font-size:11px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); flex:0 0 auto; }
+  .detailrow .v{ font-weight:600; text-align:right; word-break:break-word; }
+  .detailrow .v.big{ font-family:var(--mono); font-size:17px; letter-spacing:.02em; }
+  .copybtn{ font-family:var(--mono); font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:var(--gold); background:none; border:1px solid var(--line-2); border-radius:2px; padding:5px 9px; cursor:pointer; margin-left:10px; white-space:nowrap; flex-shrink:0; }
+  .copybtn:hover{ border-color:var(--gold); background:var(--paper-2); }
+  .copybtn.done{ color:var(--green); border-color:var(--green); }
+
+  .callout{ border:1px solid var(--line-2); border-left:4px solid var(--gold); background:var(--paper-2); border-radius:4px; padding:16px 18px; margin:18px 0; font-size:14.5px; color:var(--ink-soft); }
+  .callout b{ color:var(--ink); }
+
+  .instructions{ counter-reset:step; margin:16px 0 0; padding:0; list-style:none; }
+  .instructions li{ counter-increment:step; position:relative; padding:8px 0 8px 34px; font-size:14.5px; color:var(--ink-soft); }
+  .instructions li::before{ content:counter(step); position:absolute; left:0; top:7px; width:22px; height:22px; background:var(--gold); color:var(--paper); font-family:var(--mono); font-size:12px; font-weight:600; border-radius:50%; display:grid; place-items:center; }
+  .instructions li b{ color:var(--ink); }
+
+  /* form error */
+  .form-error{ background:#fff3f0; border:1px solid #f0c4ba; border-radius:3px; padding:12px 16px; font-family:var(--mono); font-size:12px; color:var(--red); margin-bottom:16px; display:none; }
+
+  /* success */
+  .done-panel{ text-align:center; padding:10px 0; }
+  .done-panel .tick{ width:60px; height:60px; border:2px solid var(--green); color:var(--green); border-radius:50%; display:grid; place-items:center; margin:0 auto 18px; font-family:var(--serif); font-size:28px; }
+  .done-panel h1{ margin-bottom:10px; }
+  .done-panel p{ color:var(--ink-soft); max-width:44ch; margin:0 auto 16px; }
+  .done-recap{ background:var(--paper-2); border:1px solid var(--line-2); border-radius:5px; padding:16px 18px; margin:20px 0; text-align:left; }
+  .done-recap .rr{ display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid var(--line); font-size:14px; }
+  .done-recap .rr:last-child{ border-bottom:0; }
+  .done-recap .rr span{ color:var(--muted); font-family:var(--mono); font-size:11px; letter-spacing:.04em; text-transform:uppercase; }
+  .done-recap .rr b{ font-variant-numeric:tabular-nums; }
+
+  footer{ border-top:1px solid var(--line); padding:26px 0 40px; text-align:center; }
+  footer p{ font-family:var(--mono); font-size:11px; color:var(--muted); letter-spacing:.03em; margin:4px 0; }
+
+  :focus-visible{ outline:2px solid var(--gold); outline-offset:2px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="eyebrow">The Operator Masterclass &middot; Secure Payment</span>
+    <h1>Complete your <span class="em">payment.</span></h1>
+    <p class="sub">Confirm your details, get your reference code, then pay by bank, bKash, or Nagad. Your seat locks once we match your payment. <b>Takes about two minutes.</b></p>
+    <div class="steps">
+      <div class="step on" id="st1">1 &middot; Your details</div>
+      <div class="step" id="st2">2 &middot; Pay</div>
+      <div class="step" id="st3">3 &middot; Confirm</div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ STEP 1: DETAILS ============ -->
+<section id="sec1">
+  <div class="wrap">
+    <div class="card">
+      <h2>Who is paying?</h2>
+      <p style="color:var(--ink-soft); font-size:14.5px; margin:8px 0 20px;">This is how we match your payment to your seat. Use the same name you gave when you reserved.</p>
+      <div id="s1Error" class="form-error"></div>
+      <form id="detailForm" novalidate>
+        <div class="field" id="f-name">
+          <label for="name">Full name</label>
+          <input id="name" type="text" autocomplete="name" placeholder="e.g. Rakib Hasan"/>
+          <span class="err">Please enter your name.</span>
+        </div>
+        <div class="field" id="f-whatsapp">
+          <label for="whatsapp">WhatsApp number</label>
+          <input id="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="01XXXXXXXXX"/>
+          <span class="err">Enter a valid number, this is how we confirm you.</span>
+        </div>
+        <div class="field" id="f-email">
+          <label for="email">Email <span>(optional)</span></label>
+          <input id="email" type="email" autocomplete="email" placeholder="you@example.com"/>
+          <span class="err">Check the email format.</span>
+        </div>
+
+        <label style="display:block; font-weight:600; font-size:14px; margin:6px 0 10px;">Which seat are you paying for?</label>
+        <div class="amtpick" id="amtpick">
+          <div class="amt sel" data-tier="operator" data-amount="15000" tabindex="0" role="button" aria-pressed="true">
+            <div class="an">Operator</div>
+            <div class="ap">&#2547;15,000</div>
+            <div class="ad">Founding price</div>
+          </div>
+          <div class="amt" data-tier="business" data-amount="30000" tabindex="0" role="button" aria-pressed="false">
+            <div class="an">Business Track</div>
+            <div class="ap">&#2547;30,000</div>
+            <div class="ad">Includes 1:1 sessions</div>
+          </div>
+        </div>
+
+        <div class="callout" style="margin-top:22px;">Next you will get a <b>unique reference code.</b> You must write it in your payment reference so we can match it to you. Nothing is charged automatically, you send the payment yourself.</div>
+
+        <button type="submit" class="btn">Get my reference code &rarr;</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STEP 2: PAY ============ -->
+<section id="sec2" class="hide">
+  <div class="wrap">
+    <div class="refbox">
+      <div class="lbl">Your payment reference</div>
+      <div class="code" id="refCode">OPR-0000</div>
+      <div class="note">Put this code in the <b>reference</b> field when you pay. It is how we find your payment and lock your seat.</div>
+    </div>
+
+    <div class="card">
+      <h2>Pay <span id="payAmountTitle" class="em">&#2547;15,000</span></h2>
+      <p style="color:var(--ink-soft); font-size:14.5px; margin:8px 0 18px;">Choose your method. Bank transfer, bKash, or Nagad.</p>
+
+      <div class="methods">
+        <div class="method sel" data-method="bank">Bank</div>
+        <div class="method" data-method="bkash">bKash</div>
+        <div class="method" data-method="nagad">Nagad</div>
+      </div>
+
+      <!-- BANK -->
+      <div class="paydetail show" id="pd-bank">
+        <div class="detailrow"><span class="k">Account name</span><span class="v">KHALID BIN HELALY</span></div>
+        <div class="detailrow"><span class="k">Account no.</span><span class="v big">1057630680001</span><button class="copybtn" data-copy="1057630680001">Copy</button></div>
+        <div class="detailrow"><span class="k">Bank</span><span class="v">BRAC Bank PLC</span></div>
+        <div class="detailrow"><span class="k">Branch</span><span class="v">Banani Branch</span></div>
+        <div class="detailrow"><span class="k">Routing no.</span><span class="v big">060260435</span><button class="copybtn" data-copy="060260435">Copy</button></div>
+        <div class="detailrow"><span class="k">SWIFT</span><span class="v big">BRAKBDDH</span><button class="copybtn" data-copy="BRAKBDDH">Copy</button></div>
+        <ol class="instructions">
+          <li>Transfer the <b>exact amount</b> to the account above, from your bank app or branch.</li>
+          <li>In the reference or note field, write your code: <b id="bankRef">OPR-0000</b>.</li>
+          <li>Come back here and tap <b>I have paid</b> below.</li>
+        </ol>
+      </div>
+
+      <!-- BKASH -->
+      <div class="paydetail" id="pd-bkash">
+        <div class="callout" style="margin-top:0;">Use <b>Send Money</b>, not Payment. Personal number.</div>
+        <div class="detailrow"><span class="k">bKash number</span><span class="v big">01779176848</span><button class="copybtn" data-copy="01779176848">Copy</button></div>
+        <div class="detailrow"><span class="k">Type</span><span class="v">Send Money</span></div>
+        <div class="detailrow"><span class="k">Amount</span><span class="v big" id="bkashAmt">&#2547;15,000</span></div>
+        <ol class="instructions">
+          <li>Open bKash, choose <b>Send Money</b>, enter the number above.</li>
+          <li>Send the <b>exact amount</b>.</li>
+          <li>In the reference field, write your code: <b id="bkashRef">OPR-0000</b>.</li>
+          <li>Note your <b>Transaction ID</b>, you will enter it on the next screen.</li>
+        </ol>
+      </div>
+
+      <!-- NAGAD -->
+      <div class="paydetail" id="pd-nagad">
+        <div class="callout" style="margin-top:0;">Use <b>Send Money</b>. Personal number.</div>
+        <div class="detailrow"><span class="k">Nagad number</span><span class="v big">01779176848</span><button class="copybtn" data-copy="01779176848">Copy</button></div>
+        <div class="detailrow"><span class="k">Type</span><span class="v">Send Money</span></div>
+        <div class="detailrow"><span class="k">Amount</span><span class="v big" id="nagadAmt">&#2547;15,000</span></div>
+        <ol class="instructions">
+          <li>Open Nagad, choose <b>Send Money</b>, enter the number above.</li>
+          <li>Send the <b>exact amount</b>.</li>
+          <li>In the reference field, write your code: <b id="nagadRef">OPR-0000</b>.</li>
+          <li>Note your <b>Transaction ID</b>, you will enter it on the next screen.</li>
+        </ol>
+      </div>
+
+      <button type="button" class="btn" id="paidBtn" style="margin-top:22px;">I have paid &rarr;</button>
+      <button type="button" class="btn ghost" id="backBtn" style="margin-top:10px;">&larr; Back</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STEP 3: CONFIRM ============ -->
+<section id="sec3" class="hide">
+  <div class="wrap">
+    <div class="card">
+      <h2>Confirm your payment</h2>
+      <p style="color:var(--ink-soft); font-size:14.5px; margin:8px 0 18px;">Enter your transaction details so we can match and verify your payment quickly.</p>
+      <div id="s3Error" class="form-error"></div>
+      <form id="confirmForm" novalidate>
+        <div class="field" id="f-txn">
+          <label for="txn">Transaction ID / TrxID <span>(from bKash, Nagad, or bank)</span></label>
+          <input id="txn" type="text" placeholder="e.g. 9F7A2B3C10"/>
+          <span class="err">Enter the transaction ID from your payment confirmation.</span>
+        </div>
+        <div class="grid2">
+          <div class="field" id="f-method2">
+            <label for="method2">Paid via</label>
+            <select id="method2">
+              <option value="bank">Bank transfer</option>
+              <option value="bkash">bKash</option>
+              <option value="nagad">Nagad</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="sendnum">Number / account you paid from <span>(optional)</span></label>
+            <input id="sendnum" type="text" placeholder="01XXXXXXXXX"/>
+          </div>
+        </div>
+        <div class="callout">We match every payment by hand against your reference code <b id="confirmRef">OPR-0000</b> and amount. You will get a WhatsApp confirmation once verified, usually within a few hours.</div>
+        <button type="submit" class="btn">Submit and confirm my seat &rarr;</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DONE ============ -->
+<section id="secDone" class="hide">
+  <div class="wrap">
+    <div class="card">
+      <div class="done-panel">
+        <div class="tick">&check;</div>
+        <h1>Payment submitted.</h1>
+        <p>Thank you. We are matching your payment now. Your seat is confirmed the moment it is verified, and you will get a WhatsApp message from Team Khalid.</p>
+        <div class="done-recap" id="doneRecap"></div>
+        <a class="btn wa" id="waFinal" href="#" target="_blank" rel="noopener noreferrer">Message us the receipt on WhatsApp &rarr;</a>
+        <p style="font-size:12.5px; color:var(--muted); margin-top:16px;">Sending a screenshot speeds up verification significantly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>THE OPERATOR MASTERCLASS &middot; TOPZID</p>
+    <p>Payments are matched manually. Keep your reference code and transaction ID.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  var SUPABASE_URL = "https://yuxdvspnxwltqchqluso.supabase.co";
+  var SUPABASE_KEY = "sb_publishable_7vjFoH1Fio_PlwjSbWnfQw_8ng889Od";
+  var WHATSAPP_NUMBER = "8801779176848";
+
+  var TIERS = {
+    operator: { label:"Operator",       amount:15000, prefix:"OPR" },
+    business: { label:"Business Track", amount:30000, prefix:"BIZ" }
+  };
+
+  var state = {
+    tier:"operator", amount:15000, method:"bank",
+    ref:"", name:"", whatsapp:"", email:"", txn:"", sendnum:""
+  };
+
+  function taka(n){ return "৳" + n.toLocaleString("en-US"); }
+
+  /* 4-char random alnum reference, e.g. OPR-7K3M */
+  function makeRef(prefix){
+    var chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+    var s = "";
+    for(var i = 0; i < 4; i++){ s += chars[Math.floor(Math.random() * chars.length)]; }
+    return prefix + "-" + s;
+  }
+
+  function setText(id, val){ var el = document.getElementById(id); if(el) el.textContent = val; }
+  function show(id){ document.getElementById(id).classList.remove("hide"); }
+  function hide(id){ document.getElementById(id).classList.add("hide"); }
+  function setErr(id, bad){ var el = document.getElementById(id); if(el) el.classList.toggle("bad", bad); }
+
+  function showFormError(boxId, msg){
+    var el = document.getElementById(boxId);
+    if(!el) return;
+    el.textContent = msg;
+    el.style.display = "block";
+  }
+  function clearFormError(boxId){
+    var el = document.getElementById(boxId);
+    if(el) el.style.display = "none";
+  }
+
+  function goStep(n){
+    ["sec1","sec2","sec3","secDone"].forEach(function(s){ hide(s); });
+    ["st1","st2","st3"].forEach(function(s, i){
+      var el = document.getElementById(s);
+      el.classList.remove("on","done");
+      if(i < n - 1) el.classList.add("done");
+      if(i === n - 1) el.classList.add("on");
+    });
+    if(n === 1) show("sec1");
+    if(n === 2) show("sec2");
+    if(n === 3) show("sec3");
+    if(n === 4){
+      show("secDone");
+      ["st1","st2","st3"].forEach(function(s){
+        var el = document.getElementById(s);
+        el.classList.add("done"); el.classList.remove("on");
+      });
+    }
+    window.scrollTo({ top:0, behavior:"smooth" });
+  }
+
+  /* ---- tier picker ---- */
+  document.querySelectorAll(".amt").forEach(function(el){
+    function pick(){
+      document.querySelectorAll(".amt").forEach(function(a){
+        a.classList.remove("sel"); a.setAttribute("aria-pressed","false");
+      });
+      el.classList.add("sel"); el.setAttribute("aria-pressed","true");
+      state.tier = el.getAttribute("data-tier");
+      state.amount = parseInt(el.getAttribute("data-amount"), 10);
+    }
+    el.addEventListener("click", pick);
+    el.addEventListener("keydown", function(e){
+      if(e.key === " " || e.key === "Enter"){ e.preventDefault(); pick(); }
+    });
+  });
+
+  /* ---- step 1: collect details ---- */
+  document.getElementById("detailForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    clearFormError("s1Error");
+
+    var name     = document.getElementById("name").value.trim();
+    var wa       = document.getElementById("whatsapp").value.trim();
+    var email    = document.getElementById("email").value.trim();
+    var waOk     = wa.replace(/\D/g,"").length >= 11;
+    var emailOk  = email === "" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+    var hasErr = false;
+    setErr("f-name",     !name);    if(!name)    hasErr = true;
+    setErr("f-whatsapp", !waOk);    if(!waOk)    hasErr = true;
+    setErr("f-email",    !emailOk); if(!emailOk) hasErr = true;
+    if(hasErr) return;
+
+    state.name     = name;
+    state.whatsapp = wa;
+    state.email    = email;
+    state.ref      = makeRef(TIERS[state.tier].prefix);
+
+    /* populate step 2 */
+    setText("refCode",       state.ref);
+    setText("payAmountTitle", taka(state.amount));
+    setText("bankRef",        state.ref);
+    setText("bkashRef",       state.ref);
+    setText("nagadRef",       state.ref);
+    setText("bkashAmt",       taka(state.amount));
+    setText("nagadAmt",       taka(state.amount));
+    setText("confirmRef",     state.ref);
+
+    var btn = this.querySelector('button[type="submit"]');
+    btn.textContent = "Loading..."; btn.disabled = true;
+
+    /* log a "pending" row the moment they get the reference code */
+    logPayment("pending").then(function(){
+      goStep(2);
+    }).catch(function(){
+      /* non-blocking: go to step 2 even if Supabase call fails — capture the lead client-side */
+      goStep(2);
+    }).finally(function(){
+      btn.textContent = "Get my reference code →"; btn.disabled = false;
+    });
+  });
+
+  /* ---- method tabs ---- */
+  document.querySelectorAll(".method").forEach(function(el){
+    el.addEventListener("click", function(){
+      document.querySelectorAll(".method").forEach(function(m){ m.classList.remove("sel"); });
+      el.classList.add("sel");
+      var m = el.getAttribute("data-method");
+      state.method = m;
+      ["bank","bkash","nagad"].forEach(function(x){
+        document.getElementById("pd-" + x).classList.toggle("show", x === m);
+      });
+    });
+  });
+
+  /* ---- copy buttons ---- */
+  document.querySelectorAll(".copybtn").forEach(function(b){
+    b.addEventListener("click", function(){
+      var t = b.getAttribute("data-copy");
+      if(navigator.clipboard){
+        navigator.clipboard.writeText(t).then(function(){
+          var old = b.textContent;
+          b.textContent = "Copied"; b.classList.add("done");
+          setTimeout(function(){ b.textContent = old; b.classList.remove("done"); }, 1400);
+        });
+      }
+    });
+  });
+
+  document.getElementById("backBtn").addEventListener("click", function(){ goStep(1); });
+
+  document.getElementById("paidBtn").addEventListener("click", function(){
+    document.getElementById("method2").value = state.method;
+    goStep(3);
+  });
+
+  /* ---- step 3: confirm ---- */
+  document.getElementById("confirmForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    clearFormError("s3Error");
+
+    var txn = document.getElementById("txn").value.trim();
+    setErr("f-txn", txn.length < 4);
+    if(txn.length < 4) return;
+
+    state.txn     = txn;
+    state.method  = document.getElementById("method2").value;
+    state.sendnum = document.getElementById("sendnum").value.trim();
+
+    var btn = this.querySelector('button[type="submit"]');
+    btn.textContent = "Submitting..."; btn.disabled = true;
+
+    logPayment("submitted").then(function(){
+      /* build recap */
+      var recap = document.getElementById("doneRecap");
+      recap.innerHTML =
+        row("Name",      esc(state.name)) +
+        row("Seat",      TIERS[state.tier].label) +
+        row("Amount",    taka(state.amount)) +
+        row("Reference", state.ref) +
+        row("Txn ID",    esc(state.txn));
+
+      /* pre-compose WhatsApp message */
+      var msg =
+        "Payment done for The Operator Masterclass.%0a" +
+        "Name: "      + enc(state.name)                    + "%0a" +
+        "Seat: "      + enc(TIERS[state.tier].label)        + "%0a" +
+        "Amount: "    + enc(taka(state.amount))             + "%0a" +
+        "Reference: " + enc(state.ref)                     + "%0a" +
+        "Via: "       + enc(state.method)                  + "%0a" +
+        "TxnID: "     + enc(state.txn)                     + "%0a" +
+        "(screenshot attached)";
+      document.getElementById("waFinal").href =
+        "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + msg;
+
+      goStep(4);
+    }).catch(function(){
+      showFormError("s3Error", "Something went wrong. Check your connection and try again.");
+      btn.textContent = "Submit and confirm my seat →"; btn.disabled = false;
+    });
+  });
+
+  function row(label, val){
+    return '<div class="rr"><span>' + label + '</span><b>' + val + '</b></div>';
+  }
+  function esc(s){
+    return String(s).replace(/[&<>"]/g, function(c){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];
+    });
+  }
+  function enc(s){ return encodeURIComponent(String(s)); }
+
+  /* ---- Supabase: upsert on ref_code so pending -> submitted in place ---- */
+  function logPayment(status){
+    var payload = {
+      ref_code:      state.ref,
+      name:          state.name,
+      whatsapp:      state.whatsapp,
+      email:         state.email  || null,
+      tier:          state.tier,
+      amount:        state.amount,
+      method:        state.method || null,
+      txn_id:        state.txn    || null,
+      sender_number: state.sendnum || null,
+      status:        status
+    };
+    return fetch(SUPABASE_URL + "/rest/v1/payments", {
+      method: "POST",
+      headers: {
+        "apikey":        SUPABASE_KEY,
+        "Authorization": "Bearer " + SUPABASE_KEY,
+        "Content-Type":  "application/json",
+        "Prefer":        "resolution=merge-duplicates,return=minimal"
+      },
+      body: JSON.stringify(payload)
+    }).then(function(r){
+      if(!r.ok){ return r.text().then(function(t){ throw new Error(t); }); }
+    });
+  }
+
+})();
+</script>
+</body>
+</html>

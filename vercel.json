@@ -1,6 +1,7 @@
 {
   "rewrites": [
     { "source": "/masterclass", "destination": "/masterclass/index.html" },
-    { "source": "/student",     "destination": "/student/index.html" }
+    { "source": "/student",             "destination": "/student/index.html" },
+    { "source": "/masterclass-payment", "destination": "/masterclass-payment/index.html" }
   ]
 }
