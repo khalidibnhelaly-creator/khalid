@@ -98,6 +98,9 @@
 
   .callout{ border:1px solid var(--line-2); border-left:4px solid var(--gold); background:var(--paper-2); border-radius:4px; padding:16px 18px; margin:18px 0; font-size:14.5px; color:var(--ink-soft); }
   .callout b{ color:var(--ink); }
+  .warn-box{ border:1.5px solid #b3491f; border-left:5px solid #b3491f; background:#fff4f1; border-radius:4px; padding:14px 16px; margin:0 0 16px; font-size:14px; color:#7a2a0f; line-height:1.5; }
+  .warn-box b{ color:#5c1e09; }
+  .warn-box .no{ font-weight:700; text-decoration:line-through; opacity:.7; }
 
   .instructions{ counter-reset:step; margin:16px 0 0; padding:0; list-style:none; }
   .instructions li{ counter-increment:step; position:relative; padding:8px 0 8px 34px; font-size:14.5px; color:var(--ink-soft); }
@@ -206,6 +209,7 @@
 
       <!-- BANK -->
       <div class="paydetail show" id="pd-bank">
+        <div class="warn-box">⚠️ <b>Use "Fund Transfer" (BEFTN / NPSB / RTGS).</b> Do <span class="no">NOT</span> use bill pay, mobile banking payment, or any merchant payment option — transfer directly to the account below.</div>
         <div class="detailrow"><span class="k">Account name</span><span class="v">KHALID BIN HELALY</span></div>
         <div class="detailrow"><span class="k">Account no.</span><span class="v big">1057630680001</span><button class="copybtn" data-copy="1057630680001">Copy</button></div>
         <div class="detailrow"><span class="k">Bank</span><span class="v">BRAC Bank PLC</span></div>
@@ -221,7 +225,7 @@
 
       <!-- BKASH -->
       <div class="paydetail" id="pd-bkash">
-        <div class="callout" style="margin-top:0;">Use <b>Send Money</b>, not Payment. Personal number.</div>
+        <div class="warn-box">⚠️ <b>Use "Send Money" only.</b> Do <span class="no">NOT</span> use "Make Payment" or the bKash payment gateway — it will go to the wrong place and we cannot match it.</div>
         <div class="detailrow"><span class="k">bKash number</span><span class="v big">01681096975</span><button class="copybtn" data-copy="01681096975">Copy</button></div>
         <div class="detailrow"><span class="k">Type</span><span class="v">Send Money</span></div>
         <div class="detailrow"><span class="k">Amount</span><span class="v big" id="bkashAmt">&#2547;15,000</span></div>
@@ -235,7 +239,7 @@
 
       <!-- NAGAD -->
       <div class="paydetail" id="pd-nagad">
-        <div class="callout" style="margin-top:0;">Use <b>Send Money</b>. Personal number.</div>
+        <div class="warn-box">⚠️ <b>Use "Send Money" only.</b> Do <span class="no">NOT</span> use "Make Payment" or the Nagad payment gateway — it will go to the wrong place and we cannot match it.</div>
         <div class="detailrow"><span class="k">Nagad number</span><span class="v big">01681096975</span><button class="copybtn" data-copy="01681096975">Copy</button></div>
         <div class="detailrow"><span class="k">Type</span><span class="v">Send Money</span></div>
         <div class="detailrow"><span class="k">Amount</span><span class="v big" id="nagadAmt">&#2547;15,000</span></div>
