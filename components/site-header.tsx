@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
-export type NavItem = { label: string; href: string; external?: boolean };
+export type NavItem = { label: string; href: string; external?: boolean; highlight?: boolean };
 
 const DEFAULT_NAV: NavItem[] = [
   { label: "Studio", href: "#studio" },
@@ -11,6 +11,7 @@ const DEFAULT_NAV: NavItem[] = [
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
   { label: "AI Workshop ↗", href: "/ai", external: true },
+  { label: "Masterclass ⚡", href: "/masterclass", external: true, highlight: true },
 ];
 
 const DEFAULT_LABELS = { menu: "Menu", close: "Close" };
@@ -43,7 +44,7 @@ export function SiteHeader({
               <Link
                 key={item.href}
                 href={item.href}
-                className="kh-ext"
+                className={item.highlight ? "kh-highlight" : "kh-ext"}
                 onClick={() => setOpen(false)}
               >
                 {item.label}

@@ -214,6 +214,19 @@
   color: var(--k-accent-bright);
 }
 
+.kh-nav a.kh-highlight {
+  color: var(--k-card);
+  background: var(--k-ink);
+  padding: 0.42rem 0.9rem;
+  border-radius: 2px;
+  letter-spacing: 0.1em;
+}
+
+.kh-nav a.kh-highlight:hover {
+  background: #000;
+  color: #fff;
+}
+
 .kh-toggle {
   display: none;
   background: none;
