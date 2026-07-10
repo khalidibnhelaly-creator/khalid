@@ -46,13 +46,13 @@ export const tracks = [
   },
 ] as const;
 
-/** BIW excluded: JPEG without transparency, incompatible with the monochrome treatment. */
 export const clients = [
   { name: "Berger", src: "/brands/Berger.png" },
   { name: "Marico", src: "/brands/Marico.png" },
-  { name: "Chaldal", src: "/brands/Chaldal.png" },
+  { name: "Chaldal PLC (YC S15)", src: "/brands/Chaldal.png" },
   { name: "UPS", src: "/brands/UPS.png" },
   { name: "Asiatic MCL", src: "/brands/Asiatic MCL.png" },
+  { name: "BIW", src: "/brands/BIW.jpg" },
   { name: "Khaas Food", src: "/brands/Khaas Food.png" },
   { name: "Vision Electronics", src: "/brands/Vision Electronics.png" },
   { name: "Finesse", src: "/brands/Finesse.png" },

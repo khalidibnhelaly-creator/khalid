@@ -76,9 +76,30 @@ const GALLERY = [
   { src: "/khalidworkshop6.JPG", alt: "AI টুলস ডেমোনস্ট্রেশন" },
 ];
 
+const PAST_WORKSHOPS = [
+  {
+    title: "Asiatic MCL — কর্পোরেট AI ট্রেনিং",
+    meta: "ইন-হাউস · ৫০+ অংশগ্রহণকারী · ঢাকা",
+    desc: "বাংলাদেশের অন্যতম বড় মার্কেটিং এজেন্সি Asiatic MCL-এর পুরো মার্কেটিং টিমকে AI কমার্শিয়াল প্রোডাকশন এবং কনটেন্ট অটোমেশনে ট্রেনিং দেওয়া হয়। টিম এখন নিজেরাই AI পাইপলাইন চালায়।",
+    outcome: "৫০+ জন মার্কেটার ট্রেইনড",
+  },
+  {
+    title: "bdjobs AI Conference",
+    meta: "পাবলিক কনফারেন্স · স্পিকার ও ওয়ার্কশপ · ঢাকা",
+    desc: "বাংলাদেশের বৃহত্তম জব পোর্টাল bdjobs আয়োজিত AI কনফারেন্সে কি-নোট এবং হ্যান্ডস-অন ওয়ার্কশপ পরিচালনা। বিষয়: এআই দিয়ে মার্কেটিং ক্যারিয়ার ট্রান্সফর্ম করা।",
+    outcome: "ইন্ডাস্ট্রি-ওয়াইড অডিয়েন্স",
+  },
+  {
+    title: "AI প্রোডাকশন ওয়ার্কশপ — সিরিজ",
+    meta: "ওপেন · একাধিক সেশন · ঢাকা",
+    desc: "স্টার্টআপ ফাউন্ডার, SME মালিক এবং ক্রিয়েটিভ প্রফেশনালদের জন্য একাধিক পাবলিক ওয়ার্কশপ সিরিজ। প্রতিটি সেশনে অংশগ্রহণকারীরা একটি সম্পূর্ণ AI কমার্শিয়াল বানিয়ে বের হন।",
+    outcome: "রিপিট অ্যাটেন্ডেন্স · ওয়েটলিস্ট",
+  },
+];
+
 const BRAND_LOGOS = [
   { src: "/brands/Asiatic MCL.png", alt: "Asiatic MCL" },
-  { src: "/brands/Chaldal.png", alt: "Chaldal" },
+  { src: "/brands/Chaldal.png", alt: "Chaldal PLC (YC S15)" },
   { src: "/brands/Berger.png", alt: "Berger" },
   { src: "/brands/Marico.png", alt: "Marico" },
   { src: "/brands/UPS.png", alt: "UPS" },
@@ -288,17 +309,46 @@ export default function AIWorkshop() {
           </div>
         </section>
 
-        {/* gallery */}
+        {/* past workshops */}
         <section className="k-section k-band">
           <div className="k-container">
             <div className="k-label">
               <span>
-                <span className="k-label-index">০৪</span> · ওয়ার্কশপ গ্যালারি
+                <span className="k-label-index">০৪</span> · আগের ওয়ার্কশপ
               </span>
+              <span>ট্র্যাক রেকর্ড</span>
             </div>
             <h2 className="k-h2 reveal" style={{ marginBottom: "clamp(2rem, 4vw, 3rem)" }}>
-              আগের সেশনগুলো থেকে
+              আমি যা পড়াই, <em>আমি নিজে সেটাই করি।</em>
             </h2>
+            <div className="caps" data-stagger style={{ marginTop: 0 }}>
+              {PAST_WORKSHOPS.map((w) => (
+                <div className="cap reveal" key={w.title}>
+                  <p style={{
+                    fontFamily: "var(--font-mono), monospace",
+                    fontSize: "0.6875rem",
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                    color: "var(--k-ink-3)",
+                    margin: "0 0 0.5rem",
+                  }}>{w.meta}</p>
+                  <h3>{w.title}</h3>
+                  <p>{w.desc}</p>
+                  <p style={{
+                    fontFamily: "var(--font-mono), monospace",
+                    fontSize: "0.75rem",
+                    color: "var(--k-ink-2)",
+                    marginTop: "0.75rem",
+                    fontWeight: 600,
+                  }}>→ {w.outcome}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* photo gallery */}
+            <div className="k-label" style={{ margin: "clamp(2.5rem, 5vw, 4rem) 0 1.5rem" }}>
+              <span>সেশন থেকে ছবি</span>
+            </div>
             <div className="gallery reveal">
               {GALLERY.map((g) => (
                 <div className="gallery-item" key={g.src}>
