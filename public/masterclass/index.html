@@ -275,6 +275,30 @@ footer .links a:hover{color:var(--gold);}
 .reveal.in{opacity:1;transform:none;}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
 @media(prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important;scroll-behavior:auto !important;}.reveal{opacity:1;transform:none;}}
+
+/* YC BADGE */
+.logo-yc{display:inline-flex;flex-direction:column;align-items:center;gap:4px;}
+.logo-yc .yc-tag{font-family:var(--mono);font-size:8px;letter-spacing:.07em;background:#f05c2a;color:#fff;padding:2px 6px;border-radius:2px;white-space:nowrap;line-height:1.4;}
+
+/* WORKSHOPS */
+.workshops{padding:72px 0;border-bottom:1px solid var(--line);background:var(--paper-2);}
+.wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:0;}
+@media(max-width:780px){.wgrid{grid-template-columns:1fr;}}
+.wcard{border:1px solid var(--line-2);border-radius:4px;padding:28px 24px;background:var(--paper);}
+.wcard .worg{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.wcard h3{font-size:19px;margin-bottom:10px;}
+.wcard p{color:var(--ink-soft);font-size:14.5px;margin:0 0 16px;line-height:1.65;}
+.wcard .wpill{display:inline-flex;font-family:var(--mono);font-size:10px;letter-spacing:.06em;background:var(--paper-2);border:1px solid var(--line-2);padding:4px 10px;border-radius:2px;color:var(--muted);}
+
+/* MOBILE PERFORMANCE */
+@media(max-width:640px){
+  .review-grid{columns:1;}
+  .reviews-section{content-visibility:auto;contain-intrinsic-size:0 5000px;}
+  .freesessions{content-visibility:auto;contain-intrinsic-size:0 1400px;}
+  .marquee{display:none;}
+  .reveal{transform:translateY(8px);}
+  .about .photo{display:none;}
+}
 </style>
 </head>
 <body>
@@ -353,7 +377,7 @@ footer .links a:hover{color:var(--gold);}
 
 <!-- ================ CAMPAIGN BANNER ================ -->
 <div class="banner-section">
-  <img src="/masterclass/assets/banner.png" alt="One Man AI OS Masterclass — High Voltage" onerror="this.style.display='none'"/>
+  <img src="/masterclass/assets/banner.png" alt="One Man AI OS Masterclass — High Voltage" loading="lazy" decoding="async" onerror="this.style.display='none'"/>
 </div>
 
 <!-- ================ NUMBERS STRIP ================ -->
@@ -401,27 +425,27 @@ footer .links a:hover{color:var(--gold);}
       <p>These are not testimonials we collected. These are LinkedIn posts — people shared them publicly, on their own. Read them before you decide.</p>
     </div>
     <div class="review-grid">
-      <div class="review-card"><img src="/masterclass/assets/review-20.png" alt="Session review" loading="lazy"/></div>
-      <div class="review-card"><img src="/masterclass/assets/review-06.png" alt="Session review" loading="lazy"/></div>
-      <div class="review-card"><img src="/masterclass/assets/review-15.png" alt="Session review" loading="lazy"/></div>
-      <div class="review-card"><img src="/masterclass/assets/review-05.png" alt="Session review" loading="lazy"/></div>
-      <div class="review-card"><img src="/masterclass/assets/review-10.png" alt="Session review" loading="lazy"/></div>
-      <div class="review-card"><img src="/masterclass/assets/review-14.png" alt="Session review" loading="lazy"/></div>
-      <div class="review-card"><img src="/masterclass/assets/review-16.png" alt="Session review" loading="lazy"/></div>
-      <div class="review-card"><img src="/masterclass/assets/review-19.png" alt="Session review" loading="lazy"/></div>
-      <div class="review-card"><img src="/masterclass/assets/review-07.png" alt="Session review" loading="lazy"/></div>
-      <div class="review-card"><img src="/masterclass/assets/review-13.png" alt="Session review" loading="lazy"/></div>
-      <div class="review-card"><img src="/masterclass/assets/review-18.png" alt="Session review" loading="lazy"/></div>
-      <div class="review-card"><img src="/masterclass/assets/review-11.png" alt="Session review" loading="lazy"/></div>
-      <div class="review-card"><img src="/masterclass/assets/review-02.png" alt="Session review" loading="lazy"/></div>
-      <div class="review-card"><img src="/masterclass/assets/review-12.png" alt="Session review" loading="lazy"/></div>
-      <div class="review-card"><img src="/masterclass/assets/review-03.png" alt="Session review" loading="lazy"/></div>
-      <div class="review-card"><img src="/masterclass/assets/review-17.png" alt="Session review" loading="lazy"/></div>
-      <div class="review-card"><img src="/masterclass/assets/review-08.png" alt="Session review" loading="lazy"/></div>
-      <div class="review-card"><img src="/masterclass/assets/review-09.png" alt="Session review" loading="lazy"/></div>
-      <div class="review-card"><img src="/masterclass/assets/review-01.png" alt="Session review" loading="lazy"/></div>
-      <div class="review-card"><img src="/masterclass/assets/review-04.png" alt="Session review" loading="lazy"/></div>
-      <div class="review-card"><img src="/masterclass/assets/review-21.png" alt="Session review" loading="lazy"/></div>
+      <div class="review-card"><img src="/masterclass/assets/review-20.png" alt="Session review" loading="lazy" decoding="async"/></div>
+      <div class="review-card"><img src="/masterclass/assets/review-06.png" alt="Session review" loading="lazy" decoding="async"/></div>
+      <div class="review-card"><img src="/masterclass/assets/review-15.png" alt="Session review" loading="lazy" decoding="async"/></div>
+      <div class="review-card"><img src="/masterclass/assets/review-05.png" alt="Session review" loading="lazy" decoding="async"/></div>
+      <div class="review-card"><img src="/masterclass/assets/review-10.png" alt="Session review" loading="lazy" decoding="async"/></div>
+      <div class="review-card"><img src="/masterclass/assets/review-14.png" alt="Session review" loading="lazy" decoding="async"/></div>
+      <div class="review-card"><img src="/masterclass/assets/review-16.png" alt="Session review" loading="lazy" decoding="async"/></div>
+      <div class="review-card"><img src="/masterclass/assets/review-19.png" alt="Session review" loading="lazy" decoding="async"/></div>
+      <div class="review-card"><img src="/masterclass/assets/review-07.png" alt="Session review" loading="lazy" decoding="async"/></div>
+      <div class="review-card"><img src="/masterclass/assets/review-13.png" alt="Session review" loading="lazy" decoding="async"/></div>
+      <div class="review-card"><img src="/masterclass/assets/review-18.png" alt="Session review" loading="lazy" decoding="async"/></div>
+      <div class="review-card"><img src="/masterclass/assets/review-11.png" alt="Session review" loading="lazy" decoding="async"/></div>
+      <div class="review-card"><img src="/masterclass/assets/review-02.png" alt="Session review" loading="lazy" decoding="async"/></div>
+      <div class="review-card"><img src="/masterclass/assets/review-12.png" alt="Session review" loading="lazy" decoding="async"/></div>
+      <div class="review-card"><img src="/masterclass/assets/review-03.png" alt="Session review" loading="lazy" decoding="async"/></div>
+      <div class="review-card"><img src="/masterclass/assets/review-17.png" alt="Session review" loading="lazy" decoding="async"/></div>
+      <div class="review-card"><img src="/masterclass/assets/review-08.png" alt="Session review" loading="lazy" decoding="async"/></div>
+      <div class="review-card"><img src="/masterclass/assets/review-09.png" alt="Session review" loading="lazy" decoding="async"/></div>
+      <div class="review-card"><img src="/masterclass/assets/review-01.png" alt="Session review" loading="lazy" decoding="async"/></div>
+      <div class="review-card"><img src="/masterclass/assets/review-04.png" alt="Session review" loading="lazy" decoding="async"/></div>
+      <div class="review-card"><img src="/masterclass/assets/review-21.png" alt="Session review" loading="lazy" decoding="async"/></div>
     </div>
   </div>
 </section>
@@ -443,7 +467,7 @@ footer .links a:hover{color:var(--gold);}
 
       <div class="vcard">
         <div class="thumb" data-vid="mtirJRQ4qT0" role="button" tabindex="0" aria-label="Play Session 01: Inside The Studio">
-          <img src="https://img.youtube.com/vi/mtirJRQ4qT0/maxresdefault.jpg" alt="Session 01 thumbnail" loading="lazy"/>
+          <img src="https://img.youtube.com/vi/mtirJRQ4qT0/maxresdefault.jpg" alt="Session 01 thumbnail" loading="lazy" decoding="async"/>
           <div class="play">
             <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="40" cy="40" r="39" fill="rgba(255,255,255,0.92)"/>
@@ -460,7 +484,7 @@ footer .links a:hover{color:var(--gold);}
 
       <div class="vcard">
         <div class="thumb" data-vid="0IeP6WgZJDA" role="button" tabindex="0" aria-label="Play Session 02: The Viral Build">
-          <img src="https://img.youtube.com/vi/0IeP6WgZJDA/maxresdefault.jpg" alt="Session 02 thumbnail" loading="lazy"/>
+          <img src="https://img.youtube.com/vi/0IeP6WgZJDA/maxresdefault.jpg" alt="Session 02 thumbnail" loading="lazy" decoding="async"/>
           <div class="play">
             <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="40" cy="40" r="39" fill="rgba(255,255,255,0.92)"/>
@@ -477,7 +501,7 @@ footer .links a:hover{color:var(--gold);}
 
       <div class="vcard">
         <div class="thumb" data-vid="nkJJhD8m06w" role="button" tabindex="0" aria-label="Play Session 03: AI For Corporate Professionals">
-          <img src="https://img.youtube.com/vi/nkJJhD8m06w/maxresdefault.jpg" alt="Session 03 thumbnail" loading="lazy"/>
+          <img src="https://img.youtube.com/vi/nkJJhD8m06w/maxresdefault.jpg" alt="Session 03 thumbnail" loading="lazy" decoding="async"/>
           <div class="play">
             <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="40" cy="40" r="39" fill="rgba(255,255,255,0.92)"/>
@@ -513,7 +537,7 @@ footer .links a:hover{color:var(--gold);}
       <span class="eyebrow">Who is teaching this</span>
       <h2>Thirteen years in marketing. Now I run a full studio solo, with AI.</h2>
       <div style="height:16px;"></div>
-      <p>I spent seven years at Chaldal PLC and rose to Assistant Director of Marketing. Today I run <b>TOPZID</b>, work as a Generative AI Consultant at Asiatic MCL, and build directly with brands like Berger, Marico, and Nutrition Depot — as one person.</p>
+      <p>I spent seven years at <b>Chaldal PLC (Y Combinator S15)</b> and rose to Assistant Director of Marketing. Today I run <b>TOPZID</b>, work as a Generative AI Consultant at Asiatic MCL, and build directly with brands like Berger, Marico, and Nutrition Depot — as one person.</p>
       <p>Every day I run fifteen-plus AI tools in a connected system. Claude manages my projects, Higgsfield and Seedance handle video, NotebookLM handles research, and MCP ties it all together. <b>Across eight weeks, I install that system inside you.</b></p>
       <div class="brandwall">
         <div class="lbl">Brands I've worked with</div>
@@ -521,11 +545,42 @@ footer .links a:hover{color:var(--gold);}
           <img src="https://www.topzid.com/brands/Berger.png" alt="Berger" onerror="this.style.display='none'"/>
           <img src="https://www.topzid.com/brands/Marico.png" alt="Marico" onerror="this.style.display='none'"/>
           <img src="https://www.topzid.com/brands/Asiatic%20MCL.png" alt="Asiatic MCL" onerror="this.style.display='none'"/>
-          <img src="https://www.topzid.com/brands/Chaldal.png" alt="Chaldal" onerror="this.style.display='none'"/>
+          <div class="logo-yc"><img src="https://www.topzid.com/brands/Chaldal.png" alt="Chaldal PLC" onerror="this.parentElement.style.display='none'"/><span class="yc-tag">YC S15</span></div>
           <img src="https://www.topzid.com/brands/UPS.png" alt="UPS" onerror="this.style.display='none'"/>
           <img src="https://www.topzid.com/brands/Nutrition%20Depot.png" alt="Nutrition Depot" onerror="this.style.display='none'"/>
           <img src="https://www.topzid.com/brands/Vision%20Electronics.png" alt="Vision Electronics" onerror="this.style.display='none'"/>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================ WORKSHOPS TRACK RECORD ================ -->
+<section class="workshops reveal" id="workshops">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Live teaching record</span>
+      <h2>I've taught this live. These are the rooms I've stood in.</h2>
+      <p style="color:var(--ink-soft);font-size:16px;margin:10px 0 0;max-width:56ch;">Before this masterclass existed, I was already running workshops. Here's the paper trail.</p>
+    </div>
+    <div class="wgrid">
+      <div class="wcard">
+        <div class="worg">ZOYEQ</div>
+        <h3>AI Tools & Workflow Workshop</h3>
+        <p>Hands-on session for the ZOYEQ team — building AI-powered content workflows, prompt engineering systems, and production pipelines from the ground up. Every participant left with a working setup.</p>
+        <span class="wpill">Corporate · Hands-On</span>
+      </div>
+      <div class="wcard">
+        <div class="worg">bdjobs AI Conference</div>
+        <h3>Speaker + Workshop Lead</h3>
+        <p>Keynote and live workshop at Bangladesh's largest job portal's AI conference. Subject: how to stay valuable — and irreplaceable — when AI takes over the average job. Packed room.</p>
+        <span class="wpill">Public · Conference</span>
+      </div>
+      <div class="wcard">
+        <div class="worg">Asiatic MCL</div>
+        <h3>In-House AI Training</h3>
+        <p>50+ marketing professionals trained at Bangladesh's largest marketing group. The team now runs their own AI production pipeline independently. Ongoing engagement — not a one-time talk.</p>
+        <span class="wpill">Corporate · 50+ Trained · Ongoing</span>
       </div>
     </div>
   </div>
