@@ -247,7 +247,7 @@
       <a href="#judging">How I Judge</a>
       <a href="#submit">Submit</a>
     </div>
-    <a class="nav-cta" href="#submit">Submit My Video</a>
+    <a class="nav-cta" href="/masterclass">View Masterclass</a>
   </div>
 </nav>
 
@@ -262,14 +262,13 @@
       One edited video is the price of entry.
     </p>
     <div class="hero-cta">
-      <a href="#task" class="btn btn-solid">See the Task &rarr;</a>
-      <a href="#sessions" class="btn btn-ghost">Watch the Sessions First</a>
+      <a href="#submit" class="btn btn-solid">See Results Status &rarr;</a>
+      <a href="#sessions" class="btn btn-ghost">Watch the Sessions</a>
     </div>
     <p class="hero-note">
-      <b>15 seats</b> available &nbsp;&middot;&nbsp;
+      <b>Submissions closed</b> &nbsp;&middot;&nbsp;
       Judged personally by Khalid &nbsp;&middot;&nbsp;
-      Scored out of 10 &nbsp;&middot;&nbsp;
-      Minimum 5 to qualify
+      Results coming soon
     </p>
   </div>
 </header>
@@ -485,79 +484,15 @@
   </div>
 </section>
 
-<!-- ═══════════ SUBMIT ═══════════ -->
-<section class="submit-sec reveal" id="submit">
-  <div class="wrap">
-    <div class="lead">
-      <span class="eyebrow">Submit Your Video</span>
-      <h2>One video.<br/>15 seats.</h2>
-      <p>Fill this in after you have edited and posted your video. Your submission is not complete until the link is in and the form is sent.</p>
-      <div class="rules">
-        <div class="rule">Video must be <b>approximately 1 minute</b></div>
-        <div class="rule">Must be from one of the <b>3 sessions above</b></div>
-        <div class="rule">Google Drive link set to <b>"Anyone with link can view"</b></div>
-        <div class="rule"><b>One submission</b> per person, no exceptions</div>
-        <div class="rule">Results sent to your <b>WhatsApp within 72h</b> of deadline</div>
-      </div>
-    </div>
-
-    <div>
-      <form id="schForm" class="form" novalidate>
-        <div id="schError" class="form-error"></div>
-
-        <div class="field" id="f-name">
-          <label for="sch-name">Your name</label>
-          <input id="sch-name" type="text" autocomplete="name" placeholder="e.g. Rakib Hasan"/>
-          <span class="err">Please enter your name.</span>
-        </div>
-
-        <div class="field" id="f-whatsapp">
-          <label for="sch-whatsapp">WhatsApp number</label>
-          <input id="sch-whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="01XXXXXXXXX"/>
-          <span class="err">Add a valid WhatsApp number — results land here.</span>
-        </div>
-
-        <div class="field" id="f-email">
-          <label for="sch-email">Email address</label>
-          <input id="sch-email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com"/>
-          <span class="err">Add a valid email address.</span>
-        </div>
-
-        <div class="field" id="f-video">
-          <label for="sch-video">Link to your edited video</label>
-          <input id="sch-video" type="url" inputmode="url" placeholder="https://drive.google.com/file/d/..."/>
-          <span class="err">Paste your Google Drive link — make sure sharing is set to "Anyone with the link."</span>
-        </div>
-
-        <div class="field" id="f-session">
-          <label for="sch-session">Which session did you edit from?</label>
-          <select id="sch-session">
-            <option value="">Choose one&hellip;</option>
-            <option value="session_01">Session 01 &middot; Inside The Studio</option>
-            <option value="session_02">Session 02 &middot; The Viral Build</option>
-            <option value="session_03">Session 03 &middot; AI For Corporate Professionals</option>
-          </select>
-          <span class="err">Select the session you used.</span>
-        </div>
-
-        <div class="field">
-          <label for="sch-note">Why do you want in? <span class="opt">(optional)</span></label>
-          <textarea id="sch-note" placeholder="One line. If you have something to say, say it."></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-solid">Submit My Video &rarr;</button>
-        <p class="formnote">
-          One submission per person. <b>Make it your best work.</b><br/>
-          Results sent to your WhatsApp within 72h of the deadline.
-        </p>
-      </form>
-
-      <div class="done form" id="schDone" aria-live="polite">
-        <div class="ok">&#10003;</div>
-        <h3>Submitted. Now we wait.</h3>
-        <p>Your video is in the queue. I will watch every single one personally. Results come to your WhatsApp within 72 hours of the deadline.</p>
-        <p><b>Go make something worth 8 out of 10.</b></p>
-      </div>
+<!-- ═══════════ CLOSED ═══════════ -->
+<section id="submit" style="padding:88px 0;border-top:1px solid var(--line);background:var(--paper-2);">
+  <div class="wrap" style="max-width:640px;">
+    <div style="border:1px solid var(--line-2);border-left:4px solid var(--gold);background:var(--paper);border-radius:4px;padding:clamp(32px,5vw,56px);">
+      <div style="width:52px;height:52px;border:1.5px solid var(--gold);border-radius:50%;display:grid;place-items:center;margin-bottom:24px;font-family:var(--serif);font-size:22px;color:var(--gold);">✓</div>
+      <span class="eyebrow">Scholarship &middot; Submissions Closed</span>
+      <h2 style="font-size:clamp(26px,4vw,38px);margin-bottom:18px;">Thanks for participating.</h2>
+      <p style="color:var(--ink-soft);font-size:17px;margin:0 0 12px;max-width:48ch;">We received all submissions. Khalid is reviewing every video personally.</p>
+      <p style="color:var(--ink-soft);font-size:17px;margin:0;max-width:48ch;"><b style="color:var(--ink);">Results will be published here soon.</b> Winners will also be notified directly on WhatsApp.</p>
     </div>
   </div>
 </section>
@@ -618,10 +553,10 @@
 <!-- ═══════════ FINAL CTA ═══════════ -->
 <section class="final reveal">
   <div class="wrap">
-    <span class="eyebrow" style="justify-content:center;">Last call</span>
-    <h2>15 seats. One edited video. Your <span class="it">move.</span></h2>
-    <p>If you want something of value for free, show me you are worth the chance. Watch the sessions, pick your minute, edit it, and submit. The seat is waiting for the person who earns it.</p>
-    <a href="#submit" class="btn btn-solid">Submit My Video &rarr;</a>
+    <span class="eyebrow" style="justify-content:center;">Interested in the masterclass?</span>
+    <h2>The paid program <span class="it">starts July 26.</span></h2>
+    <p>Scholarship results coming soon. In the meantime, secure your paid seat before the founding price ends.</p>
+    <a href="/masterclass" class="btn btn-solid">View the Masterclass &rarr;</a>
   </div>
 </section>
 
