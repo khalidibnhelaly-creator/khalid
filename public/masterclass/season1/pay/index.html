@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src="https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);})(window,document,"script","dataLayer","GTM-KR7RQ8Q9");</script>
+<!-- End Google Tag Manager -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Complete Your Payment | Season 1 Recordings | One Man AI OS Masterclass</title>
+<meta name="theme-color" content="#f6f1e6" />
+<meta name="robots" content="noindex" />
+<link rel="icon" href="/Topzidlogo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Public+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<script src="/masterclass/season1/config.js"></script>
+<style>
+  :root{
+    --paper:#f6f1e6; --paper-2:#ece3cf;
+    --ink:#1d1812; --ink-soft:#4b4338; --muted:#8a7f6c;
+    --line:#ddd0ad; --line-2:#cdbd92; --gold:#9c6418; --gold-2:#c9852e;
+    --green:#2e6b3e; --red:#b3491f;
+    --serif:'Fraunces',Georgia,serif;
+    --sans:'Public Sans',system-ui,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans); font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+  a{ color:inherit; }
+  .wrap{ max-width:620px; margin:0 auto; padding:0 20px; }
+  .eyebrow{ font-family:var(--mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); display:inline-flex; align-items:center; gap:9px; margin-bottom:16px; }
+  .eyebrow::before{ content:""; width:22px; height:1px; background:var(--gold); }
+  h1{ font-family:var(--serif); font-weight:600; font-size:clamp(28px,7vw,40px); line-height:1.08; margin:0 0 12px; letter-spacing:-.01em; }
+  h2{ font-family:var(--serif); font-weight:600; font-size:20px; margin:0; }
+  .em{ color:var(--gold); }
+  :focus-visible{ outline:2px solid var(--gold); outline-offset:2px; }
+
+  header{ padding:40px 0 24px; }
+  .back{ font-family:var(--mono); font-size:11.5px; color:var(--muted); text-decoration:none; display:inline-block; margin-bottom:22px; }
+  .back:hover{ color:var(--gold); }
+  header .sub{ color:var(--ink-soft); font-size:16.5px; max-width:52ch; margin:0; }
+  header .sub b{ color:var(--ink); }
+
+  .steps{ display:flex; gap:8px; margin:26px 0 0; }
+  .step{ flex:1; text-align:center; font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); padding-top:12px; border-top:2px solid var(--line-2); }
+  .step.on{ color:var(--gold); border-color:var(--gold); font-weight:600; }
+  .step.done{ color:var(--green); border-color:var(--green); }
+
+  section{ padding:14px 0 40px; }
+  .card{ background:var(--paper); border:1px solid var(--line-2); border-radius:6px; padding:26px 24px; box-shadow:0 10px 26px rgba(29,24,18,.07); margin-bottom:18px; }
+
+  /* order summary */
+  .order{ display:flex; justify-content:space-between; align-items:flex-start; gap:16px; background:var(--paper-2); border:1px solid var(--line-2); border-radius:5px; padding:16px 18px; margin-bottom:22px; }
+  .order .on{ font-weight:700; font-size:15px; }
+  .order .od{ font-size:13px; color:var(--ink-soft); margin-top:2px; }
+  .order .op{ text-align:right; flex-shrink:0; }
+  .order .op b{ font-family:var(--serif); font-size:24px; display:block; line-height:1.1; }
+  .order .op s{ font-size:13px; color:var(--muted); }
+
+  .field{ margin-bottom:16px; }
+  .field label{ display:block; font-weight:600; font-size:14px; margin-bottom:7px; }
+  .field label span{ color:var(--muted); font-weight:400; }
+  .field input,.field select{ width:100%; padding:13px 14px; font-family:var(--sans); font-size:16px; background:var(--paper-2); color:var(--ink); border:1px solid var(--line-2); border-radius:3px; outline:none; transition:border-color .15s, box-shadow .15s; }
+  .field input:focus,.field select:focus{ border-color:var(--gold); box-shadow:0 0 0 3px rgba(156,100,24,.14); }
+  .field.bad input{ border-color:var(--red); }
+  .field .err{ display:none; font-family:var(--mono); font-size:11px; color:var(--red); margin-top:6px; }
+  .field.bad .err{ display:block; }
+  .field .hint{ font-size:12.5px; color:var(--muted); margin-top:6px; }
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  @media(max-width:480px){ .grid2{ grid-template-columns:1fr; } }
+
+  .btn{ width:100%; font-family:var(--mono); font-size:13px; letter-spacing:.03em; padding:16px; border-radius:3px; cursor:pointer; border:1px solid transparent; background:var(--ink); color:var(--paper); font-weight:500; display:flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; transition:transform .14s, background .2s; }
+  .btn:hover{ transform:translateY(-1px); background:#000; }
+  .btn:disabled{ opacity:.6; cursor:not-allowed; transform:none; }
+  .btn.ghost{ background:transparent; color:var(--ink); border-color:var(--line-2); }
+  .btn.ghost:hover{ background:var(--paper-2); border-color:var(--gold); color:var(--gold); }
+  .btn.wa{ background:var(--green); }
+  .btn.wa:hover{ background:#265a34; }
+  .hide{ display:none !important; }
+
+  .refbox{ background:var(--ink); color:var(--paper); border-radius:6px; padding:22px 24px; margin-bottom:20px; text-align:center; }
+  .refbox .lbl{ font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold-2); margin-bottom:8px; }
+  .refbox .code{ font-family:var(--mono); font-size:30px; font-weight:600; letter-spacing:.14em; }
+  .refbox .note{ font-size:13px; color:#cdc5b6; margin-top:10px; line-height:1.5; }
+  .refbox .note b{ color:var(--gold-2); }
+
+  .methods{ display:flex; gap:8px; margin-bottom:18px; }
+  .method{ flex:1; text-align:center; font-family:var(--mono); font-size:12px; letter-spacing:.04em; padding:11px 8px; border:1px solid var(--line-2); border-radius:3px; background:var(--paper-2); cursor:pointer; color:var(--ink); }
+  .method[aria-selected="true"]{ border:2px solid var(--gold); background:#f3e4c6; font-weight:600; padding:10px 7px; }
+
+  .detailrow{ display:flex; justify-content:space-between; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid var(--line); }
+  .detailrow:last-of-type{ border-bottom:0; }
+  .detailrow .k{ font-family:var(--mono); font-size:11px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); flex:0 0 auto; }
+  .detailrow .v{ font-weight:600; text-align:right; word-break:break-word; margin-left:auto; }
+  .detailrow .v.big{ font-family:var(--mono); font-size:17px; letter-spacing:.02em; }
+  .copybtn{ font-family:var(--mono); font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:var(--gold); background:none; border:1px solid var(--line-2); border-radius:2px; padding:5px 9px; cursor:pointer; white-space:nowrap; flex-shrink:0; }
+  .copybtn:hover{ border-color:var(--gold); background:var(--paper-2); }
+  .copybtn.done{ color:var(--green); border-color:var(--green); }
+
+  .callout{ border:1px solid var(--line-2); border-left:4px solid var(--gold); background:var(--paper-2); border-radius:4px; padding:16px 18px; margin:18px 0; font-size:14.5px; color:var(--ink-soft); }
+  .callout b{ color:var(--ink); }
+  .warn-box{ border:1.5px solid var(--red); border-left:5px solid var(--red); background:#fff4f1; border-radius:4px; padding:14px 16px; margin:0 0 16px; font-size:14px; color:#7a2a0f; line-height:1.5; }
+  .warn-box b{ color:#5c1e09; }
+  .warn-box .no{ font-weight:700; text-decoration:line-through; opacity:.7; }
+
+  .instructions{ counter-reset:step; margin:16px 0 0; padding:0; list-style:none; }
+  .instructions li{ counter-increment:step; position:relative; padding:8px 0 8px 34px; font-size:14.5px; color:var(--ink-soft); }
+  .instructions li::before{ content:counter(step); position:absolute; left:0; top:7px; width:22px; height:22px; background:var(--gold); color:var(--paper); font-family:var(--mono); font-size:12px; font-weight:600; border-radius:50%; display:grid; place-items:center; }
+  .instructions li b{ color:var(--ink); }
+
+  .form-error{ background:#fff3f0; border:1px solid #f0c4ba; border-radius:3px; padding:12px 16px; font-family:var(--mono); font-size:12px; color:var(--red); margin-bottom:16px; }
+
+  .done-panel{ text-align:center; padding:10px 0; }
+  .done-panel .tick{ width:60px; height:60px; border:2px solid var(--green); color:var(--green); border-radius:50%; display:grid; place-items:center; margin:0 auto 18px; font-family:var(--serif); font-size:28px; }
+  .done-panel p{ color:var(--ink-soft); max-width:44ch; margin:0 auto 16px; }
+  .done-recap{ background:var(--paper-2); border:1px solid var(--line-2); border-radius:5px; padding:16px 18px; margin:20px 0; text-align:left; }
+  .done-recap .rr{ display:flex; justify-content:space-between; gap:12px; padding:6px 0; border-bottom:1px solid var(--line); font-size:14px; }
+  .done-recap .rr:last-child{ border-bottom:0; }
+  .done-recap .rr span{ color:var(--muted); font-family:var(--mono); font-size:11px; letter-spacing:.04em; text-transform:uppercase; }
+  .done-recap .rr b{ text-align:right; word-break:break-all; }
+
+  footer{ border-top:1px solid var(--line); padding:26px 0 40px; text-align:center; }
+  footer p{ font-family:var(--mono); font-size:11px; color:var(--muted); letter-spacing:.03em; margin:4px 0; }
+  footer a{ color:var(--muted); text-decoration:none; margin:0 8px; }
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KR7RQ8Q9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header>
+  <div class="wrap">
+    <a class="back" href="/masterclass/season1">&larr; Back to Season 1</a><br />
+    <span class="eyebrow">Season 1 Recordings · Secure payment</span>
+    <h1>Complete your <span class="em">payment.</span></h1>
+    <p class="sub">Enter your details, get a reference code, then pay by bank, bKash or Nagad. Your access link comes on WhatsApp once we verify it. <b>Takes about two minutes.</b></p>
+    <div class="steps" aria-hidden="true">
+      <div class="step on" id="st1">1 · Details</div>
+      <div class="step" id="st2">2 · Pay</div>
+      <div class="step" id="st3">3 · Confirm</div>
+    </div>
+  </div>
+</header>
+
+<!-- STEP 1: DETAILS -->
+<section id="sec1">
+  <div class="wrap">
+    <div class="card">
+      <div class="order">
+        <div>
+          <div class="on">Season 1 Recordings</div>
+          <div class="od">8 sessions + resources + live webinar (Fri, Oct 23, 9 PM)</div>
+        </div>
+        <div class="op"><b data-amount>৳5,000</b><s id="wasPrice">৳15,000</s></div>
+      </div>
+
+      <h2>Your details</h2>
+      <p style="color:var(--ink-soft); font-size:14.5px; margin:8px 0 20px;">We use these to match your payment and send your access.</p>
+      <div id="s1Error" class="form-error hide" role="alert"></div>
+      <form id="detailForm" novalidate>
+        <div class="field" id="f-name">
+          <label for="name">Full name</label>
+          <input id="name" type="text" autocomplete="name" placeholder="e.g. Rakib Hasan" required />
+          <span class="err">Please enter your name.</span>
+        </div>
+        <div class="field" id="f-whatsapp">
+          <label for="whatsapp">WhatsApp number</label>
+          <input id="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="01XXXXXXXXX" required />
+          <span class="err">Enter a valid WhatsApp number. Your access link is sent here.</span>
+        </div>
+        <div class="field" id="f-email">
+          <label for="email">Email</label>
+          <input id="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+          <span class="err">Enter a valid email address.</span>
+          <div class="hint">For your receipt and access records.</div>
+        </div>
+
+        <div class="callout">Next you get a <b>unique reference code</b>. Write it in the reference field when you pay so we can match it to you. Nothing is charged automatically.</div>
+        <button type="submit" class="btn">Get my reference code &rarr;</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 2: PAY -->
+<section id="sec2" class="hide">
+  <div class="wrap">
+    <div class="refbox">
+      <div class="lbl">Your payment reference</div>
+      <div class="code" data-ref>S1-0000</div>
+      <div class="note">Put this code in the <b>reference</b> field when you pay.</div>
+    </div>
+
+    <div class="card">
+      <h2>Pay <span class="em" data-amount>৳5,000</span></h2>
+      <p style="color:var(--ink-soft); font-size:14.5px; margin:8px 0 18px;">Choose your method.</p>
+
+      <div class="methods" role="tablist" aria-label="Payment method">
+        <button type="button" class="method" role="tab" data-method="bkash" aria-selected="true">bKash</button>
+        <button type="button" class="method" role="tab" data-method="nagad" aria-selected="false">Nagad</button>
+        <button type="button" class="method" role="tab" data-method="bank" aria-selected="false">Bank</button>
+      </div>
+
+      <div class="paydetail" id="pd-bkash" role="tabpanel">
+        <div class="warn-box">⚠️ <b>Use "Send Money" only.</b> Do <span class="no">NOT</span> use "Make Payment" or the bKash payment gateway. It will go to the wrong place and we cannot match it.</div>
+        <div class="detailrow"><span class="k">bKash number</span><span class="v big">01779176848</span><button type="button" class="copybtn" data-copy="01779176848">Copy</button></div>
+        <div class="detailrow"><span class="k">Type</span><span class="v">Send Money</span></div>
+        <div class="detailrow"><span class="k">Amount</span><span class="v big" data-amount>৳5,000</span></div>
+        <ol class="instructions">
+          <li>Open bKash, choose <b>Send Money</b>, enter the number above.</li>
+          <li>Send the <b>exact amount</b>.</li>
+          <li>In the reference field, write <b data-ref>S1-0000</b>.</li>
+          <li>Note your <b>Transaction ID</b>. You will enter it next.</li>
+        </ol>
+      </div>
+
+      <div class="paydetail hide" id="pd-nagad" role="tabpanel">
+        <div class="warn-box">⚠️ <b>Use "Send Money" only.</b> Do <span class="no">NOT</span> use "Make Payment" or the Nagad payment gateway. It will go to the wrong place and we cannot match it.</div>
+        <div class="detailrow"><span class="k">Nagad number</span><span class="v big">01779176848</span><button type="button" class="copybtn" data-copy="01779176848">Copy</button></div>
+        <div class="detailrow"><span class="k">Type</span><span class="v">Send Money</span></div>
+        <div class="detailrow"><span class="k">Amount</span><span class="v big" data-amount>৳5,000</span></div>
+        <ol class="instructions">
+          <li>Open Nagad, choose <b>Send Money</b>, enter the number above.</li>
+          <li>Send the <b>exact amount</b>.</li>
+          <li>In the reference field, write <b data-ref>S1-0000</b>.</li>
+          <li>Note your <b>Transaction ID</b>. You will enter it next.</li>
+        </ol>
+      </div>
+
+      <div class="paydetail hide" id="pd-bank" role="tabpanel">
+        <div class="warn-box">⚠️ <b>Use "Fund Transfer" (BEFTN / NPSB / RTGS).</b> Do <span class="no">NOT</span> use bill pay or any merchant payment option. Transfer directly to the account below.</div>
+        <div class="detailrow"><span class="k">Account name</span><span class="v">KHALID BIN HELALY</span></div>
+        <div class="detailrow"><span class="k">Account no.</span><span class="v big">1057630680001</span><button type="button" class="copybtn" data-copy="1057630680001">Copy</button></div>
+        <div class="detailrow"><span class="k">Bank</span><span class="v">BRAC Bank PLC</span></div>
+        <div class="detailrow"><span class="k">Branch</span><span class="v">Banani Branch</span></div>
+        <div class="detailrow"><span class="k">Routing no.</span><span class="v big">060260435</span><button type="button" class="copybtn" data-copy="060260435">Copy</button></div>
+        <div class="detailrow"><span class="k">Amount</span><span class="v big" data-amount>৳5,000</span></div>
+        <ol class="instructions">
+          <li>Transfer the <b>exact amount</b> from your bank app or branch.</li>
+          <li>In the reference or note field, write <b data-ref>S1-0000</b>.</li>
+          <li>Come back here and tap <b>I have paid</b>.</li>
+        </ol>
+      </div>
+
+      <button type="button" class="btn" id="paidBtn" style="margin-top:22px;">I have paid &rarr;</button>
+      <button type="button" class="btn ghost" id="backBtn" style="margin-top:10px;">&larr; Back</button>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 3: CONFIRM -->
+<section id="sec3" class="hide">
+  <div class="wrap">
+    <div class="card">
+      <h2>Confirm your payment</h2>
+      <p style="color:var(--ink-soft); font-size:14.5px; margin:8px 0 18px;">Enter your transaction details so we can verify quickly.</p>
+      <form id="confirmForm" novalidate>
+        <div class="field" id="f-txn">
+          <label for="txn">Transaction ID / TrxID</label>
+          <input id="txn" type="text" autocomplete="off" placeholder="e.g. 9F7A2B3C10" required />
+          <span class="err">Enter the transaction ID from your payment confirmation.</span>
+        </div>
+        <div class="grid2">
+          <div class="field">
+            <label for="method2">Paid via</label>
+            <select id="method2">
+              <option value="bkash">bKash</option>
+              <option value="nagad">Nagad</option>
+              <option value="bank">Bank transfer</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="sendnum">Paid from <span>(optional)</span></label>
+            <input id="sendnum" type="text" inputmode="tel" placeholder="01XXXXXXXXX" />
+          </div>
+        </div>
+        <div class="callout">We match every payment by hand against reference <b data-ref>S1-0000</b> and the amount. Your access link arrives on WhatsApp once verified, usually within a few hours.</div>
+        <button type="submit" class="btn">Submit payment &rarr;</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- DONE -->
+<section id="secDone" class="hide">
+  <div class="wrap">
+    <div class="card">
+      <div class="done-panel">
+        <div class="tick">&check;</div>
+        <h1>Payment submitted.</h1>
+        <p id="doneMsg">We are verifying your payment now. Your Season 1 access link will arrive on WhatsApp from Team Khalid.</p>
+        <div class="done-recap" id="doneRecap"></div>
+        <a class="btn wa" id="waFinal" href="#" target="_blank" rel="noopener noreferrer">Send the receipt on WhatsApp &rarr;</a>
+        <p style="font-size:12.5px; color:var(--muted); margin-top:16px;">A screenshot of your payment speeds up verification.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>ONE MAN AI OS MASTERCLASS · SEASON 1 RECORDINGS · TOPZID</p>
+    <p>Payments are matched manually. Keep your reference code and transaction ID.</p>
+    <p style="margin-top:10px;"><a href="/masterclass/season1">Season 1</a>·<a href="/privacy-policy">Privacy Policy</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  var S1 = window.S1;
+  var SUPABASE_URL = "https://yuxdvspnxwltqchqluso.supabase.co";
+  var SUPABASE_KEY = "sb_publishable_7vjFoH1Fio_PlwjSbWnfQw_8ng889Od";
+
+  /* Amount is fixed at page load so a customer mid-checkout at the deadline
+     is not re-priced under them. */
+  var state = {
+    amount: S1.price(), method: "bkash",
+    ref: "", name: "", whatsapp: "", email: "", txn: "", sendnum: ""
+  };
+
+  function $(id){ return document.getElementById(id); }
+  function all(sel, fn){ document.querySelectorAll(sel).forEach(fn); }
+  function setErr(id, bad){ $(id).classList.toggle("bad", bad); }
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+  function track(event, extra){
+    var o = { event: event, s1_amount: state.amount };
+    for(var k in extra){ o[k] = extra[k]; }
+    (window.dataLayer = window.dataLayer || []).push(o);
+  }
+
+  /* prices */
+  all("[data-amount]", function(el){ el.textContent = S1.taka(state.amount); });
+  if(S1.isLaunch()){ $("wasPrice").textContent = S1.taka(S1.priceAfter); }
+  else { $("wasPrice").remove(); }
+
+  /* ref code: S1-XXXX, no ambiguous characters */
+  function makeRef(){
+    var chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789", s = "";
+    var rnd = new Uint32Array(4);
+    (window.crypto || window.msCrypto).getRandomValues(rnd);
+    for(var i = 0; i < 4; i++){ s += chars[rnd[i] % chars.length]; }
+    return S1.refPrefix + "-" + s;
+  }
+
+  function goStep(n){
+    ["sec1","sec2","sec3","secDone"].forEach(function(s, i){ $(s).classList.toggle("hide", i !== n - 1); });
+    ["st1","st2","st3"].forEach(function(s, i){
+      var el = $(s);
+      el.classList.toggle("done", i < n - 1);
+      el.classList.toggle("on", i === n - 1);
+    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  /* Supabase: upsert on ref_code so pending -> submitted updates in place */
+  function logPayment(status){
+    return fetch(SUPABASE_URL + "/rest/v1/payments?on_conflict=ref_code", {
+      method: "POST",
+      headers: {
+        "apikey": SUPABASE_KEY,
+        "Authorization": "Bearer " + SUPABASE_KEY,
+        "Content-Type": "application/json",
+        "Prefer": "resolution=merge-duplicates,return=minimal"
+      },
+      body: JSON.stringify({
+        ref_code: state.ref,
+        name: state.name,
+        whatsapp: state.whatsapp,
+        email: state.email,
+        tier: S1.tier,
+        amount: state.amount,
+        method: state.method || null,
+        txn_id: state.txn || null,
+        sender_number: state.sendnum || null,
+        status: status
+      })
+    }).then(function(r){
+      if(!r.ok){ return r.text().then(function(t){ throw new Error(t); }); }
+    });
+  }
+
+  /* step 1 */
+  $("detailForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    var name = $("name").value.trim();
+    var wa = $("whatsapp").value.trim();
+    var email = $("email").value.trim();
+    var waOk = wa.replace(/\D/g, "").length >= 11;
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+
+    setErr("f-name", !name);
+    setErr("f-whatsapp", !waOk);
+    setErr("f-email", !emailOk);
+    if(!name || !waOk || !emailOk){
+      var first = document.querySelector(".field.bad input");
+      if(first) first.focus();
+      return;
+    }
+
+    state.name = name; state.whatsapp = wa; state.email = email;
+    state.ref = makeRef();
+    all("[data-ref]", function(el){ el.textContent = state.ref; });
+
+    var btn = this.querySelector('button[type="submit"]');
+    btn.disabled = true; btn.textContent = "Loading…";
+
+    /* Lead capture is non-blocking: a DB hiccup must never stop a payment. */
+    logPayment("pending").catch(function(){}).then(function(){
+      track("s1_reference_created");
+      btn.disabled = false; btn.textContent = "Get my reference code →";
+      goStep(2);
+    });
+  });
+
+  /* method tabs */
+  all(".method", function(el){
+    el.addEventListener("click", function(){
+      var m = el.getAttribute("data-method");
+      state.method = m;
+      all(".method", function(x){ x.setAttribute("aria-selected", String(x === el)); });
+      ["bkash","nagad","bank"].forEach(function(x){ $("pd-" + x).classList.toggle("hide", x !== m); });
+    });
+  });
+
+  /* copy buttons */
+  all(".copybtn", function(b){
+    b.addEventListener("click", function(){
+      if(!navigator.clipboard) return;
+      navigator.clipboard.writeText(b.getAttribute("data-copy")).then(function(){
+        var old = b.textContent;
+        b.textContent = "Copied"; b.classList.add("done");
+        setTimeout(function(){ b.textContent = old; b.classList.remove("done"); }, 1400);
+      });
+    });
+  });
+
+  $("backBtn").addEventListener("click", function(){ goStep(1); });
+  $("paidBtn").addEventListener("click", function(){
+    $("method2").value = state.method;
+    goStep(3);
+  });
+
+  /* step 3 */
+  $("confirmForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    var txn = $("txn").value.trim();
+    setErr("f-txn", txn.length < 4);
+    if(txn.length < 4){ $("txn").focus(); return; }
+
+    state.txn = txn;
+    state.method = $("method2").value;
+    state.sendnum = $("sendnum").value.trim();
+
+    var btn = this.querySelector('button[type="submit"]');
+    btn.disabled = true; btn.textContent = "Submitting…";
+
+    /* If the database write fails the customer has still paid, so we never
+       dead-end them: show the done screen and route the record through
+       WhatsApp instead. */
+    logPayment("submitted").then(function(){ finish(true); }, function(){ finish(false); });
+  });
+
+  function finish(saved){
+    var rows = [
+      ["Name", state.name],
+      ["Email", state.email],
+      ["Amount", S1.taka(state.amount)],
+      ["Reference", state.ref],
+      ["Txn ID", state.txn]
+    ];
+    $("doneRecap").innerHTML = rows.map(function(r){
+      return '<div class="rr"><span>' + r[0] + '</span><b>' + esc(r[1]) + '</b></div>';
+    }).join("");
+
+    if(!saved){
+      $("doneMsg").textContent = "We could not save your submission automatically. Please tap the button below to send your payment details on WhatsApp. That is all we need to verify you.";
+    }
+
+    var msg = [
+      "Payment done for " + S1.product + ".",
+      "Name: " + state.name,
+      "Email: " + state.email,
+      "Amount: " + S1.taka(state.amount),
+      "Reference: " + state.ref,
+      "Via: " + state.method,
+      "TxnID: " + state.txn,
+      "(screenshot attached)"
+    ].join("\n");
+    $("waFinal").href = "https://wa.me/" + S1.whatsapp + "?text=" + encodeURIComponent(msg);
+
+    track("s1_payment_submitted", { s1_saved: saved, s1_method: state.method });
+    goStep(4);
+  }
+})();
+</script>
+</body>
+</html>

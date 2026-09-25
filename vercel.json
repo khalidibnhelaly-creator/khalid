@@ -1,6 +1,8 @@
 {
   "rewrites": [
     { "source": "/masterclass",         "destination": "/masterclass/index.html" },
+    { "source": "/masterclass/season1",     "destination": "/masterclass/season1/index.html" },
+    { "source": "/masterclass/season1/pay", "destination": "/masterclass/season1/pay/index.html" },
     { "source": "/student",             "destination": "/student/index.html" },
     { "source": "/masterclass-payment", "destination": "/masterclass-payment/index.html" },
     { "source": "/refund-policy",       "destination": "/refund-policy/index.html" },
