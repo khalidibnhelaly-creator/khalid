@@ -1,21 +1,21 @@
 "use client";
 
 import { useState } from "react";
+import { brand } from "@/lib/topzid";
 
 const TOPICS = ["AI commercial / film", "Corporate AI training", "Something else"] as const;
 type Topic = (typeof TOPICS)[number];
 
-type Status = "idle" | "loading" | "success" | "error";
-
 /**
- * Posts to /api/contact (contract unchanged: name, email, phone?, message).
- * The selected topic is prefixed to the message so leads arrive pre-sorted.
+ * No backend: the brief is handed straight to WhatsApp (primary) with an
+ * email fallback, so a submission can never fail silently on our side.
+ * WhatsApp opens synchronously inside the submit handler, which browsers
+ * treat as a user gesture and do not block.
  */
 export function ContactForm() {
   const [topic, setTopic] = useState<Topic>(TOPICS[0]);
-  const [form, setForm] = useState({ name: "", email: "", phone: "", company: "", message: "" });
-  const [status, setStatus] = useState<Status>("idle");
-  const [error, setError] = useState("");
+  const [form, setForm] = useState({ name: "", company: "", email: "", phone: "", message: "" });
+  const [sent, setSent] = useState<{ wa: string; mail: string } | null>(null);
 
   const bind = (k: keyof typeof form) => ({
     value: form[k],
@@ -23,45 +23,52 @@ export function ContactForm() {
       setForm((f) => ({ ...f, [k]: e.target.value })),
   });
 
-  async function submit(e: React.FormEvent) {
-    e.preventDefault();
-    setStatus("loading");
-    setError("");
-
-    const message = [
-      `[${topic}]`,
+  function buildLinks() {
+    const header = [
+      "New brief from topzid.com",
+      `Service: ${topic}`,
+      `Name: ${form.name}`,
       form.company ? `Company: ${form.company}` : null,
-      "",
-      form.message,
-    ]
-      .filter((l) => l !== null)
-      .join("\n");
+      `Email: ${form.email}`,
+      form.phone ? `WhatsApp: ${form.phone}` : null,
+    ].filter(Boolean);
+    const body = `${header.join("\n")}\n\n${form.message}`;
 
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: form.name, email: form.email, phone: form.phone, message }),
-      });
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok) {
-        setError(data.error ?? "Something went wrong. Please try WhatsApp instead.");
-        setStatus("error");
-        return;
-      }
-      (window as unknown as { dataLayer?: object[] }).dataLayer?.push({ event: "tz_lead", topic });
-      setStatus("success");
-    } catch {
-      setError("Network error. Please try again or message us on WhatsApp.");
-      setStatus("error");
-    }
+    const subject = `Brief: ${topic}${form.company ? ` · ${form.company}` : ""}`;
+    return {
+      wa: `https://wa.me/${brand.whatsapp}?text=${encodeURIComponent(body)}`,
+      mail: `mailto:${brand.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
+    };
   }
 
-  if (status === "success") {
+  function submit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const via = ((e.nativeEvent as SubmitEvent).submitter as HTMLButtonElement | null)?.value === "email" ? "email" : "whatsapp";
+    const links = buildLinks();
+    if (via === "email") window.location.href = links.mail;
+    else window.open(links.wa, "_blank", "noopener,noreferrer");
+    (window as unknown as { dataLayer?: object[] }).dataLayer?.push({ event: "tz_lead", topic, channel: via });
+    setSent(links);
+  }
+
+  if (sent) {
     return (
       <div className="form-done" role="status">
-        <h3>Brief received.</h3>
-        <p>Thank you. We reply to every brief within 48 hours, Dhaka time. If it is urgent, WhatsApp is fastest.</p>
+        <h3>One tap left.</h3>
+        <p>
+          Your brief is ready in WhatsApp or your email app. Just press <b>send</b> and it reaches Khalid directly.
+        </p>
+        <div className="done-actions">
+          <a className="btn btn-solid" href={sent.wa} target="_blank" rel="noopener noreferrer">
+            Open WhatsApp again →
+          </a>
+          <a className="btn btn-ghost" href={sent.mail}>
+            Send by email instead
+          </a>
+        </div>
+        <button type="button" className="link done-edit" onClick={() => setSent(null)}>
+          Edit brief
+        </button>
       </div>
     );
   }
@@ -86,7 +93,9 @@ export function ContactForm() {
           <input id="tz-name" autoComplete="name" required {...bind("name")} />
         </div>
         <div className="field">
-          <label htmlFor="tz-company">Company <span>(optional)</span></label>
+          <label htmlFor="tz-company">
+            Company <span>(optional)</span>
+          </label>
           <input id="tz-company" autoComplete="organization" {...bind("company")} />
         </div>
       </div>
@@ -97,7 +106,9 @@ export function ContactForm() {
           <input id="tz-email" type="email" autoComplete="email" required {...bind("email")} />
         </div>
         <div className="field">
-          <label htmlFor="tz-phone">WhatsApp <span>(optional)</span></label>
+          <label htmlFor="tz-phone">
+            WhatsApp <span>(optional)</span>
+          </label>
           <input id="tz-phone" type="tel" autoComplete="tel" {...bind("phone")} />
         </div>
       </div>
@@ -113,11 +124,15 @@ export function ContactForm() {
         />
       </div>
 
-      <div aria-live="polite">{status === "error" && <p className="form-error">{error}</p>}</div>
-
-      <button type="submit" className="btn btn-solid" disabled={status === "loading"}>
-        {status === "loading" ? "Sending…" : "Send brief →"}
+      <button type="submit" name="via" value="whatsapp" className="btn btn-solid">
+        Send brief on WhatsApp →
       </button>
+      <p className="form-alt">
+        Prefer email?{" "}
+        <button type="submit" name="via" value="email" className="link">
+          Send it to {brand.email}
+        </button>
+      </p>
     </form>
   );
 }

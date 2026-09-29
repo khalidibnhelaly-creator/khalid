@@ -253,7 +253,7 @@ function ProgramCard({ p, feature = false }: { p: (typeof programs)[number]; fea
       )}
       <div className="body">
         <span className="k">{p.kicker}</span>
-        <h3 lang={p.id === "workshop" ? "bn" : undefined}>{title}</h3>
+        <h3>{title}</h3>
         <p>{p.text}</p>
         <div className="foot">
           {p.status.kind === "until" ? (

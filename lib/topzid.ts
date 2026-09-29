@@ -91,7 +91,6 @@ export const services: Service[] = [
     ],
     bestFor: "Companies that want AI capability inside the team, not just a vendor.",
     cta: { label: "Book a training", href: "#contact" },
-    secondary: { label: "See the public workshop", href: "/ai" },
   },
 ];
 
@@ -157,16 +156,6 @@ export const programs: Program[] = [
     href: "/masterclass",
     cta: "See the program",
     status: { kind: "static", label: "Season 1 sold out" },
-  },
-  {
-    id: "workshop",
-    short: "AI Workshop (Bangla)",
-    kicker: "Workshop · Bangla",
-    title: "AI দিয়ে নিজেকে সুপারচার্জ করুন",
-    text: "The hands-on AI workshop for professionals and teams, taught in Bangla. Also available as a private session for your company.",
-    href: "/ai",
-    cta: "See the workshop",
-    status: { kind: "static", label: "Public and in-house" },
   },
 ];
 
