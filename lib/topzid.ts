@@ -8,7 +8,7 @@ export const brand = {
   name: "TOPZID",
   tagline: "AI production studio",
   location: "Dhaka, Bangladesh",
-  email: "khalidibnhelaly@gmail.com",
+  email: "khalid@topzid.com",
   whatsapp: "8801681096975",
   whatsappDisplay: "+880 1681 096975",
   url: "https://www.topzid.com",
