@@ -11,6 +11,8 @@ const nextConfig: NextConfig = {
       { source: "/masterclass", destination: "/masterclass.html" },
       { source: "/masterclass/season1", destination: "/masterclass/season1/index.html" },
       { source: "/masterclass/season1/pay", destination: "/masterclass/season1/pay/index.html" },
+      { source: "/aurafarming", destination: "/aurafarming/index.html" },
+      { source: "/aurafarming/pay", destination: "/aurafarming/pay/index.html" },
     ];
   },
 };
