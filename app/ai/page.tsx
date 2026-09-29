@@ -546,12 +546,23 @@ export default function AIWorkshop() {
               </a>
             </li>
             <li>
-              <a
-                href="https://youtube.com/@khalidbinhelaly"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://www.instagram.com/thekhalidway" target="_blank" rel="noopener noreferrer">
+                Instagram
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/@thekhalidway" target="_blank" rel="noopener noreferrer">
                 YouTube
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tiktok.com/@thekhalidway" target="_blank" rel="noopener noreferrer">
+                TikTok
+              </a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/thekhalidway" target="_blank" rel="noopener noreferrer">
+                Facebook
               </a>
             </li>
           </ul>

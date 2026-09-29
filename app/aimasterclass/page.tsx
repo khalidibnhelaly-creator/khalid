@@ -416,8 +416,10 @@ export default function AIMasterclass() {
           <div className="links">
             <Link href="/">Main site</Link>
             <a href="https://www.linkedin.com/in/khalid-bin-helaly/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="https://youtube.com/@khalidbinhelaly" target="_blank" rel="noopener noreferrer">YouTube</a>
-            <a href="https://www.facebook.com/khalidibnhelaly" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://www.instagram.com/thekhalidway" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.youtube.com/@thekhalidway" target="_blank" rel="noopener noreferrer">YouTube</a>
+            <a href="https://www.tiktok.com/@thekhalidway" target="_blank" rel="noopener noreferrer">TikTok</a>
+            <a href="https://www.facebook.com/thekhalidway" target="_blank" rel="noopener noreferrer">Facebook</a>
           </div>
           <a className="venture" href="https://topzid.com" target="_blank" rel="noopener noreferrer">
             <Image src="/Topzidlogo.png" alt="TOPZID" width={22} height={22} /> A TOPZID Venture
