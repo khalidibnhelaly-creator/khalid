@@ -14,7 +14,7 @@ export const brand = {
   url: "https://www.topzid.com",
 } as const;
 
-/** Same handle everywhere except LinkedIn. */
+/** One handle on every platform. */
 export const HANDLE = "thekhalidway";
 
 export const socials = [
@@ -22,7 +22,7 @@ export const socials = [
   { key: "YouTube", href: `https://www.youtube.com/@${HANDLE}` },
   { key: "TikTok", href: `https://www.tiktok.com/@${HANDLE}` },
   { key: "Facebook", href: `https://www.facebook.com/${HANDLE}` },
-  { key: "LinkedIn", href: "https://www.linkedin.com/in/khalid-bin-helaly/" },
+  { key: "LinkedIn", href: `https://www.linkedin.com/in/${HANDLE}` },
 ] as const;
 
 export const proof = [

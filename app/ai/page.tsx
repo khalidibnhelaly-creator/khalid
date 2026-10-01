@@ -538,7 +538,7 @@ export default function AIWorkshop() {
             </li>
             <li>
               <a
-                href="https://www.linkedin.com/in/khalid-bin-helaly/"
+                href="https://www.linkedin.com/in/thekhalidway/"
                 target="_blank"
                 rel="noopener noreferrer"
               >

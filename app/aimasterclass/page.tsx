@@ -415,7 +415,7 @@ export default function AIMasterclass() {
           <div className="l">&copy; 2026 Khalid Bin Helaly. Dhaka, Bangladesh.</div>
           <div className="links">
             <Link href="/">Main site</Link>
-            <a href="https://www.linkedin.com/in/khalid-bin-helaly/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/thekhalidway/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="https://www.instagram.com/thekhalidway" target="_blank" rel="noopener noreferrer">Instagram</a>
             <a href="https://www.youtube.com/@thekhalidway" target="_blank" rel="noopener noreferrer">YouTube</a>
             <a href="https://www.tiktok.com/@thekhalidway" target="_blank" rel="noopener noreferrer">TikTok</a>

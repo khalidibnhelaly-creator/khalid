@@ -284,6 +284,24 @@ footer{padding:34px 0 44px;text-align:center;}
 footer p{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.03em;margin:4px 0;}
 footer a{color:var(--muted);margin:0 8px;}
 footer a:hover{color:var(--gold);}
+
+/* student video testimonials: 16:9 + 9:16 side by side at equal height
+   (3.16 = (16/9) / (9/16)) */
+.tgrid{display:grid;grid-template-columns:3.16fr 1fr;gap:16px;align-items:start;}
+@media(max-width:760px){.tgrid{grid-template-columns:1fr;}.tcard.vert{max-width:320px;width:100%;margin:0 auto;}}
+.tcard{margin:0;background:#000;border-radius:6px;overflow:hidden;border:1px solid var(--line-2);box-shadow:0 10px 30px rgba(29,24,18,.12);}
+.tcard .frame{position:relative;aspect-ratio:16/9;}
+.tcard.vert .frame{aspect-ratio:9/16;}
+.tcard button{position:absolute;inset:0;width:100%;border:0;padding:0;cursor:pointer;background:#000;}
+.tcard img{width:100%;height:100%;object-fit:cover;opacity:.88;transition:opacity .25s;}
+.tcard button:hover img{opacity:1;}
+.tcard .tplay{position:absolute;inset:0;display:grid;place-items:center;}
+.tcard .tplay span{width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.55);backdrop-filter:blur(6px);display:grid;place-items:center;transition:background .2s;}
+.tcard button:hover .tplay span{background:rgba(201,133,46,.9);}
+.tcard .tplay svg{width:20px;height:20px;margin-left:3px;}
+.tcard iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.tcard figcaption{background:var(--paper);padding:12px 14px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
+.tcard figcaption b{color:var(--ink);font-weight:600;}
 </style>
 </head>
 <body>
@@ -440,6 +458,37 @@ footer a:hover{color:var(--gold);}
   </div>
 </section>
 
+<!-- STUDENT TESTIMONIALS -->
+<section class="pad" id="students">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">From the masterclass</span>
+      <h2>Students who learned it from me.</h2>
+      <p>Season 1 students of the One Man AI OS Masterclass, in their own words, on camera.</p>
+    </div>
+    <div class="tgrid">
+      <figure class="tcard">
+        <div class="frame">
+          <button type="button" data-yt="pPoyOadGE4U" aria-label="Play student testimonial">
+            <img src="https://i.ytimg.com/vi/pPoyOadGE4U/hqdefault.jpg" alt="" loading="lazy" />
+            <span class="tplay"><span><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></span>
+          </button>
+        </div>
+        <figcaption><b>Student testimonial</b> · Season 1</figcaption>
+      </figure>
+      <figure class="tcard vert">
+        <div class="frame">
+          <button type="button" data-yt="pPGlOl_repE" aria-label="Play student testimonial short">
+            <img src="https://i.ytimg.com/vi/pPGlOl_repE/hqdefault.jpg" alt="" loading="lazy" />
+            <span class="tplay"><span><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></span>
+          </button>
+        </div>
+        <figcaption><b>Student</b> · Season 1</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
 <!-- ================= REVIEWS ================= -->
 <section class="pad reviews" id="reviews">
   <div class="wrap">
@@ -563,7 +612,7 @@ footer a:hover{color:var(--gold);}
   <div class="wrap">
     <p>AURAFARMING · LIVE WEBINAR · TOPZID</p>
     <p style="margin-top:10px;"><a href="/">TOPZID</a>·<a href="/masterclass/season1">Season 1 Recordings</a>·<a href="/masterclass">Masterclass</a>·<a href="/privacy-policy">Privacy Policy</a></p>
-    <p style="margin-top:6px;"><a href="https://www.instagram.com/thekhalidway" target="_blank" rel="noopener noreferrer">Instagram</a>·<a href="https://www.youtube.com/@thekhalidway" target="_blank" rel="noopener noreferrer">YouTube</a>·<a href="https://www.tiktok.com/@thekhalidway" target="_blank" rel="noopener noreferrer">TikTok</a>·<a href="https://www.facebook.com/thekhalidway" target="_blank" rel="noopener noreferrer">Facebook</a>·<a href="https://wa.me/8801681096975" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
+    <p style="margin-top:6px;"><a href="https://www.instagram.com/thekhalidway" target="_blank" rel="noopener noreferrer">Instagram</a>·<a href="https://www.youtube.com/@thekhalidway" target="_blank" rel="noopener noreferrer">YouTube</a>·<a href="https://www.tiktok.com/@thekhalidway" target="_blank" rel="noopener noreferrer">TikTok</a>·<a href="https://www.facebook.com/thekhalidway" target="_blank" rel="noopener noreferrer">Facebook</a>·<a href="https://www.linkedin.com/in/thekhalidway" target="_blank" rel="noopener noreferrer">LinkedIn</a>·<a href="https://wa.me/8801681096975" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
   </div>
 </footer>
 
