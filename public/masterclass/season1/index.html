@@ -195,10 +195,17 @@ footer p{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacin
 footer a{color:var(--muted);margin:0 8px;}
 footer a:hover{color:var(--gold);}
 
-/* student video testimonials: 16:9 + 9:16 side by side at equal height
-   (3.16 = (16/9) / (9/16)) */
-.tgrid{display:grid;grid-template-columns:3.16fr 1fr;gap:16px;align-items:start;}
-@media(max-width:760px){.tgrid{grid-template-columns:1fr;}.tcard.vert{max-width:320px;width:100%;margin:0 auto;}}
+/* student video testimonials: two 16:9 stacked on the left, the 9:16 Short
+   spanning both rows on the right. 1.46fr:1fr keeps the Short's frame close
+   to 9:16 once captions and the gap are counted. */
+.tgrid{display:grid;grid-template-columns:1.46fr 1fr;gap:16px;align-items:stretch;}
+.tcard.vert{grid-column:2;grid-row:1 / span 2;display:flex;flex-direction:column;}
+.tcard.vert .frame{aspect-ratio:auto;flex:1;min-height:0;}
+@media(max-width:760px){
+  .tgrid{grid-template-columns:1fr;}
+  .tcard.vert{grid-column:auto;grid-row:auto;max-width:320px;width:100%;margin:0 auto;}
+  .tcard.vert .frame{aspect-ratio:9/16;flex:none;}
+}
 .tcard{margin:0;background:#000;border-radius:6px;overflow:hidden;border:1px solid var(--line-2);box-shadow:0 10px 30px rgba(29,24,18,.12);}
 .tcard .frame{position:relative;aspect-ratio:16/9;}
 .tcard.vert .frame{aspect-ratio:9/16;}
@@ -379,6 +386,15 @@ footer a:hover{color:var(--gold);}
         <div class="frame">
           <button type="button" data-yt="pPoyOadGE4U" aria-label="Play student testimonial">
             <img src="https://i.ytimg.com/vi/pPoyOadGE4U/hqdefault.jpg" alt="" loading="lazy" />
+            <span class="tplay"><span><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></span>
+          </button>
+        </div>
+        <figcaption><b>Student testimonial</b> · Season 1</figcaption>
+      </figure>
+      <figure class="tcard">
+        <div class="frame">
+          <button type="button" data-yt="PDi5xcZt8jE" aria-label="Play student testimonial">
+            <img src="https://i.ytimg.com/vi/PDi5xcZt8jE/hqdefault.jpg" alt="" loading="lazy" />
             <span class="tplay"><span><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></span>
           </button>
         </div>
