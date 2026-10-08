@@ -33,10 +33,12 @@ Update VOSU ad spend as it lands (USD), so cost per registration stays live:
 update webinar_private.settings set value = '350' where key = 'vosu_ad_spend_usd';
 ```
 
-Fill in `public/aurafarming/config.js` only once each item is confirmed in
-writing by VOSU. Empty values do not render:
-`partnerBadge`, `referralCode`, `whyLine`, `clips`, `grants`, `buyerBonus`,
-`localPayment`.
+All VOSU copy lives in `public/aurafarming/config.js` and is live with draft
+values from the brief: partner badge, why-line, grant counts (100 starter,
+20 larger, 3 featured), buyer bonus (shown on /masterclass/season1 only from
+9 PM Oct 23 to 9 PM Oct 25) and the bKash voucher answer. Change any value there
+and redeploy; clearing a value hides its block. Still empty: `referralCode`
+(add it and every VOSU link on the webinar pages carries it).
 
 ## 3. During the session
 

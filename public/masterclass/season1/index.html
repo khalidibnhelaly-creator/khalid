@@ -21,6 +21,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 <script src="/masterclass/season1/config.js"></script>
+<script src="/aurafarming/config.js"></script>
 <style>
 :root{
   --paper:#ffffff; --paper-2:#faf8f3; --paper-3:#f3ede0;
@@ -219,6 +220,12 @@ footer a:hover{color:var(--gold);}
 .tcard iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
 .tcard figcaption{background:var(--paper);padding:12px 14px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
 .tcard figcaption b{color:var(--ink);font-weight:600;}
+
+/* post-webinar VOSU buyer bonus (time-gated) */
+.vbonus{background:#0d0b08;color:#f4efe6;font-size:14.5px;}
+.vbonus .wrap{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;padding-top:11px;padding-bottom:11px;text-align:center;}
+.vbonus img{height:16px;width:auto;}
+.vbonus b{color:#e8b86a;font-weight:600;}
 </style>
 </head>
 <body>
@@ -232,6 +239,9 @@ footer a:hover{color:var(--gold);}
     <a class="nav-cta" href="/masterclass/season1/pay" data-cta="nav">Get Season 1 · <span data-price>৳5,000</span></a>
   </div>
 </nav>
+<div class="vbonus" id="vosuBonus" hidden>
+  <div class="wrap"><img src="/aurafarming/vosu-wordmark-sm.png" alt="VOSU" width="300" height="66" /><span id="vosuBonusText"></span><b id="vosuBonusLeft"></b></div>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -572,6 +582,19 @@ footer a:hover{color:var(--gold);}
       (window.dataLayer = window.dataLayer || []).push({ event:"s1_cta_click", cta:a.getAttribute("data-cta") });
     });
   });
+})();
+</script>
+<script>
+/* VOSU buyer bonus: visible only from webinar start until AF.vosu.buyerBonusUntil */
+(function(){
+  "use strict";
+  var AF = window.AF; if(!AF || !AF.vosu || !AF.vosu.buyerBonus || !AF.vosu.buyerBonusUntil) return;
+  var from = new Date(AF.startsAt).getTime(), until = new Date(AF.vosu.buyerBonusUntil).getTime(), now = Date.now();
+  if(now < from || now > until) return;
+  document.getElementById("vosuBonusText").textContent = AF.vosu.buyerBonus;
+  var h = Math.max(1, Math.round((until - now) / 36e5));
+  document.getElementById("vosuBonusLeft").textContent = h + (h === 1 ? " hour left" : " hours left");
+  document.getElementById("vosuBonus").hidden = false;
 })();
 </script>
 </body>

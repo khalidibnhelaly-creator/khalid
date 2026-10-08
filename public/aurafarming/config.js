@@ -38,35 +38,37 @@
     vosu: {
       url: "https://vosu.ai",
 
-      /* TO CONFIRM: partner title, only once VOSU approves it in writing.
-         Empty = no badge. */
-      partnerBadge: "",
+      /* Draft values from the VOSU brief. Adjust any of them here; empty
+         values hide their block. */
+      partnerBadge: "Official Bangladesh Partner",
 
-      /* TO CONFIRM: Khalid's VOSU referral code. When set, every VOSU link
-         carries it and it shows on the page and in confirmations. */
+      /* Khalid's VOSU referral code. When set, every VOSU link on the
+         webinar pages carries it and it shows next to the signup link. */
       referralCode: "",
       referralParam: "ref",
 
-      /* Khalid: one honest sentence with a specific reason from your own
-         work. Empty = line hidden. */
-      whyLine: "",
+      whyLine:
+        "The reasons are practical. VOSU credits never expire, so nothing I pay for is wasted between projects, and its workflows and AI agents are the best I have used for production work.",
 
-      /* Clips made on VOSU. Empty = section hidden.
-         { src: "/aurafarming/clips/x.mp4", poster: "/aurafarming/clips/x.jpg",
-           vertical: true, caption: "What it shows", took: "40 minutes" }
-         or { youtube: "VIDEO_ID", vertical: false, caption: "...", took: "..." } */
-      clips: [],
+      /* Credit grants. Counts drive the headline and the numbers row. */
+      grants: {
+        starter: 100,
+        large: 20,
+        featured: 3,
+        starterValue: "",
+        largeValue: "",
+        featuredValue: "Marketplace profile or a paid TOPZID brief",
+      },
 
-      /* TO CONFIRM: grant counts and credit values. null = not shown. */
-      grants: { starter: null, large: null, featured: null, starterValue: "", largeValue: "" },
+      /* Buyer bonus: shown on the webinar page and, during the 48 hours after
+         the session, on the Season 1 page. Empty = hidden everywhere. */
+      buyerBonus:
+        "Buy the One Man AI OS Masterclass within 48 hours of the webinar and you get a guaranteed VOSU credit grant.",
+      buyerBonusUntil: "2026-10-25T21:00:00+06:00",
 
-      /* TO CONFIRM: buyer bonus text, only once confirmed in writing.
-         Empty = section hidden. */
-      buyerBonus: "",
-
-      /* TO CONFIRM: local payment answer, only once approved in writing.
-         Empty = FAQ gives the neutral answer. */
-      localPayment: "",
+      /* FAQ answer for paying VOSU in Bangladesh. */
+      localPayment:
+        "Not directly yet. VOSU does not accept local payment today, and bKash support is in progress. Until then, you can buy VOSU credit vouchers in taka through bKash from us. Message us on WhatsApp.",
     },
   };
 
