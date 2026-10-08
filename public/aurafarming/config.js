@@ -44,7 +44,7 @@
 
       /* Khalid's VOSU referral code. When set, every VOSU link on the
          webinar pages carries it and it shows next to the signup link. */
-      referralCode: "",
+      referralCode: "thekhalidway",
       referralParam: "ref",
 
       whyLine:

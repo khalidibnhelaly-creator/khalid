@@ -37,8 +37,8 @@ All VOSU copy lives in `public/aurafarming/config.js` and is live with draft
 values from the brief: partner badge, why-line, grant counts (100 starter,
 20 larger, 3 featured), buyer bonus (shown on /masterclass/season1 only from
 9 PM Oct 23 to 9 PM Oct 25) and the bKash voucher answer. Change any value there
-and redeploy; clearing a value hides its block. Still empty: `referralCode`
-(add it and every VOSU link on the webinar pages carries it).
+and redeploy; clearing a value hides its block. Referral code is `thekhalidway`: it shows next to
+the VOSU signup link and is added to every VOSU link on the webinar pages.
 
 ## 3. During the session
 
