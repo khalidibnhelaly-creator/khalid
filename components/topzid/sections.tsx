@@ -16,7 +16,7 @@ export function LiveBar() {
         <a href="/aurafarming">
           <span className="rec">LIVE</span>
           <span>
-            Fri, Oct 23 · 9 PM: <b>Become an AI Influencer Today: Aurafarming!</b> · ৳1,000 · 500 seats
+            Fri, Oct 23 · 9 PM: <b>Become an AI Influencer Today: Aurafarming!</b> · Co-hosted with VOSU · ৳1,000
           </span>
           <span className="go">Reserve →</span>
         </a>

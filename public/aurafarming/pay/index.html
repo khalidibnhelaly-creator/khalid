@@ -66,6 +66,14 @@
   .field .err{ display:none; font-family:var(--mono); font-size:11px; color:var(--red); margin-top:6px; }
   .field.bad .err{ display:block; }
   .field .hint{ font-size:12.5px; color:var(--muted); margin-top:6px; }
+  .radios{ display:flex; gap:10px; flex-wrap:wrap; }
+  .radios label{ flex:1 1 160px; display:flex; align-items:center; gap:8px; padding:12px 14px; background:var(--paper-2); border:1px solid var(--line-2); border-radius:3px; font-size:15px; cursor:pointer; font-weight:500; }
+  .radios label:has(input:checked){ border-color:var(--gold); background:#f3e4c6; }
+  .radios input{ width:auto; padding:0; accent-color:var(--gold); }
+  .check{ display:flex !important; gap:10px; align-items:flex-start; font-weight:500 !important; font-size:14px !important; line-height:1.5; cursor:pointer; }
+  .check input{ width:auto !important; padding:0 !important; margin-top:3px; accent-color:var(--gold); flex-shrink:0; }
+  .field.bad select{ border-color:var(--red); }
+  #f-vosu.bad .err, #f-consent.bad .err{ display:block; }
   .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
   @media(max-width:480px){ .grid2{ grid-template-columns:1fr; } }
 
@@ -150,13 +158,13 @@
       <div class="order">
         <div>
           <div class="on">Aurafarming: Become an AI Influencer Today</div>
-          <div class="od">Live webinar · Fri, Oct 23 · 9:00 PM Dhaka</div>
+          <div class="od">Live webinar · Fri, Oct 23 · 9:00 PM Dhaka · Co-hosted with VOSU</div>
         </div>
-        <div class="op"><b data-amount>৳1,000</b><s>500 seats</s></div>
+        <div class="op"><b data-amount>৳1,000</b><s><span data-seats>2,000</span> seats</s></div>
       </div>
 
       <h2>Your details</h2>
-      <p style="color:var(--ink-soft); font-size:14.5px; margin:8px 0 20px;">We use these to match your payment and send your joining link.</p>
+      <p style="color:var(--ink-soft); font-size:14.5px; margin:8px 0 20px;">We use these to match your payment, send your joining link, and consider you for a VOSU Creator Grant.</p>
       <div id="s1Error" class="form-error hide" role="alert"></div>
       <form id="detailForm" novalidate>
         <div class="field" id="f-name">
@@ -174,6 +182,46 @@
           <input id="email" type="email" autocomplete="email" placeholder="you@example.com" required />
           <span class="err">Enter a valid email address.</span>
           <div class="hint">For your receipt and webinar reminders.</div>
+        </div>
+
+        <div class="field" id="f-role">
+          <label for="role">What best describes you?</label>
+          <select id="role" required>
+            <option value="" selected disabled>Choose one</option>
+            <option value="student">Student</option>
+            <option value="freelancer">Freelancer</option>
+            <option value="agency">Agency</option>
+            <option value="brand_marketer">Brand or in-house marketer</option>
+            <option value="business_owner">Business owner</option>
+            <option value="other">Other</option>
+          </select>
+          <span class="err">Please choose one.</span>
+        </div>
+        <div class="field" id="f-portfolio">
+          <label for="portfolio">Portfolio or social link</label>
+          <input id="portfolio" type="url" inputmode="url" placeholder="https://instagram.com/yourname" required />
+          <span class="err">Add a full link starting with https://</span>
+          <div class="hint">Required. Creator Grants are picked on real work.</div>
+        </div>
+        <div class="field" id="f-intent">
+          <label for="intent">What do you want to create with AI? <span>(one or two lines)</span></label>
+          <input id="intent" type="text" maxlength="600" placeholder="e.g. Product reels for my clothing brand" />
+        </div>
+        <fieldset class="field" id="f-vosu" style="border:0;padding:0;margin:0 0 16px;">
+          <legend style="font-weight:600;font-size:14px;margin-bottom:8px;">Do you already have a VOSU account?</legend>
+          <div class="radios">
+            <label><input type="radio" name="vosu" value="yes" /> Yes</label>
+            <label><input type="radio" name="vosu" value="will_create" /> No, I will create one</label>
+          </div>
+          <span class="err">Please choose one.</span>
+        </fieldset>
+        <div class="field" id="f-consent">
+          <label class="check"><input id="consent" type="checkbox" required /> I agree that my registration details can be shared with VOSU, the co-host of this event.</label>
+          <span class="err">Please agree to continue. VOSU co-hosts this event and runs the grants.</span>
+        </div>
+        <!-- honeypot: humans never see or fill this -->
+        <div aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">
+          <label for="website">Website</label><input id="website" type="text" tabindex="-1" autocomplete="off" />
         </div>
 
         <div class="callout">Next you get a <b>unique reference code</b>. Write it in the reference field when you pay so we can match it to you. Nothing is charged automatically.</div>
@@ -331,6 +379,7 @@
 
   /* prices */
   all("[data-amount]", function(el){ el.textContent = AF.taka(state.amount); });
+  all("[data-seats]", function(el){ el.textContent = AF.num(AF.seats); });
 
   /* Registration closed (sold out or already started): block new sign-ups.
      Checked at load only, so nobody mid-payment gets locked out. */
@@ -387,6 +436,34 @@
     });
   }
 
+  function normalizeUrl(v){
+    v = (v || "").trim();
+    if(v && !/^https?:\/\//i.test(v)) v = "https://" + v.replace(/^\/+/, "");
+    return v;
+  }
+
+  /* Lead + attribution row. Score and segment are computed by the database. */
+  function logRegistration(){
+    var a = AF.attribution();
+    var body = {
+      ref_code: state.ref, name: state.name, whatsapp: state.whatsapp, email: state.email,
+      role: state.reg.role, portfolio_url: state.reg.portfolio_url, intent: state.reg.intent,
+      vosu_account: state.reg.vosu_account, consent_vosu: true,
+      utm_source: a.utm_source, utm_medium: a.utm_medium, utm_campaign: a.utm_campaign,
+      utm_content: a.utm_content, utm_term: a.utm_term,
+      referrer: a.referrer, landing_path: a.landing_path, client_ts: new Date().toISOString()
+    };
+    return fetch(SUPABASE_URL + "/rest/v1/webinar_oct23_registrations", {
+      method: "POST",
+      headers: { "apikey": SUPABASE_KEY, "Authorization": "Bearer " + SUPABASE_KEY,
+                 "Content-Type": "application/json", "Prefer": "return=minimal" },
+      body: JSON.stringify(body)
+    }).then(function(r){
+      if(r.status === 409) return; /* same ref already stored */
+      if(!r.ok){ return r.text().then(function(t){ throw new Error(t); }); }
+    });
+  }
+
   /* step 1 */
   $("detailForm").addEventListener("submit", function(e){
     e.preventDefault();
@@ -395,26 +472,45 @@
     var email = $("email").value.trim();
     var waOk = wa.replace(/\D/g, "").length >= 11;
     var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+    var role = $("role").value;
+    var portfolio = normalizeUrl($("portfolio").value);
+    var portfolioOk = /^https?:\/\/[^\s\/]+\.[^\s]+$/i.test(portfolio) && portfolio.length <= 500;
+    var vosuEl = document.querySelector('input[name="vosu"]:checked');
+    var consent = $("consent").checked;
 
-    setErr("f-name", !name);
+    setErr("f-name", name.length < 2);
     setErr("f-whatsapp", !waOk);
     setErr("f-email", !emailOk);
-    if(!name || !waOk || !emailOk){
-      var first = document.querySelector(".field.bad input");
+    setErr("f-role", !role);
+    setErr("f-portfolio", !portfolioOk);
+    setErr("f-vosu", !vosuEl);
+    setErr("f-consent", !consent);
+    if(name.length < 2 || !waOk || !emailOk || !role || !portfolioOk || !vosuEl || !consent){
+      var first = document.querySelector(".field.bad input, .field.bad select");
       if(first) first.focus();
       return;
     }
+    if($("website").value) return; /* honeypot */
 
+    $("portfolio").value = portfolio;
     state.name = name; state.whatsapp = wa; state.email = email;
+    state.reg = {
+      role: role, portfolio_url: portfolio, intent: $("intent").value.trim().slice(0, 600),
+      vosu_account: vosuEl.value, consent_vosu: true
+    };
     state.ref = makeRef();
     all("[data-ref]", function(el){ el.textContent = state.ref; });
 
     var btn = this.querySelector('button[type="submit"]');
     btn.disabled = true; btn.textContent = "Loading…";
 
-    /* Lead capture is non-blocking: a DB hiccup must never stop a payment. */
-    logPayment("pending").catch(function(){}).then(function(){
-      track("af_reference_created");
+    /* Lead capture is non-blocking: a DB hiccup must never stop a payment.
+       Registration (lead + attribution) and payment rows share the ref code. */
+    Promise.all([
+      logRegistration().catch(function(){ return logRegistration(); }).catch(function(){ track("af_registration_error"); }),
+      logPayment("pending").catch(function(){})
+    ]).then(function(){
+      track("af_reference_created", { af_role: state.reg.role, af_source: (AF.attribution().utm_source || "direct") });
       btn.disabled = false; btn.textContent = "Get my reference code →";
       goStep(2);
     });

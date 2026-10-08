@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src="https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);})(window,document,"script","dataLayer","GTM-KR7RQ8Q9");</script>
+<!-- End Google Tag Manager -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Submit your challenge entry | Aurafarming x VOSU</title>
+<meta name="robots" content="noindex" />
+<meta name="theme-color" content="#f6f1e6" />
+<link rel="icon" href="/Topzidlogo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<script src="/aurafarming/config.js"></script>
+<style>
+  :root{ --paper:#f6f1e6; --paper-2:#ece3cf; --ink:#1d1812; --ink-soft:#4b4338; --muted:#8a7f6c; --line:#ddd0ad; --line-2:#cdbd92; --gold:#9c6418; --green:#2e6b3e; --red:#b3491f;
+    --serif:'Fraunces',Georgia,serif; --sans:'Public Sans',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans); font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+  a{ color:inherit; }
+  .wrap{ max-width:600px; margin:0 auto; padding:0 20px; }
+  header{ padding:36px 0 18px; }
+  .lockup{ display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:12px; letter-spacing:.08em; color:var(--ink-soft); text-decoration:none; margin-bottom:26px; }
+  .lockup img{ height:18px; width:auto; }
+  .eyebrow{ font-family:var(--mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); display:inline-flex; align-items:center; gap:9px; margin-bottom:14px; }
+  .eyebrow::before{ content:""; width:22px; height:1px; background:var(--gold); }
+  h1{ font-family:var(--serif); font-weight:600; font-size:clamp(28px,7vw,38px); line-height:1.1; margin:0 0 12px; }
+  h2{ font-family:var(--serif); font-weight:600; font-size:22px; margin:0 0 8px; }
+  .sub{ color:var(--ink-soft); margin:0; }
+  .card{ background:var(--paper); border:1px solid var(--line-2); border-radius:6px; padding:26px 24px; box-shadow:0 10px 26px rgba(29,24,18,.07); margin:18px 0; }
+  .field{ margin-bottom:16px; }
+  .field label{ display:block; font-weight:600; font-size:14px; margin-bottom:7px; }
+  .field label span{ color:var(--muted); font-weight:400; }
+  .field input,.field textarea{ width:100%; padding:13px 14px; font-family:var(--sans); font-size:16px; background:var(--paper-2); color:var(--ink); border:1px solid var(--line-2); border-radius:3px; outline:none; }
+  .field textarea{ min-height:90px; resize:vertical; }
+  .field input:focus,.field textarea:focus{ border-color:var(--gold); box-shadow:0 0 0 3px rgba(156,100,24,.14); }
+  .field.bad input{ border-color:var(--red); }
+  .field .err{ display:none; font-family:var(--mono); font-size:11px; color:var(--red); margin-top:6px; }
+  .field.bad .err{ display:block; }
+  .field .hint{ font-size:12.5px; color:var(--muted); margin-top:6px; }
+  .btn{ width:100%; font-family:var(--mono); font-size:13px; letter-spacing:.03em; padding:16px; border-radius:3px; cursor:pointer; border:0; background:var(--ink); color:var(--paper); display:flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; }
+  .btn:disabled{ opacity:.6; cursor:not-allowed; }
+  .btn.ghost{ background:transparent; color:var(--ink); border:1px solid var(--line-2); margin-top:10px; }
+  .status{ font-family:var(--mono); font-size:12px; padding:12px 14px; border-radius:3px; margin-bottom:16px; border:1px solid var(--line-2); background:var(--paper-2); color:var(--ink-soft); }
+  .status.closed{ border-color:#e4b3a3; background:#fff3f0; color:var(--red); }
+  .form-error{ background:#fff3f0; border:1px solid #f0c4ba; border-radius:3px; padding:12px 16px; font-family:var(--mono); font-size:12px; color:var(--red); margin-bottom:16px; }
+  .done{ text-align:center; }
+  .done .tick{ width:56px; height:56px; border:2px solid var(--green); color:var(--green); border-radius:50%; display:grid; place-items:center; margin:0 auto 16px; font-family:var(--serif); font-size:26px; }
+  .done p{ color:var(--ink-soft); }
+  .rules{ font-size:14.5px; color:var(--ink-soft); border-left:3px solid var(--gold); background:var(--paper-2); padding:14px 16px; border-radius:0 4px 4px 0; }
+  .rules b{ color:var(--ink); }
+  .hide{ display:none !important; }
+  footer{ border-top:1px solid var(--line); padding:24px 0 40px; text-align:center; margin-top:20px; }
+  footer p{ font-family:var(--mono); font-size:11px; color:var(--muted); margin:4px 0; }
+  footer a{ color:var(--muted); }
+  :focus-visible{ outline:2px solid var(--gold); outline-offset:2px; }
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KR7RQ8Q9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<header>
+  <div class="wrap">
+    <a class="lockup" href="/aurafarming">Khalid Bin Helaly <span aria-hidden="true">×</span> <img src="/aurafarming/vosu-wordmark-sm.png" alt="VOSU" width="300" height="66" /></a>
+    <span class="eyebrow">Creator Grants · Step 3</span>
+    <h1>Submit your challenge entry.</h1>
+    <p class="sub">For starter grant holders. Make the piece from the challenge brief, post it, and submit the link here before the window closes.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="card" id="formCard">
+    <div class="status" id="windowStatus">Opens after the session.</div>
+    <div id="formError" class="form-error hide" role="alert"></div>
+    <form id="chForm" novalidate>
+      <div class="field" id="f-email">
+        <label for="email">Email you registered with</label>
+        <input id="email" type="email" autocomplete="email" required />
+        <span class="err">Enter the email you used to reserve your seat.</span>
+      </div>
+      <div class="field" id="f-vosu">
+        <label for="vosu">VOSU account email</label>
+        <input id="vosu" type="email" autocomplete="off" required />
+        <span class="err">Enter the email of your VOSU account.</span>
+      </div>
+      <div class="field" id="f-url">
+        <label for="url">Link to your post</label>
+        <input id="url" type="url" inputmode="url" placeholder="https://" required />
+        <span class="err">Add a full link to the public post, starting with https://</span>
+        <div class="hint">Instagram, TikTok, YouTube, Facebook or LinkedIn. Make sure it is public.</div>
+      </div>
+      <div class="field">
+        <label for="note">Anything we should know? <span>(optional)</span></label>
+        <textarea id="note" maxlength="500"></textarea>
+      </div>
+      <button type="submit" class="btn">Submit entry &rarr;</button>
+    </form>
+  </div>
+
+  <div class="card done hide" id="doneCard" role="status">
+    <div class="tick">&check;</div>
+    <h2>Entry received.</h2>
+    <p>Winners are announced on <span data-winners>Wednesday, October 28</span>. You can submit up to 3 entries.</p>
+    <a class="btn ghost" href="/aurafarming/challenge">Submit another entry</a>
+  </div>
+
+  <div class="rules"><b>How entries are judged.</b> Top entries get a larger grant and a feature. Picked on the work itself, not on likes or follower count.</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>AURAFARMING · LIVE WEBINAR · TOPZID × VOSU</p>
+    <p>VOSU is a partner of this event.</p>
+    <p style="margin-top:8px;"><a href="/aurafarming">Webinar page</a> · <a href="/aurafarming#grants">How grants are picked</a> · <a href="/privacy-policy">Privacy</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var AF = window.AF || {};
+
+  var SUPABASE_URL = "https://yuxdvspnxwltqchqluso.supabase.co";
+  var SUPABASE_KEY = "sb_publishable_7vjFoH1Fio_PlwjSbWnfQw_8ng889Od";
+  var EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  function $(id){ return document.getElementById(id); }
+  function setErr(id, bad){ $(id).classList.toggle("bad", bad); }
+  function fmt(iso){ return new Date(iso).toLocaleString("en-GB", { timeZone:"Asia/Dhaka", weekday:"short", day:"numeric", month:"short", hour:"numeric", minute:"2-digit", hour12:true }) + " (Dhaka)"; }
+  function insert(table, body){
+    return fetch(SUPABASE_URL + "/rest/v1/" + table, {
+      method: "POST",
+      headers: { "apikey": SUPABASE_KEY, "Authorization": "Bearer " + SUPABASE_KEY, "Content-Type": "application/json", "Prefer": "return=minimal" },
+      body: JSON.stringify(body)
+    }).then(function(r){
+      if(r.ok) return;
+      return r.text().then(function(t){ var e = new Error(t); e.limit = /too many attempts|entry limit/.test(t); throw e; });
+    });
+  }
+  function showError(msg){ var e = $("formError"); e.textContent = msg; e.classList.remove("hide"); }
+  function track(ev, o){ var x = { event: ev }; for(var k in (o||{})) x[k] = o[k]; (window.dataLayer = window.dataLayer || []).push(x); }
+
+  document.querySelectorAll("[data-winners]").forEach(function(el){ if(AF.winnersOn) el.textContent = AF.winnersOn; });
+  var open = new Date(AF.challengeOpensAt).getTime(), close = new Date(AF.challengeClosesAt).getTime(), now = Date.now();
+  var st = $("windowStatus");
+  if(now < open){ st.textContent = "Opens " + fmt(AF.challengeOpensAt) + ". The brief is sent to starter grant holders."; }
+  else if(now > close){ st.textContent = "The challenge closed " + fmt(AF.challengeClosesAt) + "."; st.classList.add("closed"); }
+  else { st.textContent = "Open now. Closes " + fmt(AF.challengeClosesAt) + "."; }
+  var accepting = now >= open && now <= close;
+  if(!accepting){ $("chForm").querySelector("button").disabled = true; }
+
+  function normalizeUrl(v){ v = (v || "").trim(); if(v && !/^https?:\/\//i.test(v)) v = "https://" + v; return v; }
+
+  $("chForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    if(!accepting) return;
+    var email = $("email").value.trim(), vosu = $("vosu").value.trim(), url = normalizeUrl($("url").value);
+    var urlOk = /^https?:\/\/[^\s\/]+\.[^\s]+$/i.test(url) && url.length <= 500;
+    setErr("f-email", !EMAIL.test(email)); setErr("f-vosu", !EMAIL.test(vosu)); setErr("f-url", !urlOk);
+    if(!EMAIL.test(email) || !EMAIL.test(vosu) || !urlOk) return;
+    var btn = this.querySelector("button"); btn.disabled = true; btn.textContent = "Submitting…";
+    insert("webinar_oct23_challenge_entries", { email: email, vosu_email: vosu, post_url: url, note: $("note").value.trim().slice(0, 500) })
+      .then(function(){
+        track("af_challenge_submitted");
+        $("formCard").classList.add("hide"); $("doneCard").classList.remove("hide");
+      })
+      .catch(function(err){
+        showError(err.limit ? "You have reached the limit of 3 entries for this email." : "Something went wrong. Check your connection and try again.");
+        btn.disabled = false; btn.textContent = "Submit entry →";
+      });
+  });
+})();
+</script>
+</body>
+</html>

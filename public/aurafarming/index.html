@@ -7,13 +7,13 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Aurafarming: Become an AI Influencer Today | Live Webinar with Khalid Bin Helaly</title>
-<meta name="description" content="Live webinar, Friday Oct 23, 9 PM Dhaka. Build an AI persona with presence: the look, the cinematic content engine, and the posting system. ৳1,000. 500 seats." />
+<meta name="description" content="Live webinar, Friday Oct 23, 9 PM Dhaka. Build an AI persona with presence: the look, the cinematic content engine, and the posting system. Co-hosted with VOSU. ৳1,000, 2,000 seats." />
 <meta name="theme-color" content="#0d0b08" />
 <link rel="canonical" href="https://www.topzid.com/aurafarming" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.topzid.com/aurafarming" />
 <meta property="og:title" content="Become an AI Influencer Today: Aurafarming!" />
-<meta property="og:description" content="Live with Khalid Bin Helaly. Fri Oct 23, 9 PM Dhaka. ৳1,000, only 500 seats." />
+<meta property="og:description" content="Live with Khalid Bin Helaly, co-hosted with VOSU. Fri Oct 23, 9 PM Dhaka. ৳1,000, 2,000 seats." />
 <meta property="og:image" content="https://www.topzid.com/aurafarming/og.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -36,7 +36,8 @@
   "eventStatus":"https://schema.org/EventScheduled",
   "location":{"@type":"VirtualLocation","url":"https://www.topzid.com/aurafarming"},
   "image":["https://www.topzid.com/aurafarming/og.jpg"],
-  "description":"Live webinar on building an AI persona with presence, hosted by Khalid Bin Helaly.",
+  "description":"Live webinar on building an AI persona with presence, hosted by Khalid Bin Helaly and co-hosted with VOSU.",
+  "sponsor":{"@type":"Organization","name":"VOSU","url":"https://vosu.ai"},
   "organizer":{"@type":"Person","name":"Khalid Bin Helaly","url":"https://www.topzid.com"},
   "offers":{"@type":"Offer","price":"1000","priceCurrency":"BDT","url":"https://www.topzid.com/aurafarming/pay","availability":"https://schema.org/LimitedAvailability"}
 }
@@ -309,6 +310,48 @@ footer a:hover{color:var(--gold);}
 .tcard iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
 .tcard figcaption{background:var(--paper);padding:12px 14px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
 .tcard figcaption b{color:var(--ink);font-weight:600;}
+
+/* ---------- VOSU co-host ---------- */
+.lockup{display:flex;align-items:center;gap:12px;color:#fff;font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;}
+.lockup .x{opacity:.55;font-size:14px;}
+.lockup img.vosu{height:20px;width:auto;}
+@media(max-width:520px){.lockup .kbh{display:none;}}
+.cohost{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:15.5px;color:#d9d1c3;}
+.cohost img{height:18px;width:auto;}
+.partner-badge{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#1d1206;background:linear-gradient(180deg,#e8b86a,#c9852e);padding:6px 11px;border-radius:2px;}
+.vosu-sec .wm{height:34px;width:auto;margin-bottom:22px;}
+.vosu-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+@media(max-width:860px){.vosu-grid{grid-template-columns:1fr;gap:20px;}}
+.vosu-grid p{color:var(--ink-soft);margin:0 0 14px;}
+.vosu-grid p b{color:var(--ink);}
+.vosu-cta{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:8px;}
+.ref-chip{font-family:var(--mono);font-size:12px;background:var(--paper-2);border:1px dashed var(--gold);padding:7px 11px;border-radius:3px;}
+.ref-chip b{color:var(--gold);letter-spacing:.06em;}
+.link{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(156,100,24,.35);padding-bottom:2px;}
+/* clips */
+.clips{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;align-items:start;}
+.clip{margin:0;background:#000;border:1px solid var(--night-line,#2a241c);border-radius:5px;overflow:hidden;}
+.clip .cf{position:relative;aspect-ratio:16/9;background:#000;}
+.clip.vert .cf{aspect-ratio:9/16;}
+.clip video,.clip iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0;}
+.clip figcaption{padding:12px 14px;color:#f4efe6;font-size:14.5px;}
+.clip figcaption span{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-3);margin-top:4px;}
+/* grants */
+.steps3{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-2);border:1px solid var(--line-2);border-radius:6px;overflow:hidden;counter-reset:st;}
+@media(max-width:860px){.steps3{grid-template-columns:1fr;}}
+.steps3 li{background:var(--paper);padding:28px 24px;counter-increment:st;position:relative;}
+.steps3 li::before{content:counter(st,decimal-leading-zero);display:block;font-family:var(--serif);font-style:italic;font-weight:700;font-size:34px;color:var(--gold);line-height:1;margin-bottom:14px;}
+.steps3 h3{font-size:19px;margin-bottom:8px;}
+.steps3 p{margin:0;color:var(--ink-soft);font-size:15px;}
+.rules{margin-top:22px;border-left:3px solid var(--gold);background:var(--paper-2);padding:16px 18px;border-radius:0 4px 4px 0;font-size:15px;color:var(--ink-soft);}
+.rules b{color:var(--ink);}
+.grant-nums{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;}
+.grant-nums div{border:1px solid var(--line-2);background:var(--paper);border-radius:4px;padding:12px 16px;min-width:150px;}
+.grant-nums b{display:block;font-family:var(--serif);font-size:24px;line-height:1.1;}
+.grant-nums span{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
+.bonus-box{margin-top:22px;border:2px solid var(--gold);background:#fff8ec;border-radius:6px;padding:20px 22px;}
+.bonus-box b{color:var(--ink);}
+.disclose{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:14px;}
 </style>
 </head>
 <body>
@@ -320,7 +363,7 @@ footer a:hover{color:var(--gold);}
 <section class="hero" id="top">
   <nav aria-label="Primary">
     <div class="wrap">
-      <a class="brand" href="https://www.topzid.com/"><img src="/Topzidlogo.png" alt="" />TOPZID · LIVE</a>
+      <a class="lockup" href="https://www.topzid.com/" aria-label="Khalid Bin Helaly and VOSU"><span class="kbh">Khalid Bin Helaly</span><span class="x" aria-hidden="true">×</span><picture><source srcset="/aurafarming/vosu-wordmark-sm.webp" type="image/webp" /><img class="vosu" src="/aurafarming/vosu-wordmark-sm.png" alt="VOSU" width="300" height="66" /></picture></a>
       <a class="nav-cta" href="/aurafarming/pay" data-cta="nav" data-reg>Reserve seat · ৳1,000</a>
     </div>
   </nav>
@@ -333,12 +376,15 @@ footer a:hover{color:var(--gold);}
 
   <div class="wrap hero-inner">
     <div class="hero-copy">
-      <div class="live-chip"><span class="rec">Live</span><span class="sep">|</span>Fri, Oct 23<span class="sep">·</span>9:00 PM Dhaka</div>
+      <div class="live-chip"><span class="rec">Live</span><span class="sep">|</span>Fri, Oct 23<span class="sep">·</span>9:00 PM Dhaka<span class="sep">·</span>Online</div>
 
       <h1>
         <span class="title-kicker">Become an <mark>AI Influencer</mark> Today:</span>
         <span class="title-main">Aurafarming!</span>
       </h1>
+
+      <p class="cohost">Co-hosted with <img src="/aurafarming/vosu-wordmark-sm.png" alt="VOSU" width="300" height="66" />, the AI creative platform I now build with.</p>
+      <span class="partner-badge" id="partnerBadge" hidden></span>
 
       <p class="hero-sub">A live session with Khalid Bin Helaly on building an AI persona people cannot scroll past: <b>the look, the cinematic content engine behind it, and the posting system that turns attention into reach.</b></p>
 
@@ -346,7 +392,7 @@ footer a:hover{color:var(--gold);}
         <div class="hm"><span>Date</span><b>Fri, Oct 23</b></div>
         <div class="hm"><span>Time</span><b>9:00 PM</b></div>
         <div class="hm"><span>Price</span><b class="gold">৳1,000</b></div>
-        <div class="hm"><span>Seats</span><b>500 only</b></div>
+        <div class="hm"><span>Seats</span><b data-seats>2,000</b></div>
       </div>
 
       <div class="cta-row">
@@ -364,7 +410,7 @@ footer a:hover{color:var(--gold);}
         <span>until we go live</span>
       </div>
 
-      <div class="closed-banner" id="closedBanner" role="status">Registration is closed. <span id="closedWhy">All 500 seats are taken.</span></div>
+      <div class="closed-banner" id="closedBanner" role="status">Registration is closed. <span id="closedWhy">All seats are taken.</span></div>
     </div>
   </div>
 </section>
@@ -400,6 +446,58 @@ footer a:hover{color:var(--gold);}
       <div class="lcard"><span class="n">03</span><h3>Hooks that stop the scroll.</h3><p>The first three seconds, framed for each stage of audience awareness, so the right people keep watching.</p></div>
       <div class="lcard"><span class="n">04</span><h3>From aura to income.</h3><p>A posting rhythm you can keep, and where brand deals, clients and your own offers come from.</p></div>
     </div>
+  </div>
+</section>
+
+<!-- ================= WHY VOSU ================= -->
+<section class="pad vosu-sec" id="vosu">
+  <div class="wrap vosu-grid">
+    <div>
+      <span class="eyebrow">Co-host</span>
+      <picture><source srcset="/aurafarming/vosu-wordmark.webp" type="image/webp" /><img class="wm" src="/aurafarming/vosu-wordmark.png" alt="VOSU" width="720" height="158" loading="lazy" /></picture>
+      <h2>Why VOSU.</h2>
+    </div>
+    <div>
+      <p>VOSU is an AI creative platform. Its <b>Marketplace connects brands with generative-media creators</b>, so the work you make can turn into paid brand work.</p>
+      <p>I use whatever produces the best output. Right now, for my workflow, that is VOSU, so that is what I will build with live on October 23.</p>
+      <p id="whyLine" hidden></p>
+      <p>VOSU is co-hosting and supporting this session. I am saying that plainly because you should know it.</p>
+      <div class="vosu-cta">
+        <a class="link" id="vosuLink" href="https://vosu.ai" target="_blank" rel="noopener noreferrer sponsored">Create a VOSU account ↗</a>
+        <span class="ref-chip" id="refChip" hidden>Referral code <b id="refCode"></b></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CLIPS (renders only when config has clips) ================= -->
+<section class="pad dark" id="clips" hidden>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">What I will build live</span>
+      <h2>Made on VOSU.</h2>
+      <p>Real clips from my own work, with how long each one took.</p>
+    </div>
+    <div class="clips" id="clipGrid"></div>
+  </div>
+</section>
+
+<!-- ================= GRANTS ================= -->
+<section class="pad" id="grants" style="background:var(--paper-2);">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">VOSU Creator Grants</span>
+      <h2><span id="grantCount"></span>Creator Grants. Here is how they are picked.</h2>
+      <p>VOSU is funding credit grants for attendees. Every step is public, so you know exactly where you stand.</p>
+    </div>
+    <ol class="steps3">
+      <li><h3>Register with your real work.</h3><p>Your portfolio or social link is required when you reserve your seat. That is the work we look at.</p></li>
+      <li><h3>Attend live.</h3><p>I announce a code word during the session. Submit it with your VOSU account email within 2 hours at <a class="link" href="/aurafarming/code" style="text-transform:none;letter-spacing:0;">topzid.com/aurafarming/code</a>.</p></li>
+      <li><h3>Take the 72-hour challenge.</h3><p>Shortlisted attendees get a starter grant and a challenge brief. The top entries get a larger grant and a feature. Winners are announced on <span data-winners>Wednesday, October 28</span>.</p></li>
+    </ol>
+    <div class="grant-nums" id="grantNums" hidden></div>
+    <div class="rules"><b>Not random. Not first come, first served.</b> Grants are picked on your work, your live attendance and your challenge entry. Grant numbers and credit amounts are published here once final.</div>
+    <div class="bonus-box" id="buyerBonus" hidden></div>
   </div>
 </section>
 
@@ -564,7 +662,7 @@ footer a:hover{color:var(--gold);}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Reserve your seat</span>
-      <h2>One evening. 500 seats. ৳1,000.</h2>
+      <h2>One evening. 2,000 seats. ৳1,000.</h2>
     </div>
     <div class="offer-grid">
       <div class="details">
@@ -574,25 +672,27 @@ footer a:hover{color:var(--gold);}
         <div class="drow"><span>Format</span><b>Live online</b></div>
         <div class="drow"><span>Joining link</span><b>Sent on WhatsApp after payment is verified</b></div>
         <div class="drow"><span>Host</span><b>Khalid Bin Helaly</b></div>
+        <div class="drow"><span>Co-host</span><b>VOSU</b></div>
       </div>
 
       <div class="offer">
         <span class="eyebrow" style="margin-bottom:6px;">Live webinar</span>
         <div class="price">৳1,000</div>
-        <p class="pnote">Flat price · <b>Capped at 500 seats</b></p>
+        <p class="pnote">Flat price · <b>Capped at <span data-seats>2,000</span> seats</b></p>
         <div class="seatbar" aria-hidden="true"><i></i></div>
-        <p class="pnote" style="margin-bottom:18px;">When 500 are confirmed, registration closes.</p>
+        <p class="pnote" style="margin-bottom:18px;">When <span data-seats>2,000</span> are confirmed, registration closes.</p>
         <ul class="plus">
           <li><b>Live session with Khalid</b> on October 23</li>
           <li><b>The full aurafarming workflow</b>: persona, cinematic content, hooks, posting system</li>
           <li><b>Live Q&amp;A</b> at the end</li>
+          <li><b>Eligible for a VOSU Creator Grant</b>, <a class="link" href="#grants" style="text-transform:none;letter-spacing:0;">how grants are picked</a></li>
         </ul>
         <a class="btn btn-solid" href="/aurafarming/pay" data-cta="offer" data-reg>Reserve my seat · ৳1,000 &rarr;</a>
         <p class="fine">bKash · Nagad · Bank transfer</p>
       </div>
     </div>
 
-    <div class="s1-note"><b>Bought the Season 1 recordings?</b> This webinar is already included for you. Do not pay again. Your joining link comes on WhatsApp.</div>
+    <div class="s1-note"><b>Bought the Season 1 recordings?</b> This webinar is already included for you. Do not pay again. Your joining link comes on WhatsApp. To be considered for a Creator Grant, send your portfolio link to us on WhatsApp so it is on the list.</div>
   </div>
 </section>
 
@@ -607,7 +707,10 @@ footer a:hover{color:var(--gold);}
       <details><summary>Who is this for?</summary><p>Creators, marketers, freelancers and professionals who want to build a presence online with AI, without a camera crew or a studio. If you want your content to be remembered, not just seen, this is for you.</p></details>
       <details><summary>Do I need AI experience?</summary><p>No. I start from the idea of aura and build up to the full workflow. If you already use AI tools, you will see how to connect them into one system.</p></details>
       <details><summary>How do I join?</summary><p>Reserve your seat and pay by bKash, Nagad or bank transfer. Once we verify the payment, usually within a few hours, the joining link is sent to your WhatsApp.</p></details>
-      <details><summary>Why only 500 seats?</summary><p>So the Q&amp;A at the end is real. With a capped room I can actually answer questions instead of reading a scrolling chat.</p></details>
+            <details><summary>Why is VOSU part of this?</summary><p>VOSU is co-hosting and supporting this session. I use VOSU in my own work right now, so I will show it live as part of my real workflow. The session is mine and so is what I teach.</p></details>
+      <details><summary>Do I need a VOSU account?</summary><p>Not to join the webinar. To be considered for a Creator Grant, create one before the session and use that email when you submit the code word. <a class="link" data-vosu-link href="https://vosu.ai" target="_blank" rel="noopener noreferrer sponsored" style="text-transform:none;letter-spacing:0;">Create a VOSU account</a></p></details>
+      <details><summary>How are the grants picked?</summary><p>On your work, your live attendance and your challenge entry. Not random and not first come, first served. <a class="link" href="#grants" style="text-transform:none;letter-spacing:0;">See the three steps</a></p></details>
+      <details><summary>Can I pay for VOSU in Bangladesh?</summary><p id="localPayment">Not in taka yet. When a local option is ready, it will be posted here.</p></details>
       <details><summary>I bought the Season 1 recordings. Do I pay?</summary><p>No. The webinar is included with Season 1. Your link comes on WhatsApp with everyone else's.</p></details>
       <details><summary>Can I get a refund?</summary><p>Seats are non-refundable once your payment is confirmed. If the webinar is cancelled by us, everyone gets a full refund.</p></details>
     </div>
@@ -619,21 +722,22 @@ footer a:hover{color:var(--gold);}
   <div class="wrap">
     <span class="eyebrow">Friday, October 23 · 9:00 PM</span>
     <h2>Stop farming likes. Start farming <em>aura.</em></h2>
-    <p>500 seats. ৳1,000. One evening that changes how you show up online.</p>
+    <p><span data-seats>2,000</span> seats. ৳1,000. One evening that changes how you show up online.</p>
     <a class="btn btn-gold" href="/aurafarming/pay" data-cta="final" data-reg>Reserve my seat &rarr;</a>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <p>AURAFARMING · LIVE WEBINAR · TOPZID</p>
+    <p>AURAFARMING · LIVE WEBINAR · TOPZID × VOSU</p>
+    <p class="disclose" style="margin-top:6px;">VOSU is a partner of this event.</p>
     <p style="margin-top:10px;"><a href="/">TOPZID</a>·<a href="/masterclass/season1">Season 1 Recordings</a>·<a href="/masterclass">Masterclass</a>·<a href="/privacy-policy">Privacy Policy</a></p>
     <p style="margin-top:6px;"><a href="https://www.instagram.com/thekhalidway" target="_blank" rel="noopener noreferrer">Instagram</a>·<a href="https://www.youtube.com/@thekhalidway" target="_blank" rel="noopener noreferrer">YouTube</a>·<a href="https://www.tiktok.com/@thekhalidway" target="_blank" rel="noopener noreferrer">TikTok</a>·<a href="https://www.facebook.com/thekhalidway" target="_blank" rel="noopener noreferrer">Facebook</a>·<a href="https://www.linkedin.com/in/thekhalidway" target="_blank" rel="noopener noreferrer">LinkedIn</a>·<a href="https://wa.me/8801681096975" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
   </div>
 </footer>
 
 <div class="mbar">
-  <div class="p">৳1,000<small>FRI OCT 23 · 9 PM · 500 SEATS</small></div>
+  <div class="p">৳1,000<small>FRI OCT 23 · 9 PM · <span data-seats>2,000</span> SEATS</small></div>
   <a class="btn btn-gold" href="/aurafarming/pay" data-cta="mobile-bar" data-reg>Reserve &rarr;</a>
 </div>
 
@@ -642,6 +746,68 @@ footer a:hover{color:var(--gold);}
   "use strict";
   var AF = window.AF;
   if(!AF) return;
+  var V = AF.vosu || {};
+  function $(id){ return document.getElementById(id); }
+  function show(el, text){ if(!el) return; if(text !== undefined) el.textContent = text; el.hidden = false; }
+
+  /* ---- seats + dates from config ---- */
+  document.querySelectorAll("[data-seats]").forEach(function(el){ el.textContent = AF.num(AF.seats); });
+  document.querySelectorAll("[data-winners]").forEach(function(el){ el.textContent = AF.winnersOn; });
+
+  /* ---- VOSU blocks: each renders only once its value is confirmed in config.js ---- */
+  if(V.partnerBadge) show($("partnerBadge"), V.partnerBadge);
+  if(V.whyLine) show($("whyLine"), V.whyLine);
+  var vl = AF.vosuLink();
+  [$("vosuLink")].concat([].slice.call(document.querySelectorAll("[data-vosu-link]"))).forEach(function(a){ if(a) a.href = vl; });
+  if(V.referralCode){ $("refCode").textContent = V.referralCode; show($("refChip")); }
+  if(V.localPayment) $("localPayment").textContent = V.localPayment;
+  if(V.buyerBonus){ var bb = $("buyerBonus"); bb.textContent = ""; var b = document.createElement("b"); b.textContent = "Buyer bonus. "; bb.appendChild(b); bb.appendChild(document.createTextNode(V.buyerBonus)); show(bb); }
+
+  var g = V.grants || {};
+  if(g.starter){ $("grantCount").textContent = AF.num(g.starter) + " "; }
+  var nums = [];
+  if(g.starter) nums.push([AF.num(g.starter), "Starter grants" + (g.starterValue ? " · " + g.starterValue : "")]);
+  if(g.large) nums.push([AF.num(g.large), "Larger grants" + (g.largeValue ? " · " + g.largeValue : "")]);
+  if(g.featured) nums.push([AF.num(g.featured), "Featured creators"]);
+  if(nums.length){
+    var gn = $("grantNums");
+    nums.forEach(function(n){ var d = document.createElement("div"); var bb2 = document.createElement("b"); bb2.textContent = n[0]; var sp = document.createElement("span"); sp.textContent = n[1]; d.appendChild(bb2); d.appendChild(sp); gn.appendChild(d); });
+    show(gn);
+  }
+
+  /* ---- clips made on VOSU: muted autoplay only while on screen ---- */
+  if(Array.isArray(V.clips) && V.clips.length){
+    var grid = $("clipGrid");
+    var io = "IntersectionObserver" in window ? new IntersectionObserver(function(es){
+      es.forEach(function(e){ var v = e.target; if(e.isIntersecting){ var pr = v.play(); if(pr && pr.catch) pr.catch(function(){}); } else { v.pause(); } });
+    }, { threshold: 0.35 }) : null;
+    V.clips.forEach(function(c){
+      var fig = document.createElement("figure"); fig.className = "clip" + (c.vertical ? " vert" : "");
+      var f = document.createElement("div"); f.className = "cf";
+      if(c.src){
+        var v = document.createElement("video");
+        v.muted = true; v.loop = true; v.playsInline = true; v.setAttribute("playsinline",""); v.setAttribute("muted","");
+        v.preload = "metadata"; if(c.poster) v.poster = c.poster; v.src = c.src;
+        f.appendChild(v); if(io) io.observe(v); else v.autoplay = true;
+      } else if(c.youtube){
+        var ifr = document.createElement("iframe");
+        ifr.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(c.youtube) + "?autoplay=1&mute=1&loop=1&playlist=" + encodeURIComponent(c.youtube) + "&controls=0&rel=0&modestbranding=1&playsinline=1";
+        ifr.loading = "lazy"; ifr.title = c.caption || "Clip made on VOSU"; ifr.allow = "autoplay; encrypted-media; picture-in-picture";
+        f.appendChild(ifr);
+      }
+      var cap = document.createElement("figcaption");
+      cap.textContent = c.caption || "";
+      if(c.took){ var t = document.createElement("span"); t.textContent = "Made in " + c.took; cap.appendChild(t); }
+      fig.appendChild(f); fig.appendChild(cap); grid.appendChild(fig);
+    });
+    show($("clips"));
+  }
+
+  /* ---- carry attribution into checkout links (belt and braces; config.js also stores it) ---- */
+  var qs = window.location.search;
+  if(qs && /utm_/.test(qs)){
+    document.querySelectorAll('a[href="/aurafarming/pay"]').forEach(function(a){ a.href = "/aurafarming/pay" + qs; });
+  }
 
   /* ---- registration state (sold out / started) ---- */
   if(!AF.isOpen()){

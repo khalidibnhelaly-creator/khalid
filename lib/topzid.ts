@@ -131,7 +131,7 @@ export const programs: Program[] = [
     short: "Aurafarming webinar",
     kicker: "Live webinar · Fri, Oct 23 · 9 PM Dhaka",
     title: "Become an AI Influencer Today: Aurafarming!",
-    text: "Build an AI persona with presence: the look, the cinematic content engine, and the posting system. ৳1,000, 500 seats.",
+    text: "Build an AI persona with presence: the look, the cinematic content engine, and the posting system. Co-hosted with VOSU. ৳1,000, 2,000 seats.",
     href: "/aurafarming",
     cta: "Reserve a seat",
     image: "/aurafarming/hero-1200.jpg",

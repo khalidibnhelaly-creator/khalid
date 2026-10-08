@@ -13,6 +13,8 @@ const nextConfig: NextConfig = {
       { source: "/masterclass/season1/pay", destination: "/masterclass/season1/pay/index.html" },
       { source: "/aurafarming", destination: "/aurafarming/index.html" },
       { source: "/aurafarming/pay", destination: "/aurafarming/pay/index.html" },
+      { source: "/aurafarming/code", destination: "/aurafarming/code/index.html" },
+      { source: "/aurafarming/challenge", destination: "/aurafarming/challenge/index.html" },
       { source: "/student", destination: "/student/index.html" },
       { source: "/masterclass-payment", destination: "/masterclass-payment/index.html" },
       { source: "/refund-policy", destination: "/refund-policy/index.html" },
