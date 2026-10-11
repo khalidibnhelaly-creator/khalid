@@ -148,14 +148,14 @@ export const programs: Program[] = [
     status: { kind: "until", label: "৳5,000 launch price until Oct 20", after: "Available now", until: "2026-10-20T23:59:00+06:00" },
   },
   {
-    id: "masterclass",
-    short: "AI OS Masterclass",
-    kicker: "Live cohort · 8 weeks",
-    title: "One Man AI OS Masterclass",
-    text: "Eight weeks, live, building a full AI content system with direct feedback. Season 1 sold out with 41 students.",
-    href: "/masterclass",
-    cta: "See the program",
-    status: { kind: "static", label: "Season 1 sold out" },
+    id: "unemployable",
+    short: "Unemployable (Season 02)",
+    kicker: "Live cohort · Season 02 · April 2027",
+    title: "Unemployable",
+    text: "One Man AI OS Season 02. Season 01 turned the power on with 41 operators. Season 02 cuts the cord. Details stay sealed until launch.",
+    href: "/unemployable",
+    cta: "Join the waitlist",
+    status: { kind: "static", label: "Coming April 2027" },
   },
 ];
 

@@ -35,6 +35,10 @@
     {
       "source": "/masterclass-payment",
       "destination": "/masterclass-payment/index.html"
+    },
+    {
+      "source": "/unemployable",
+      "destination": "/unemployable/index.html"
     }
   ]
 }
