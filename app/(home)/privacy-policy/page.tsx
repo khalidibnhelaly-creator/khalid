@@ -79,6 +79,13 @@ export default function PrivacyPolicy() {
           <li>Challenge entries: the link to your post and any note you add</li>
         </ul>
 
+        <h3>When you apply for a consulting session</h3>
+        <p>
+          Your name, email, WhatsApp number, company, role, business stage, optional website or social link, the
+          areas you want to work on, your description of the problem and the outcome you want, and how you found the
+          page. The application is saved to our database and also opened on WhatsApp so it reaches us directly.
+        </p>
+
         <h3>Applications and scholarships</h3>
         <p>Your written answers and any video links you submit, used only to evaluate your application and tell you the result.</p>
 
@@ -105,7 +112,7 @@ export default function PrivacyPolicy() {
       <Clause id="use" title="How we use it">
         <ul>
           <li>To verify your payment, confirm your seat or access, and send joining links, recordings and updates</li>
-          <li>To reply to project briefs and prepare quotes</li>
+          <li>To reply to project briefs, review consulting applications and prepare quotes</li>
           <li>To run the Creator Grants: verify attendance, shortlist, and contact grant recipients</li>
           <li>To understand which channels and campaigns bring people in, and to report total numbers to our event partners</li>
           <li>To handle refund requests and keep accounting records</li>
@@ -151,6 +158,7 @@ export default function PrivacyPolicy() {
         <ul>
           <li><b>Purchase and payment records:</b> up to 3 years, for accounting and dispute handling</li>
           <li><b>Webinar registration and grant data:</b> up to 24 months after the event, then deleted or made anonymous</li>
+          <li><b>Consulting applications:</b> up to 24 months, or 3 years if you become a client</li>
           <li><b>Scholarship submissions:</b> deleted within 90 days of results being announced</li>
           <li><b>Campaign attribution in your browser:</b> 30 days</li>
         </ul>

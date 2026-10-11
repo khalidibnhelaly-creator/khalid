@@ -356,6 +356,7 @@ export function Footer() {
             <ul>
               <li><Link href="/#services">Services</Link></li>
               <li><Link href="/#work">Work</Link></li>
+              <li><Link href="/consult">Consulting</Link></li>
               <li><Link href="/#contact">Start a project</Link></li>
             </ul>
           </div>

@@ -4,7 +4,7 @@ import { brand } from "@/lib/topzid";
 
 export const metadata: Metadata = {
   title: { absolute: "Refund Policy | TOPZID" },
-  description: "Refund rules for the One Man AI OS Masterclass, Season 1 recordings, the Aurafarming webinar and TOPZID studio services.",
+  description: "Refund rules for the One Man AI OS Masterclass, Season 1 recordings, the Aurafarming webinar, consulting and TOPZID studio services.",
   alternates: { canonical: "https://www.topzid.com/refund-policy" },
 };
 
@@ -15,6 +15,7 @@ const TOC = [
   { id: "masterclass", label: "Masterclass (live)" },
   { id: "recordings", label: "Season 1 recordings" },
   { id: "webinar", label: "Aurafarming webinar" },
+  { id: "consult", label: "Consulting session" },
   { id: "studio", label: "Studio services" },
   { id: "duplicate", label: "Duplicate payments" },
   { id: "how", label: "How to request a refund" },
@@ -37,6 +38,8 @@ export default function RefundPolicy() {
           <dd>Full refund until your access link is sent. Final after that</dd>
           <dt>Aurafarming webinar</dt>
           <dd>Non-refundable once your payment is confirmed. Full refund if we cancel</dd>
+          <dt>Consulting session</dt>
+          <dd>Full refund or one reschedule up to 48 hours before the session. Non-refundable after that</dd>
           <dt>Studio services</dt>
           <dd>As set out in your written quote or agreement</dd>
           <dt>Duplicate payments</dt>
@@ -103,6 +106,15 @@ export default function RefundPolicy() {
           VOSU Creator Grants are VOSU credits awarded under the rules on the webinar page. They have no cash value and
           are not part of what you pay for, so they are not refundable or exchangeable for money.
         </p>
+      </Clause>
+
+      <Clause id="consult" title="Consulting session">
+        <ul>
+          <li>Applying is free. You pay only if your application is accepted.</li>
+          <li>Up to 48 hours before your session, you can cancel for a full refund or reschedule once.</li>
+          <li>Less than 48 hours before the session, or after it has taken place, the fee is not refundable.</li>
+          <li>If we cancel or cannot hold the session, you choose a new time or a full refund.</li>
+        </ul>
       </Clause>
 
       <Clause id="studio" title="Studio services">
