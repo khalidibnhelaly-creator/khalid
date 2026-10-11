@@ -124,16 +124,16 @@ export default async function Consult({
               <picture>
                 <source
                   type="image/webp"
-                  srcSet="/consult/khalid-640.webp 640w, /consult/khalid-1000.webp 1000w, /consult/khalid-1400.webp 1400w"
+                  srcSet="/consult/khalid-640.webp 640w, /consult/khalid-1080.webp 1080w"
                   sizes="(max-width: 960px) min(88vw, 460px), 420px"
                 />
                 <img
-                  src="/consult/khalid-1000.jpg"
-                  srcSet="/consult/khalid-640.jpg 640w, /consult/khalid-1000.jpg 1000w, /consult/khalid-1400.jpg 1400w"
+                  src="/consult/khalid-1080.jpg"
+                  srcSet="/consult/khalid-640.jpg 640w, /consult/khalid-1080.jpg 1080w"
                   sizes="(max-width: 960px) min(88vw, 460px), 420px"
                   alt="Khalid Bin Helaly, founder of TOPZID"
-                  width={1000}
-                  height={1250}
+                  width={1080}
+                  height={1350}
                   fetchPriority="high"
                 />
               </picture>
