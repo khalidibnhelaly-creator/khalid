@@ -1,19 +1,21 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import Link from "next/link";
 import { Header } from "@/components/topzid/header";
 import { Footer } from "@/components/topzid/sections";
 import { ConsultForm } from "@/components/topzid/consult-form";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { clients } from "@/lib/topzid";
+import { CONSULT_PRICE, cleanCountry, resolveRegion, type Region } from "@/lib/pricing";
 
 export const metadata: Metadata = {
-  title: { absolute: "Consulting with Khalid Bin Helaly | ৳50,000 strategy session | TOPZID" },
+  title: { absolute: "Consulting with Khalid Bin Helaly | Strategy session | TOPZID" },
   description:
-    "A private strategy session on your business, production, content, growth, marketing or brand. One flat fee of ৳50,000. Four clients a month, by application.",
+    "A private strategy session on your business, production, content, growth, marketing or brand. One flat fee, one written plan. Four clients a month, by application.",
   alternates: { canonical: "https://www.topzid.com/consult" },
   openGraph: {
     title: "Consulting with Khalid Bin Helaly",
-    description: "One session. One written plan. ৳50,000 flat. Four clients a month, by application.",
+    description: "One session. One written plan. One flat fee. Four clients a month, by application.",
     url: "https://www.topzid.com/consult",
     siteName: "TOPZID",
     type: "website",
@@ -22,7 +24,6 @@ export const metadata: Metadata = {
 
 /* eslint-disable @next/next/no-img-element -- static brand assets */
 
-const FEE = "৳50,000";
 const CAPACITY = 4;
 
 const INCLUDED = [
@@ -48,7 +49,8 @@ const STEPS = [
   { s: "04", t: "Session and plan", d: "We meet, and your written plan arrives within 72 hours." },
 ];
 
-const FAQ = [
+function faqFor(region: Region) {
+  return [
   {
     q: "Why do I have to apply?",
     a: "Because I only take four clients a month and I want each session to be worth the fee. If I cannot help with your problem, I will tell you, and you pay nothing.",
@@ -63,15 +65,31 @@ const FAQ = [
   },
   {
     q: "How do I pay?",
-    a: "By bank transfer, bKash or Nagad, the same way as our other programs. Payment details are sent only after your application is accepted.",
+    a:
+      region === "bd"
+        ? "By bank transfer, bKash or Nagad, the same way as our other programs. Payment details are sent only after your application is accepted."
+        : "By international bank transfer in US dollars. Payment details are sent only after your application is accepted.",
   },
   {
     q: "What if I need to cancel?",
     a: "You can reschedule once, or cancel for a full refund, up to 48 hours before the session. After that, the fee is not refundable. The full rules are in the refund policy.",
   },
-];
+  ];
+}
 
-export default function Consult() {
+export default async function Consult({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  // Vercel sets x-vercel-ip-country on every request. Reading it renders this
+  // page per request, so each visitor gets their own price with no flash.
+  const country = cleanCountry((await headers()).get("x-vercel-ip-country"));
+  const region = resolveRegion(country, (await searchParams).region);
+  const price = CONSULT_PRICE[region];
+  const FEE = price.display;
+  const FAQ = faqFor(region);
+
   return (
     <>
       <noscript>
@@ -252,7 +270,7 @@ export default function Consult() {
               </ul>
             </div>
             <div className="reveal">
-              <ConsultForm />
+              <ConsultForm price={price} country={country} />
             </div>
           </div>
         </section>

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { brand } from "@/lib/topzid";
 import { insertRow } from "@/lib/public-supabase";
+import type { Price } from "@/lib/pricing";
 
 const ROLES = [
   ["founder", "Founder or owner"],
@@ -41,12 +42,13 @@ function normalizeUrl(v: string) {
 }
 
 /**
- * Application for the ৳50,000 strategy session.
+ * Application for the strategy session. The fee shown depends on the
+ * visitor's country (see lib/pricing.ts) and is stored with the application.
  * 1. Saved to Supabase (insert-only table) in the background.
  * 2. Opened on WhatsApp, pre-written to Khalid, so every application
  *    arrives instantly even if the database is unreachable.
  */
-export function ConsultForm() {
+export function ConsultForm({ price, country }: { price: Price; country: string | null }) {
   const [f, setF] = useState({ name: "", email: "", whatsapp: "", company: "", link: "", role: "", stage: "", problem: "", outcome: "" });
   const [areas, setAreas] = useState<Area[]>([]);
   const [feeAck, setFeeAck] = useState(false);
@@ -86,6 +88,8 @@ export function ConsultForm() {
       problem: f.problem.trim(),
       outcome: f.outcome.trim(),
       fee_ack: true,
+      currency: price.currency,
+      country,
       utm_source: params.get("utm_source")?.slice(0, 120) || null,
       utm_medium: params.get("utm_medium")?.slice(0, 120) || null,
       utm_campaign: params.get("utm_campaign")?.slice(0, 160) || null,
@@ -93,7 +97,7 @@ export function ConsultForm() {
     };
 
     const message = [
-      "Consulting application (topzid.com/consult)",
+      `Consulting application (topzid.com/consult) · ${price.display}${country ? ` · ${country}` : ""}`,
       `Name: ${row.name}`,
       `Company: ${row.company}`,
       `Role: ${label(ROLES, row.role)} · Stage: ${label(STAGES, row.stage)}`,
@@ -108,7 +112,7 @@ export function ConsultForm() {
       "A good outcome:",
       row.outcome,
       "",
-      "I understand the fee is ৳50,000.",
+      `I understand the fee is ${price.display}.`,
     ]
       .filter((l) => l !== null)
       .join("\n");
@@ -216,7 +220,7 @@ export function ConsultForm() {
 
       <label className="ack">
         <input type="checkbox" required checked={feeAck} onChange={(e) => setFeeAck(e.target.checked)} />
-        <span>I understand the fee is <b>৳50,000</b>, paid only if my application is accepted.</span>
+        <span>I understand the fee is <b>{price.display}</b>, paid only if my application is accepted.</span>
       </label>
 
       <button type="submit" className="btn btn-solid">Submit application →</button>
