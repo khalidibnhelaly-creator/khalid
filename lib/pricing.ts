@@ -7,8 +7,8 @@
 export type Region = "bd" | "intl";
 
 export const CONSULT_PRICE = {
-  bd: { display: "৳50,000", currency: "BDT", amount: 50000 },
-  intl: { display: "$850", currency: "USD", amount: 850 },
+  bd: { display: "৳150,000", currency: "BDT", amount: 150000 },
+  intl: { display: "$3,000", currency: "USD", amount: 3000 },
 } as const;
 
 export type Price = (typeof CONSULT_PRICE)[Region];
