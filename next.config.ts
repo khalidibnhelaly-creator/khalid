@@ -17,8 +17,6 @@ const nextConfig: NextConfig = {
       { source: "/aurafarming/challenge", destination: "/aurafarming/challenge/index.html" },
       { source: "/student", destination: "/student/index.html" },
       { source: "/masterclass-payment", destination: "/masterclass-payment/index.html" },
-      { source: "/refund-policy", destination: "/refund-policy/index.html" },
-      { source: "/privacy-policy", destination: "/privacy-policy/index.html" },
     ];
   },
 };

@@ -354,10 +354,9 @@ export function Footer() {
           <div>
             <h4>Studio</h4>
             <ul>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#work">Work</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Start a project</a></li>
+              <li><Link href="/#services">Services</Link></li>
+              <li><Link href="/#work">Work</Link></li>
+              <li><Link href="/#contact">Start a project</Link></li>
             </ul>
           </div>
           <div>
@@ -368,6 +367,15 @@ export function Footer() {
                   <a href={p.href}>{p.short}</a>
                 </li>
               ))}
+            </ul>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <ul>
+              <li><Link href="/about">About</Link></li>
+              <li><Link href="/privacy-policy">Privacy policy</Link></li>
+              <li><Link href="/terms">Terms of service</Link></li>
+              <li><Link href="/refund-policy">Refund policy</Link></li>
             </ul>
           </div>
           <div>
@@ -384,7 +392,7 @@ export function Footer() {
         <div className="base">
           <span>© 2026 TOPZID · Dhaka, Bangladesh</span>
           <span>
-            <Link href="/privacy-policy">Privacy policy</Link>
+            <Link href="/privacy-policy">Privacy</Link> · <Link href="/terms">Terms</Link> · <Link href="/refund-policy">Refunds</Link>
           </span>
         </div>
       </div>

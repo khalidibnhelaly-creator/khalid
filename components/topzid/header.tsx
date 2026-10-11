@@ -4,10 +4,10 @@ import Link from "next/link";
 import { useState } from "react";
 
 const NAV = [
-  { label: "Services", href: "#services" },
-  { label: "Work", href: "#work" },
-  { label: "Learn", href: "#learn" },
-  { label: "About", href: "#about" },
+  { label: "Services", href: "/#services" },
+  { label: "Work", href: "/#work" },
+  { label: "Learn", href: "/#learn" },
+  { label: "About", href: "/about" },
 ] as const;
 
 export function Header() {
@@ -29,9 +29,9 @@ export function Header() {
               {n.label}
             </a>
           ))}
-          <a className="nav-cta" href="#contact" onClick={close}>
+          <Link className="nav-cta" href="/#contact" onClick={close}>
             Start a project
-          </a>
+          </Link>
         </nav>
 
         <button
