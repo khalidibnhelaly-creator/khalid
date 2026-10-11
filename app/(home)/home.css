@@ -434,3 +434,12 @@
 .tz .c-faq details[open] summary::after { content: "\2212"; }
 .tz .c-faq details p { margin: 0 0 20px; color: var(--ink-soft); max-width: 66ch; }
 .tz .said-note a { color: var(--gold); }
+.tz .c-hero-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); gap: clamp(36px, 5vw, 72px); align-items: center; }
+@media (max-width: 960px) { .tz .c-hero-grid { grid-template-columns: 1fr; } }
+.tz .c-portrait { margin: 0; justify-self: end; width: 100%; max-width: 420px; }
+@media (max-width: 960px) { .tz .c-portrait { justify-self: start; max-width: 460px; } }
+.tz .c-portrait img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 6px; border: 1px solid var(--line-2); box-shadow: 0 24px 60px rgba(29, 24, 18, 0.16); background: #2a2622; }
+.tz .c-portrait figcaption { margin-top: 14px; display: flex; flex-direction: column; gap: 2px; }
+.tz .c-portrait figcaption b { font-family: var(--serif); font-weight: 600; font-size: 18px; }
+.tz .c-portrait figcaption span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.tz .c-hero h1 { max-width: 14ch; }

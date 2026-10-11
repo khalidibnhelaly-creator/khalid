@@ -81,24 +81,49 @@ export default function Consult() {
       <main className="consult">
         {/* ---------- hero ---------- */}
         <section className="c-hero">
-          <div className="wrap">
-            <span className="eyebrow">Consulting · By application</span>
-            <h1>
-              Bring me the problem. <span className="it">Leave with the plan.</span>
-            </h1>
-            <p className="lede">
-              A private strategy session with Khalid Bin Helaly on your business, production, content, growth,
-              marketing or brand. One flat fee. One clear plan. No retainers, no packages.
-            </p>
-            <div className="c-meta">
-              <div><span>Fee</span><b>{FEE}</b></div>
-              <div><span>Format</span><b>2 to 3 hours, online</b></div>
-              <div><span>Availability</span><b>{CAPACITY} clients a month</b></div>
+          <div className="wrap c-hero-grid">
+            <div>
+              <span className="eyebrow">Consulting · By application</span>
+              <h1>
+                Bring me the problem. <span className="it">Leave with the plan.</span>
+              </h1>
+              <p className="lede">
+                A private strategy session with Khalid Bin Helaly on your business, production, content, growth,
+                marketing or brand. One flat fee. One clear plan. No retainers, no packages.
+              </p>
+              <div className="c-meta">
+                <div><span>Fee</span><b>{FEE}</b></div>
+                <div><span>Format</span><b>2 to 3 hours, online</b></div>
+                <div><span>Availability</span><b>{CAPACITY} clients a month</b></div>
+              </div>
+              <div className="ctas">
+                <a className="btn btn-solid" href="#apply">Apply for a session →</a>
+                <a className="btn btn-ghost" href="#included">What you get</a>
+              </div>
             </div>
-            <div className="ctas">
-              <a className="btn btn-solid" href="#apply">Apply for a session →</a>
-              <a className="btn btn-ghost" href="#included">What you get</a>
-            </div>
+
+            <figure className="c-portrait">
+              <picture>
+                <source
+                  type="image/webp"
+                  srcSet="/consult/khalid-640.webp 640w, /consult/khalid-1000.webp 1000w, /consult/khalid-1400.webp 1400w"
+                  sizes="(max-width: 960px) min(88vw, 460px), 420px"
+                />
+                <img
+                  src="/consult/khalid-1000.jpg"
+                  srcSet="/consult/khalid-640.jpg 640w, /consult/khalid-1000.jpg 1000w, /consult/khalid-1400.jpg 1400w"
+                  sizes="(max-width: 960px) min(88vw, 460px), 420px"
+                  alt="Khalid Bin Helaly, founder of TOPZID"
+                  width={1000}
+                  height={1250}
+                  fetchPriority="high"
+                />
+              </picture>
+              <figcaption>
+                <b>Khalid Bin Helaly</b>
+                <span>Founder, TOPZID · You work with me directly</span>
+              </figcaption>
+            </figure>
           </div>
         </section>
 
