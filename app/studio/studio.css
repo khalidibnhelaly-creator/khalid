@@ -343,8 +343,8 @@ html:has(.st) { background: #0b0a09; }
 /* ---------- founder ---------- */
 .st-founder { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(36px, 6vw, 96px); align-items: center; }
 .st-portrait { position: relative; margin: 0; }
-.st-portrait img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; filter: grayscale(1) contrast(1.12) brightness(0.92); }
-.st-portrait::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(11, 10, 9, 0.55), rgba(11, 10, 9, 0) 40%); pointer-events: none; }
+.st-portrait img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; filter: saturate(0.85) sepia(0.12) contrast(1.05) brightness(1.02); }
+.st-portrait::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(11, 10, 9, 0.45), rgba(11, 10, 9, 0) 32%); pointer-events: none; }
 .st-portrait figcaption { position: absolute; left: 18px; bottom: 16px; z-index: 1; }
 .st-letter .q { font-family: var(--st-serif), Georgia, serif; font-style: italic; font-weight: 300; font-size: clamp(26px, 2.8vw, 40px); line-height: 1.22; letter-spacing: -0.01em; color: var(--paper); margin-bottom: 1em; }
 .st-letter p { color: var(--mute); font-size: 18px; }
