@@ -38,6 +38,7 @@ const orgJsonLd = {
   makesOffer: [
     { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI commercials and brand films" } },
     { "@type": "Offer", itemOffered: { "@type": "Service", name: "Corporate AI training" } },
+    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Private AI film studios for brands", url: `${brand.url}/studio` } },
     { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI consulting", url: `${brand.url}/consult` } },
   ],
 };
