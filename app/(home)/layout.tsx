@@ -25,9 +25,9 @@ const sans = localFont({
 });
 
 export const metadata: Metadata = {
-  title: { absolute: "TOPZID | AI Commercials, Brand Films and Corporate AI Training" },
+  title: { absolute: "TOPZID | AI Production Studio, AI Consulting and AI Training in Bangladesh" },
   description:
-    "TOPZID is an AI production studio from Dhaka. 500+ AI commercials for brands like Berger, Marico and Chaldal, plus hands-on AI training for marketing teams.",
+    "TOPZID is an AI production studio in Dhaka, Bangladesh, founded by AI consultant and trainer Khalid Bin Helaly. 500+ AI commercials for brands like Berger, Marico and Chaldal, plus AI training for teams.",
   alternates: { canonical: "https://www.topzid.com" },
   openGraph: {
     title: "TOPZID | AI commercials and brand films, made in days",

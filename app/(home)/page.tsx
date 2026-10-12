@@ -18,21 +18,26 @@ import { brand, socials } from "@/lib/topzid";
 const orgJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${brand.url}/#org`,
   name: brand.name,
   url: brand.url,
   logo: `${brand.url}/Topzidlogo.png`,
-  description: "AI production studio making commercials and brand films with generative AI, plus corporate AI training.",
+  description: "AI production studio in Dhaka, Bangladesh, making commercials and brand films with generative AI, plus AI consulting and AI training.",
   email: brand.email,
   address: { "@type": "PostalAddress", addressLocality: "Dhaka", addressCountry: "BD" },
   founder: {
     "@type": "Person",
+    "@id": `${brand.url}/about#khalid`,
     name: "Khalid Bin Helaly",
+    url: `${brand.url}/about`,
+    jobTitle: "AI Consultant and AI Trainer",
     sameAs: socials.map((s) => s.href),
   },
   sameAs: socials.map((s) => s.href),
   makesOffer: [
     { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI commercials and brand films" } },
     { "@type": "Offer", itemOffered: { "@type": "Service", name: "Corporate AI training" } },
+    { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI consulting", url: `${brand.url}/consult` } },
   ],
 };
 

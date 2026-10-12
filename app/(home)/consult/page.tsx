@@ -9,9 +9,9 @@ import { clients } from "@/lib/topzid";
 import { CONSULT_PRICE, cleanCountry, resolveRegion, type Region } from "@/lib/pricing";
 
 export const metadata: Metadata = {
-  title: { absolute: "Consulting with Khalid Bin Helaly | Strategy session | TOPZID" },
+  title: { absolute: "AI Consultant in Bangladesh | Khalid Bin Helaly | TOPZID" },
   description:
-    "A private strategy session on your business, production, content, growth, marketing or brand. One flat fee, one written plan. Four clients a month, by application.",
+    "Private AI and growth consulting with Khalid Bin Helaly in Dhaka, Bangladesh: AI, business, production, content, marketing and brand. One flat fee, one written plan. Four clients a month.",
   alternates: { canonical: "https://www.topzid.com/consult" },
   openGraph: {
     title: "Consulting with Khalid Bin Helaly",
@@ -101,13 +101,13 @@ export default async function Consult({
         <section className="c-hero">
           <div className="wrap c-hero-grid">
             <div>
-              <span className="eyebrow">Consulting · By application</span>
+              <span className="eyebrow">AI and growth consulting · Dhaka, Bangladesh · By application</span>
               <h1>
                 Bring me the problem. <span className="it">Leave with the plan.</span>
               </h1>
               <p className="lede">
-                A private strategy session with Khalid Bin Helaly on your business, production, content, growth,
-                marketing or brand. One flat fee. One clear plan. No retainers, no packages.
+                A private strategy session with Khalid Bin Helaly on AI, your business, production, content,
+                growth, marketing or brand. One flat fee. One clear plan. No retainers, no packages.
               </p>
               <div className="c-meta">
                 <div><span>Fee</span><b>{FEE}</b></div>

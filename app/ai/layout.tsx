@@ -35,7 +35,7 @@ const bangla = localFont({
 });
 
 export const metadata: Metadata = {
-  title: { absolute: "AI ওয়ার্কশপ — খালিদ বিন হিলালী" },
+  title: { absolute: "AI ট্রেনিং ও ওয়ার্কশপ | AI Training in Bangladesh | খালিদ বিন হিলালী (Khalid Bin Helaly)" },
   description:
     "হ্যান্ডস-অন AI ওয়ার্কশপ। AI দিয়ে কনটেন্ট তৈরি, ওয়ার্কফ্লো অটোমেশন এবং জেনারেটিভ AI ইন্টিগ্রেশন শিখুন।",
 };

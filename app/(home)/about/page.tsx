@@ -4,9 +4,9 @@ import { PageShell } from "@/components/topzid/legal";
 import { brand, proof, socials, teaching } from "@/lib/topzid";
 
 export const metadata: Metadata = {
-  title: { absolute: "About TOPZID | AI production studio, built on Claude" },
+  title: { absolute: "Khalid Bin Helaly | AI Consultant and AI Trainer in Bangladesh | TOPZID" },
   description:
-    "TOPZID is an AI production studio from Dhaka, founded by Khalid Bin Helaly. Commercials, brand films and AI training, run on a production system built on Claude.",
+    "Khalid Bin Helaly is an AI consultant, AI trainer and creative director in Dhaka, Bangladesh, and founder of TOPZID, the AI production studio behind 500+ commercials. 1,000+ people trained live.",
   alternates: { canonical: "https://www.topzid.com/about" },
 };
 
@@ -30,9 +30,42 @@ const BUILT_ON_CLAUDE = [
   },
 ];
 
+/* Structured identity for search engines and AI answers: one person, every name variant, every profile. */
+const PERSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://www.topzid.com/about#khalid",
+  name: "Khalid Bin Helaly",
+  alternateName: ["Khalid Ibn Helaly", "খালিদ বিন হিলালী", "The Khalid Way", "thekhalidway"],
+  jobTitle: "AI Consultant, AI Trainer and Creative Director",
+  description:
+    "AI consultant and AI trainer based in Dhaka, Bangladesh. Founder of TOPZID, an AI production studio behind 500+ commercials. Former Assistant Director of Marketing at Chaldal PLC (Y Combinator S15).",
+  url: "https://www.topzid.com/about",
+  image: "https://www.topzid.com/consult/khalid-1080.jpg",
+  email: "mailto:khalid@topzid.com",
+  address: { "@type": "PostalAddress", addressLocality: "Dhaka", addressCountry: "BD" },
+  nationality: { "@type": "Country", name: "Bangladesh" },
+  worksFor: { "@type": "Organization", "@id": "https://www.topzid.com/#org", name: "TOPZID", url: "https://www.topzid.com" },
+  knowsAbout: [
+    "Artificial intelligence consulting",
+    "AI training",
+    "Generative AI",
+    "AI video production",
+    "AI commercials",
+    "Prompt engineering",
+    "AI agents",
+    "Marketing strategy",
+    "Brand building",
+  ],
+  knowsLanguage: ["en", "bn"],
+  sameAs: socials.map((s) => s.href),
+};
+
 export default function About() {
   const linkedin = socials.find((s) => s.key === "LinkedIn")!;
   return (
+    <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_LD) }} />
     <PageShell
       eyebrow="About"
       title={
@@ -90,7 +123,7 @@ export default function About() {
         <div className="wrap founder">
           <img className="photo" src="/khalid.jpg" alt="Khalid Bin Helaly, founder of TOPZID" width={1023} height={1537} loading="lazy" />
           <div>
-            <span className="eyebrow">Founder</span>
+            <span className="eyebrow">Founder · AI consultant and trainer · Dhaka</span>
             <h2>Khalid Bin Helaly</h2>
             <p style={{ marginTop: 18 }}>
               Thirteen years in marketing, seven of them at <b>Chaldal PLC (Y Combinator S15)</b>, where he rose to
@@ -141,5 +174,6 @@ export default function About() {
         </div>
       </section>
     </PageShell>
+    </>
   );
 }
