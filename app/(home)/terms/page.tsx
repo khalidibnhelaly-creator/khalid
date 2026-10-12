@@ -94,7 +94,7 @@ export default function Terms() {
 
       <Clause id="payments" title="Prices and payment">
         <ul>
-          <li>Prices are shown in Bangladeshi taka (৳) on each page.</li>
+          <li>Prices are shown on each page in Bangladeshi taka (৳), or in US dollars ($) where a page offers international pricing.</li>
           <li>
             Payments are made by bank transfer, bKash or Nagad and matched by hand using the reference code we give
             you. Your seat or access is confirmed once we verify the payment.

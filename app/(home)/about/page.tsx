@@ -4,9 +4,9 @@ import { PageShell } from "@/components/topzid/legal";
 import { brand, proof, socials, teaching } from "@/lib/topzid";
 
 export const metadata: Metadata = {
-  title: { absolute: "Khalid Bin Helaly | AI Consultant and AI Trainer in Bangladesh | TOPZID" },
+  title: { absolute: "Khalid Bin Helaly | AI Consultant, AI Trainer and Creative Director | TOPZID" },
   description:
-    "Khalid Bin Helaly is an AI consultant, AI trainer and creative director in Dhaka, Bangladesh, and founder of TOPZID, the AI production studio behind 500+ commercials. 1,000+ people trained live.",
+    "Khalid Bin Helaly is an AI consultant, AI trainer and creative director, and founder of TOPZID, the AI production studio behind 500+ commercials. Based in Dhaka, working with clients worldwide.",
   alternates: { canonical: "https://www.topzid.com/about" },
 };
 
@@ -39,7 +39,7 @@ const PERSON_LD = {
   alternateName: ["Khalid Ibn Helaly", "খালিদ বিন হিলালী", "The Khalid Way", "thekhalidway"],
   jobTitle: "AI Consultant, AI Trainer and Creative Director",
   description:
-    "AI consultant and AI trainer based in Dhaka, Bangladesh. Founder of TOPZID, an AI production studio behind 500+ commercials. Former Assistant Director of Marketing at Chaldal PLC (Y Combinator S15).",
+    "AI consultant and AI trainer working with clients worldwide from Dhaka, Bangladesh. Founder of TOPZID, an AI production studio behind 500+ commercials. Former Assistant Director of Marketing at Chaldal PLC (Y Combinator S15).",
   url: "https://www.topzid.com/about",
   image: "https://www.topzid.com/consult/khalid-1080.jpg",
   email: "mailto:khalid@topzid.com",
@@ -123,7 +123,7 @@ export default function About() {
         <div className="wrap founder">
           <img className="photo" src="/khalid.jpg" alt="Khalid Bin Helaly, founder of TOPZID" width={1023} height={1537} loading="lazy" />
           <div>
-            <span className="eyebrow">Founder · AI consultant and trainer · Dhaka</span>
+            <span className="eyebrow">Founder · AI consultant and trainer</span>
             <h2>Khalid Bin Helaly</h2>
             <p style={{ marginTop: 18 }}>
               Thirteen years in marketing, seven of them at <b>Chaldal PLC (Y Combinator S15)</b>, where he rose to

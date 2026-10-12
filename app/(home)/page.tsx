@@ -22,9 +22,10 @@ const orgJsonLd = {
   name: brand.name,
   url: brand.url,
   logo: `${brand.url}/Topzidlogo.png`,
-  description: "AI production studio in Dhaka, Bangladesh, making commercials and brand films with generative AI, plus AI consulting and AI training.",
+  description: "AI production studio making commercials and brand films with generative AI, plus AI consulting and AI training. Based in Dhaka, working worldwide.",
   email: brand.email,
   address: { "@type": "PostalAddress", addressLocality: "Dhaka", addressCountry: "BD" },
+  areaServed: "Worldwide",
   founder: {
     "@type": "Person",
     "@id": `${brand.url}/about#khalid`,
