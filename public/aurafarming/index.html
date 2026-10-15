@@ -455,7 +455,7 @@ footer a:hover{color:var(--gold);}
       <p id="whyLine" hidden></p>
       <p>VOSU is co-hosting and supporting this session. I am saying that plainly because you should know it.</p>
       <div class="vosu-cta">
-        <a class="link" id="vosuLink" href="https://vosu.ai" target="_blank" rel="noopener noreferrer sponsored">Create a VOSU account ↗</a>
+        <a class="link" id="vosuLink" href="https://vosu.ai" target="_blank" rel="noopener sponsored">Create a VOSU account ↗</a>
         <span class="ref-chip" id="refChip" hidden>Referral code <b id="refCode"></b></span>
       </div>
     </div>
@@ -688,7 +688,7 @@ footer a:hover{color:var(--gold);}
       <details><summary>Do I need AI experience?</summary><p>No. I start from the idea of aura and build up to the full workflow. If you already use AI tools, you will see how to connect them into one system.</p></details>
       <details><summary>How do I join?</summary><p>Reserve your seat and pay by bKash, Nagad or bank transfer. Once we verify the payment, usually within a few hours, the joining link is sent to your WhatsApp.</p></details>
             <details><summary>Why is VOSU part of this?</summary><p>VOSU is co-hosting and supporting this session. I use VOSU in my own work right now, so I will show it live as part of my real workflow. The session is mine and so is what I teach.</p></details>
-      <details><summary>Do I need a VOSU account?</summary><p>Not to join the webinar. To be considered for a Creator Grant, create one before the session and use that email when you submit the code word. <a class="link" data-vosu-link href="https://vosu.ai" target="_blank" rel="noopener noreferrer sponsored" style="text-transform:none;letter-spacing:0;">Create a VOSU account</a></p></details>
+      <details><summary>Do I need a VOSU account?</summary><p>Not to join the webinar. To be considered for a Creator Grant, create one before the session and use that email when you submit the code word. <a class="link" data-vosu-link href="https://vosu.ai" target="_blank" rel="noopener sponsored" style="text-transform:none;letter-spacing:0;">Create a VOSU account</a></p></details>
       <details><summary>How are the grants picked?</summary><p>On your work, your live attendance and your challenge entry. Not random and not first come, first served. <a class="link" href="#grants" style="text-transform:none;letter-spacing:0;">See the three steps</a></p></details>
       <details><summary>Can I pay for VOSU in Bangladesh?</summary><p id="localPayment">Not in taka yet. When a local option is ready, it will be posted here.</p></details>
       <details><summary>I bought the Season 1 recordings. Do I pay?</summary><p>No. The webinar is included with Season 1. Your link comes on WhatsApp with everyone else's.</p></details>
@@ -737,8 +737,8 @@ footer a:hover{color:var(--gold);}
   /* ---- VOSU blocks: each renders only once its value is confirmed in config.js ---- */
   if(V.partnerBadge) show($("partnerBadge"), V.partnerBadge);
   if(V.whyLine) show($("whyLine"), V.whyLine);
-  var vl = AF.vosuLink();
-  [$("vosuLink")].concat([].slice.call(document.querySelectorAll("[data-vosu-link]"))).forEach(function(a){ if(a) a.href = vl; });
+  if ($("vosuLink")) $("vosuLink").href = AF.vosuLink("webinar_grants");
+  [].slice.call(document.querySelectorAll("[data-vosu-link]")).forEach(function(a){ a.href = AF.vosuLink(a.getAttribute("data-vosu-link") || "webinar_faq"); });
   if(V.referralCode){ $("refCode").textContent = V.referralCode; show($("refChip")); }
   if(V.localPayment) $("localPayment").textContent = V.localPayment;
   if(V.buyerBonus){

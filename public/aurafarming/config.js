@@ -81,10 +81,16 @@
   AF.num = function (n) {
     return Number(n).toLocaleString("en-US");
   };
-  AF.vosuLink = function () {
+  /* VOSU signup link: Khalid's referral code plus UTM tags, so VOSU's
+     analytics show topzid.com / aurafarming as the source and which button
+     was clicked (placement = utm_content). */
+  AF.vosuLink = function (placement) {
     var v = AF.vosu;
-    if (!v.referralCode) return v.url;
-    return v.url + "/?" + v.referralParam + "=" + encodeURIComponent(v.referralCode);
+    var q = [];
+    if (v.referralCode) q.push(v.referralParam + "=" + encodeURIComponent(v.referralCode));
+    q.push("utm_source=topzid", "utm_medium=referral", "utm_campaign=aurafarming");
+    if (placement) q.push("utm_content=" + encodeURIComponent(placement));
+    return v.url + "/?" + q.join("&");
   };
 
   /* ---------- attribution: first meaningful touch, kept 30 days ----------

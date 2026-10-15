@@ -83,7 +83,7 @@
         <label for="vosu">VOSU account email</label>
         <input id="vosu" type="email" autocomplete="off" required />
         <span class="err">Enter the email of your VOSU account.</span>
-        <div class="hint">No account yet? <a id="vosuLink" href="https://vosu.ai" target="_blank" rel="noopener noreferrer sponsored">Create one on VOSU</a>, then come back.</div>
+        <div class="hint">No account yet? <a id="vosuLink" href="https://vosu.ai" target="_blank" rel="noopener sponsored">Create one on VOSU</a>, then come back.</div>
       </div>
       <div class="field" id="f-code">
         <label for="code">Code word</label>
@@ -136,7 +136,7 @@
   function showError(msg){ var e = $("formError"); e.textContent = msg; e.classList.remove("hide"); }
   function track(ev, o){ var x = { event: ev }; for(var k in (o||{})) x[k] = o[k]; (window.dataLayer = window.dataLayer || []).push(x); }
 
-  if(AF.vosuLink) $("vosuLink").href = AF.vosuLink();
+  if(AF.vosuLink) $("vosuLink").href = AF.vosuLink("code_page");
 
   var open = new Date(AF.codeOpensAt).getTime(), close = new Date(AF.codeClosesAt).getTime(), now = Date.now();
   var st = $("windowStatus");
