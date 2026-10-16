@@ -7,13 +7,13 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Aurafarming: Become an AI Influencer Today | Live Webinar with Khalid Bin Helaly</title>
-<meta name="description" content="Live webinar, Friday Oct 23, 9 PM Dhaka. Build an AI persona with presence: the look, the cinematic content engine, and the posting system. Co-hosted with VOSU. ৳1,000, 2,000 seats." />
+<meta name="description" content="Live webinar, Friday Oct 23, 9 PM Dhaka. Build an AI persona with presence: the look, the cinematic content engine, and the posting system. Co-hosted with VOSU. ৳1,000, 2,000 seats. Plus The Aura Challenge: $800 in VOSU credits, only for people in the live." />
 <meta name="theme-color" content="#0d0b08" />
 <link rel="canonical" href="https://www.topzid.com/aurafarming" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.topzid.com/aurafarming" />
 <meta property="og:title" content="Become an AI Influencer Today: Aurafarming!" />
-<meta property="og:description" content="Live with Khalid Bin Helaly, co-hosted with VOSU. Fri Oct 23, 9 PM Dhaka. ৳1,000, 2,000 seats." />
+<meta property="og:description" content="Live with Khalid Bin Helaly, co-hosted with VOSU. Fri Oct 23, 9 PM Dhaka. ৳1,000. $800 in VOSU credits up for grabs, live only." />
 <meta property="og:image" content="https://www.topzid.com/aurafarming/og-v2.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -310,7 +310,7 @@ body.is-closed .countdown{display:none;}
 .mbar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(13,11,8,.94);backdrop-filter:blur(10px);border-top:1px solid #2a241c;padding:10px 16px;display:none;align-items:center;justify-content:space-between;gap:12px;color:#fff;}
 .mbar .p{font-family:var(--serif);font-weight:700;font-size:22px;line-height:1;}
 .mbar .p small{display:block;font-family:var(--mono);font-weight:400;font-size:10px;letter-spacing:.06em;color:#a79d8c;margin-top:4px;}
-.mbar .btn{padding:12px 18px;}
+.mbar .btn{padding:12px 18px;white-space:nowrap;flex:none;}
 @media(max-width:700px){.mbar{display:flex;}body{padding-bottom:74px;}}
 
 footer{padding:34px 0 44px;text-align:center;}
@@ -360,19 +360,50 @@ footer a:hover{color:var(--gold);}
 .ref-chip{font-family:var(--mono);font-size:12px;background:var(--paper-2);border:1px dashed var(--gold);padding:7px 11px;border-radius:3px;}
 .ref-chip b{color:var(--gold);letter-spacing:.06em;}
 .link{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(156,100,24,.35);padding-bottom:2px;}
-/* grants */
-.steps3{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-2);border:1px solid var(--line-2);border-radius:6px;overflow:hidden;counter-reset:st;}
-@media(max-width:860px){.steps3{grid-template-columns:1fr;}}
-.steps3 li{background:var(--paper);padding:28px 24px;counter-increment:st;position:relative;}
-.steps3 li::before{content:counter(st,decimal-leading-zero);display:block;font-family:var(--serif);font-style:italic;font-weight:700;font-size:34px;color:var(--gold);line-height:1;margin-bottom:14px;}
+/* prize pill (hero) */
+.prize-pill{display:flex;align-items:center;gap:14px;margin:24px 0 0;max-width:560px;padding:12px 16px;border:1px solid rgba(232,184,106,.55);border-radius:4px;background:linear-gradient(100deg,rgba(201,133,46,.28),rgba(201,133,46,.08));backdrop-filter:blur(10px);color:#fff;transition:border-color .2s,background .2s;}
+.prize-pill:hover{border-color:#f3cf8a;background:linear-gradient(100deg,rgba(201,133,46,.4),rgba(201,133,46,.14));}
+.pp-amt{font-family:var(--serif);font-weight:700;font-style:italic;font-size:34px;line-height:1;background:linear-gradient(100deg,#fff6e3,#f3cf8a 45%,#e0a24a);-webkit-background-clip:text;background-clip:text;color:transparent;flex:none;}
+.pp-txt{font-size:14px;line-height:1.4;color:#e7dfd1;}
+.pp-txt b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#f3cf8a;margin-bottom:2px;}
+.pp-arr{margin-left:auto;font-family:var(--mono);color:#f3cf8a;}
+
+/* the aura challenge */
+.challenge{background:radial-gradient(120% 80% at 80% 0%,#3a2410 0%,var(--night) 55%);color:#f4efe6;border-bottom-color:#26211a;position:relative;overflow:hidden;}
+.challenge .eyebrow{color:var(--gold-3);}
+.ch-head{max-width:760px;}
+.ch-head h2{font-size:clamp(30px,4.6vw,52px);line-height:1.08;}
+.ch-head h2 em{display:block;font-style:italic;color:#f3cf8a;}
+.ch-big{background:linear-gradient(100deg,#fff6e3,#f3cf8a 45%,#e0a24a);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.ch-head p{color:#cfc6b6;font-size:17px;margin:16px 0 0;max-width:56ch;}
+.ch-prizes{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:36px;}
+.ch-prize{border:1px solid rgba(232,184,106,.3);border-radius:6px;padding:24px 24px 22px;background:rgba(255,255,255,.03);}
+.ch-prize.grand{border:2px solid var(--gold-2);background:linear-gradient(160deg,rgba(201,133,46,.22),rgba(201,133,46,.04));box-shadow:0 18px 50px rgba(201,133,46,.18);}
+.ch-prize .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-3);}
+.ch-prize b{display:block;font-family:var(--serif);font-weight:700;font-size:clamp(48px,6vw,72px);line-height:1;margin:10px 0 10px;color:#fff;}
+.ch-prize.grand b{background:linear-gradient(100deg,#fff6e3,#f3cf8a 45%,#e0a24a);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.ch-prize p{margin:0;color:#cfc6b6;font-size:15px;}
+.ch-rounds{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#2a241c;border:1px solid #2a241c;border-radius:6px;overflow:hidden;}
+.ch-rounds li{background:#14110c;padding:24px 22px;}
+.ch-rounds .when{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-3);margin-bottom:10px;}
+.ch-rounds h3{font-size:21px;color:#fff;margin-bottom:8px;}
+.ch-rounds p{margin:0;color:#bdb4a4;font-size:15px;}
+.ch-rounds p b{color:#f3cf8a;}
+.ch-foot{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:28px;padding-top:24px;border-top:1px solid #2a241c;}
+.ch-foot p{margin:0;color:#cfc6b6;max-width:52ch;}
+.ch-foot p b{color:#fff;}
+@media(max-width:860px){.ch-rounds{grid-template-columns:1fr;}}
+@media(max-width:600px){
+  .ch-prizes{grid-template-columns:1fr;gap:12px;}
+  .ch-prize{padding:20px;}
+  .ch-foot .btn{width:100%;}
+  .prize-pill{gap:12px;padding:11px 13px;}
+  .pp-amt{font-size:30px;}
+  .pp-txt{font-size:13.5px;}
+}
 .steps3 h3{font-size:19px;margin-bottom:8px;}
-.steps3 p{margin:0;color:var(--ink-soft);font-size:15px;}
 .rules{margin-top:22px;border-left:3px solid var(--gold);background:var(--paper-2);padding:16px 18px;border-radius:0 4px 4px 0;font-size:15px;color:var(--ink-soft);}
 .rules b{color:var(--ink);}
-.grant-nums{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;}
-.grant-nums div{border:1px solid var(--line-2);background:var(--paper);border-radius:4px;padding:12px 16px;min-width:150px;flex:1 1 180px;}
-.grant-nums b{display:block;font-family:var(--serif);font-size:24px;line-height:1.1;}
-.grant-nums span{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
 .bonus-box{margin-top:22px;border:2px solid var(--gold);background:#fff8ec;border-radius:6px;padding:20px 22px;}
 .bonus-box b{color:var(--ink);}
 .disclose{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:14px;}
@@ -414,6 +445,12 @@ footer a:hover{color:var(--gold);}
       <span class="partner-badge" id="partnerBadge" hidden></span>
 
       <p class="hero-sub">A live session with Khalid Bin Helaly on building an AI persona people cannot scroll past: <b>the look, the cinematic content engine behind it, and the posting system that turns attention into reach.</b></p>
+
+      <a class="prize-pill" href="#challenge" data-cta="hero_prize">
+        <span class="pp-amt">$800</span>
+        <span class="pp-txt"><b>The Aura Challenge</b>VOSU credits for people in the live. $200 grand prize.</span>
+        <span class="pp-arr" aria-hidden="true">&rarr;</span>
+      </a>
 
       <div class="hero-meta">
         <div class="hm"><span>Date</span><b>Fri, Oct 23</b></div>
@@ -476,6 +513,53 @@ footer a:hover{color:var(--gold);}
   </div>
 </section>
 
+<!-- ================= THE AURA CHALLENGE ================= -->
+<section class="pad challenge" id="challenge">
+  <div class="wrap">
+    <div class="ch-head">
+      <span class="eyebrow">The Aura Challenge · Sponsored by VOSU</span>
+      <h2><span class="ch-big">$800</span> in VOSU credits. <em>Only for people in the live.</em></h2>
+      <p>Join Aurafarming live on 23 October and you are in. No ticket upgrade and no extra entry fee. You just need to be in the room.</p>
+    </div>
+
+    <div class="ch-prizes">
+      <div class="ch-prize">
+        <span class="k">Picked live</span>
+        <b>30 &times; $20</b>
+        <p>The 30 best hooks each get $20 in VOSU credits to make their film.</p>
+      </div>
+      <div class="ch-prize grand">
+        <span class="k">Grand prize</span>
+        <b>$200</b>
+        <p>The best film wins $200 in VOSU credits and a feature on The Khalid Way.</p>
+      </div>
+    </div>
+
+    <ol class="ch-rounds">
+      <li>
+        <span class="when">Round 1 · Live, 23 Oct</span>
+        <h3>The Hook Round</h3>
+        <p>Near the end of the session, everyone writes a one-line film hook in the chat. Khalid and the VOSU team pick the best 30.</p>
+      </li>
+      <li>
+        <span class="when">Round 2 · 24 to 30 Oct</span>
+        <h3>The Film Round</h3>
+        <p>The 30 finalists make a film of up to 60 seconds on VOSU, then post it publicly with <b>#AuraChallenge</b>, tagging VOSU and The Khalid Way.</p>
+      </li>
+      <li>
+        <span class="when">Winner · <span data-winners>2 November</span></span>
+        <h3>The Prize</h3>
+        <p>The best film wins $200 in VOSU credits and gets featured on The Khalid Way.</p>
+      </li>
+    </ol>
+
+    <div class="ch-foot">
+      <p><b>Your seat is your entry.</b> Hooks are written and picked in the live chat, so you have to be there at 9 PM.</p>
+      <a class="btn btn-gold" href="/aurafarming/pay" data-cta="challenge" data-reg>Reserve my seat · ৳1,000 &rarr;</a>
+    </div>
+  </div>
+</section>
+
 <!-- ================= WHY VOSU ================= -->
 <section class="pad vosu-sec" id="vosu">
   <div class="wrap vosu-grid">
@@ -494,25 +578,6 @@ footer a:hover{color:var(--gold);}
         <span class="ref-chip" id="refChip" hidden>Referral code <b id="refCode"></b></span>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ================= GRANTS ================= -->
-<section class="pad" id="grants" style="background:var(--paper-2);">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow">VOSU Creator Grants</span>
-      <h2><span id="grantCount"></span>Creator Grants. Here is how they are picked.</h2>
-      <p>VOSU is funding credit grants for attendees. Every step is public, so you know exactly where you stand.</p>
-    </div>
-    <ol class="steps3">
-      <li><h3>Register with your real work.</h3><p>Your portfolio or social link is required when you reserve your seat. That is the work we look at.</p></li>
-      <li><h3>Attend live.</h3><p>I announce a code word during the session. Submit it with your VOSU account email within 2 hours at <a class="link" href="/aurafarming/code" style="text-transform:none;letter-spacing:0;">topzid.com/aurafarming/code</a>.</p></li>
-      <li><h3>Take the 72-hour challenge.</h3><p>Shortlisted attendees get a starter grant and a challenge brief. The top entries get a larger grant and a feature. Winners are announced on <span data-winners>Wednesday, October 28</span>.</p></li>
-    </ol>
-    <div class="grant-nums" id="grantNums" hidden></div>
-    <div class="rules"><b>Not random. Not first come, first served.</b> Grants are picked on your work, your live attendance and your challenge entry. Grant numbers and credit amounts are published here once final.</div>
-    <div class="bonus-box" id="buyerBonus" hidden></div>
   </div>
 </section>
 
@@ -700,7 +765,7 @@ footer a:hover{color:var(--gold);}
           <li><b>Live session with Khalid</b> on October 23</li>
           <li><b>The full aurafarming workflow</b>: persona, cinematic content, hooks, posting system</li>
           <li><b>Live Q&amp;A</b> at the end</li>
-          <li><b>Eligible for a VOSU Creator Grant</b>, <a class="link" href="#grants" style="text-transform:none;letter-spacing:0;">how grants are picked</a></li>
+          <li><b>Entry to The Aura Challenge</b>: 30 &times; $20 VOSU credits picked live, $200 grand prize. <a class="link" href="#challenge" style="text-transform:none;letter-spacing:0;">How it works</a></li>
         </ul>
         <a class="btn btn-solid" href="/aurafarming/pay" data-cta="offer" data-reg>Reserve my seat · ৳1,000 &rarr;</a>
         <p class="fine">bKash · Nagad · Bank transfer<br />Joining link on WhatsApp after payment is verified</p>
@@ -717,14 +782,14 @@ footer a:hover{color:var(--gold);}
           <li><b>Operator Prompt Library and Pipeline SOPs</b>, brief to final reel</li>
           <li><b>The First Client module</b>: packaging, pricing and outreach</li>
           <li data-bundle-webinar><b>Your Aurafarming webinar seat is included</b>, no extra payment</li>
-          <li data-bundle-webinar><b>Eligible for a VOSU Creator Grant</b>, send your portfolio link on WhatsApp</li>
+          <li data-bundle-webinar><b>Entry to The Aura Challenge</b>: $800 in VOSU credits, picked live</li>
         </ul>
         <a class="btn btn-gold" href="/masterclass/season1/pay" data-cta="offer_s1" data-s1-cta><span data-s1-label>Get Season 1 + webinar · <span data-s1-price>৳5,000</span></span> &rarr;</a>
         <p class="fine">Watch at your own pace · <a class="link" href="/masterclass/season1" style="text-transform:none;letter-spacing:0;">See what is inside</a></p>
       </div>
     </div>
 
-    <div class="s1-note"><b>Already bought the Season 1 recordings?</b> The webinar is included for you. Do not pay again. Your joining link comes on WhatsApp. To be considered for a Creator Grant, send your portfolio link to us on WhatsApp so it is on the list.</div>
+    <div class="s1-note"><b>Already bought the Season 1 recordings?</b> The webinar is included for you. Do not pay again. Your joining link comes on WhatsApp, and you are in The Aura Challenge like everyone else in the room.</div>
   </div>
 </section>
 
@@ -740,8 +805,10 @@ footer a:hover{color:var(--gold);}
       <details><summary>Do I need AI experience?</summary><p>No. I start from the idea of aura and build up to the full workflow. If you already use AI tools, you will see how to connect them into one system.</p></details>
       <details><summary>How do I join?</summary><p>Reserve your seat and pay by bKash, Nagad or bank transfer. Once we verify the payment, usually within a few hours, the joining link is sent to your WhatsApp.</p></details>
             <details><summary>Why is VOSU part of this?</summary><p>VOSU is co-hosting and supporting this session. I use VOSU in my own work right now, so I will show it live as part of my real workflow. The session is mine and so is what I teach.</p></details>
-      <details><summary>Do I need a VOSU account?</summary><p>Not to join the webinar. To be considered for a Creator Grant, create one before the session and use that email when you submit the code word. <a class="link" data-vosu-link href="https://vosu.ai" target="_blank" rel="noopener sponsored" style="text-transform:none;letter-spacing:0;">Create a VOSU account</a></p></details>
-      <details><summary>How are the grants picked?</summary><p>On your work, your live attendance and your challenge entry. Not random and not first come, first served. <a class="link" href="#grants" style="text-transform:none;letter-spacing:0;">See the three steps</a></p></details>
+      <details><summary>Do I need a VOSU account?</summary><p>Not to join the webinar. If your hook is picked in The Aura Challenge, you will need one to receive your $20 in credits and make your film, so it helps to create it before the session. <a class="link" data-vosu-link href="https://vosu.ai" target="_blank" rel="noopener sponsored" style="text-transform:none;letter-spacing:0;">Create a VOSU account</a></p></details>
+      <details><summary>How does The Aura Challenge work?</summary><p>Near the end of the live session, everyone writes a one-line film hook in the chat. Khalid and the VOSU team pick the best 30, and each gets $20 in VOSU credits. From 24 to 30 October the 30 make a film of up to 60 seconds on VOSU and post it with #AuraChallenge. The best film wins $200 in VOSU credits and a feature on The Khalid Way. <a class="link" href="#challenge" style="text-transform:none;letter-spacing:0;">See the rounds</a></p></details>
+      <details><summary>Do I pay extra to enter the challenge?</summary><p>No. Your ৳1,000 seat is your entry. No upgrade, no extra fee.</p></details>
+      <details><summary>Can I enter if I miss the live session?</summary><p>No. Hooks are written and picked in the live chat, so only people in the room can take part.</p></details>
       <details><summary>Can I pay for VOSU in Bangladesh?</summary><p id="localPayment">Not in taka yet. When a local option is ready, it will be posted here.</p></details>
       <details><summary>I bought the Season 1 recordings. Do I pay?</summary><p>No. The webinar is included with Season 1. Your link comes on WhatsApp with everyone else's.</p></details>
       <details><summary>Can I get a refund?</summary><p>Seats are non-refundable once your payment is confirmed. If the webinar is cancelled by us, everyone gets a full refund.</p></details>
@@ -754,7 +821,7 @@ footer a:hover{color:var(--gold);}
   <div class="wrap">
     <span class="eyebrow">Friday, October 23 · 9:00 PM</span>
     <h2>Stop farming likes. Start farming <em>aura.</em></h2>
-    <p><span data-seats>2,000</span> seats. ৳1,000. One evening that changes how you show up online.</p>
+    <p><span data-seats>2,000</span> seats. ৳1,000. One evening that changes how you show up online, and <b style="color:#f3cf8a;">$800 in VOSU credits</b> for the people in the room.</p>
     <a class="btn btn-gold" href="/aurafarming/pay" data-cta="final" data-reg>Reserve my seat &rarr;</a>
   </div>
 </section>
@@ -769,7 +836,7 @@ footer a:hover{color:var(--gold);}
 </footer>
 
 <div class="mbar">
-  <div class="p">৳1,000<small>FRI OCT 23 · 9 PM · <span data-seats>2,000</span> SEATS</small></div>
+  <div class="p">৳1,000<small>FRI OCT 23 · 9 PM · $800 CHALLENGE</small></div>
   <a class="btn btn-gold" href="/aurafarming/pay" data-cta="mobile-bar" data-reg>Reserve &rarr;</a>
 </div>
 
@@ -789,28 +856,17 @@ footer a:hover{color:var(--gold);}
   /* ---- VOSU blocks: each renders only once its value is confirmed in config.js ---- */
   if(V.partnerBadge) show($("partnerBadge"), V.partnerBadge);
   if(V.whyLine) show($("whyLine"), V.whyLine);
-  if ($("vosuLink")) $("vosuLink").href = AF.vosuLink("webinar_grants");
+  if ($("vosuLink")) $("vosuLink").href = AF.vosuLink("webinar_cohost");
   [].slice.call(document.querySelectorAll("[data-vosu-link]")).forEach(function(a){ a.href = AF.vosuLink(a.getAttribute("data-vosu-link") || "webinar_faq"); });
   if(V.referralCode){ $("refCode").textContent = V.referralCode; show($("refChip")); }
   if(V.localPayment) $("localPayment").textContent = V.localPayment;
-  if(V.buyerBonus){
+  if(V.buyerBonus && $("buyerBonus")){
     var bb = $("buyerBonus"); bb.textContent = "";
     var b = document.createElement("b"); b.textContent = "After the webinar. ";
     var a = document.createElement("a"); a.href = "/masterclass/season1"; a.className = "link"; a.style.textTransform = "none"; a.style.letterSpacing = "0"; a.textContent = "See the masterclass";
     bb.appendChild(b); bb.appendChild(document.createTextNode(V.buyerBonus + " ")); bb.appendChild(a); show(bb);
   }
 
-  var g = V.grants || {};
-  if(g.starter){ $("grantCount").textContent = AF.num(g.starter) + " "; }
-  var nums = [];
-  if(g.starter) nums.push([AF.num(g.starter), "Starter grants" + (g.starterValue ? " · " + g.starterValue : "")]);
-  if(g.large) nums.push([AF.num(g.large), "Larger grants" + (g.largeValue ? " · " + g.largeValue : "")]);
-  if(g.featured) nums.push([AF.num(g.featured), "Featured creators" + (g.featuredValue ? " · " + g.featuredValue : "")]);
-  if(nums.length){
-    var gn = $("grantNums");
-    nums.forEach(function(n){ var d = document.createElement("div"); var bb2 = document.createElement("b"); bb2.textContent = n[0]; var sp = document.createElement("span"); sp.textContent = n[1]; d.appendChild(bb2); d.appendChild(sp); gn.appendChild(d); });
-    show(gn);
-  }
 
   /* ---- Option 2: Season 1 bundle price follows /masterclass/season1/config.js ---- */
   if(window.S1){

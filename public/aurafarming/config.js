@@ -26,7 +26,7 @@
     /* 72-hour challenge window for starter grant holders. */
     challengeOpensAt: "2026-10-23T21:00:00+06:00",
     challengeClosesAt: "2026-10-26T23:59:00+06:00",
-    winnersOn: "Wednesday, October 28",
+    winnersOn: "2 November",
 
     /* Flip to true the moment all seats are confirmed. */
     soldOut: false,
@@ -50,20 +50,24 @@
       whyLine:
         "The reasons are practical. VOSU credits never expire, so nothing I pay for is wasted between projects, and its workflows and AI agents are the best I have used for production work.",
 
-      /* Credit grants. Counts drive the headline and the numbers row. */
-      grants: {
-        starter: 100,
-        large: 20,
-        featured: 3,
-        starterValue: "",
-        largeValue: "",
-        featuredValue: "Marketplace profile or a paid TOPZID brief",
+      /* The Aura Challenge (locked with VOSU). Sponsored by VOSU, live attendees only.
+         Round 1 (live): 30 best hooks get perFinalist each. Round 2: films, best one wins prize. */
+      challenge: {
+        name: "The Aura Challenge",
+        total: 800,          // USD in VOSU credits
+        finalists: 30,
+        perFinalist: 20,
+        prize: 200,
+        filmWindow: "24 to 30 October",
+        winnerOn: "2 November",
+        hashtag: "#AuraChallenge",
       },
 
       /* Buyer bonus: shown on the webinar page and, during the 48 hours after
          the session, on the Season 1 page. Empty = hidden everywhere. */
-      buyerBonus:
-        "Buy the One Man AI OS Masterclass within 48 hours of the webinar and you get a guaranteed VOSU credit grant.",
+      /* Paused: not part of the campaign VOSU locked (Aura Challenge). Restore the
+         sentence here to show it again on both pages. */
+      buyerBonus: "",
       buyerBonusUntil: "2026-10-25T21:00:00+06:00",
 
       /* FAQ answer for paying VOSU in Bangladesh. */
