@@ -245,8 +245,8 @@
 .tz .prog.feature { grid-column: span 2; display: grid; grid-template-columns: 1.1fr 0.9fr; background: var(--night); color: #f4efe6; border-color: var(--night-line); }
 @media (max-width: 860px) { .tz .prog.feature { grid-column: auto; grid-template-columns: 1fr; } }
 .tz .prog .media { position: relative; min-height: 260px; }
-.tz .prog .media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 30%; }
-.tz .prog .media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(13, 11, 8, 0) 55%, rgba(13, 11, 8, 1)); }
+.tz .prog .media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 68% 35%; }
+.tz .prog .media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(13, 11, 8, 0) 70%, rgba(13, 11, 8, 1)); }
 @media (max-width: 860px) { .tz .prog .media::after { background: linear-gradient(0deg, rgba(13, 11, 8, 1), rgba(13, 11, 8, 0) 55%); } }
 .tz .prog .body { padding: 28px 28px 26px; display: flex; flex-direction: column; flex: 1; }
 .tz .prog .k { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
