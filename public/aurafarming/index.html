@@ -19,13 +19,14 @@
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="icon" href="/Topzidlogo.png" />
-<link rel="preload" as="image" href="/aurafarming/hero.jpg" media="(min-width: 1281px)" />
-<link rel="preload" as="image" href="/aurafarming/hero-1200.jpg" media="(min-width: 601px) and (max-width: 1280px)" />
-<link rel="preload" as="image" href="/aurafarming/hero-mobile.jpg" media="(max-width: 600px)" />
+<link rel="preload" as="image" type="image/webp" href="/aurafarming/hero-v2.webp" media="(min-width: 1025px)" />
+<link rel="preload" as="image" type="image/webp" href="/aurafarming/hero-v2-1200.webp" media="(min-width: 601px) and (max-width: 1024px)" />
+<link rel="preload" as="image" type="image/webp" href="/aurafarming/hero-v2-mobile.webp" media="(max-width: 600px)" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,600;1,9..144,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 <script src="/aurafarming/config.js"></script>
+<script src="/masterclass/season1/config.js"></script>
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -69,6 +70,7 @@ h2{font-size:clamp(26px,3.6vw,40px);}
 h3{font-size:19px;}
 section{border-bottom:1px solid var(--line);}
 .pad{padding:84px 0;}
+@media(max-width:600px){.pad{padding:58px 0;}.sec-head{margin-bottom:28px;}.wrap{padding:0 20px;}}
 .sec-head{max-width:62ch;margin-bottom:40px;}
 .sec-head p{color:var(--ink-soft);margin:14px 0 0;}
 .dark{background:var(--night);color:#f4efe6;border-bottom-color:#26211a;}
@@ -96,21 +98,23 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 
 /* ================= HERO ================= */
 .hero{position:relative;min-height:min(100svh,880px);display:flex;align-items:flex-end;background:var(--night);color:#fff;overflow:hidden;border-bottom:0;}
-/* Desktop: split layout. Text sits on solid night on the left; the image
-   owns the right ~64% and fades into it, so the face never sits under copy. */
-.hero .bg{position:absolute;top:0;bottom:0;right:0;left:36%;display:block;}
-.hero .bg img{width:100%;height:100%;object-fit:cover;object-position:35% 28%;}
+/* Desktop: split layout. Copy sits on night on the left; the banner owns the
+   right side, cropped around the figure and faded into the night on its left edge. */
+.hero .bg{position:absolute;top:0;bottom:0;right:0;left:40%;display:block;}
+.hero .bg img{width:100%;height:100%;object-fit:cover;object-position:70% 42%;}
 .hero .bg::after{content:"";position:absolute;inset:0;pointer-events:none;background:
-  linear-gradient(90deg,var(--night) 0%,rgba(13,11,8,.72) 12%,rgba(13,11,8,.25) 26%,rgba(13,11,8,0) 38%),
+  linear-gradient(90deg,var(--night) 0%,rgba(13,11,8,.7) 10%,rgba(13,11,8,.2) 24%,rgba(13,11,8,0) 34%),
   linear-gradient(0deg,var(--night) 0%,rgba(13,11,8,.4) 16%,rgba(13,11,8,0) 32%),
   linear-gradient(180deg,rgba(13,11,8,.55) 0%,rgba(13,11,8,0) 18%);}
-.hero-inner{position:relative;z-index:2;width:100%;padding:130px 0 64px;}
+.hero-inner{position:relative;z-index:2;width:100%;padding:110px 24px 60px;}
 .hero-copy{max-width:600px;}
 
 .live-chip{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(8px);padding:8px 14px;border-radius:2px;margin-bottom:26px;}
 .live-chip .rec{display:inline-flex;align-items:center;gap:7px;color:#ff5a4a;font-weight:600;}
 .live-chip .rec::before{content:"";width:8px;height:8px;border-radius:50%;background:#ff3b2f;box-shadow:0 0 0 0 rgba(255,59,47,.7);animation:rec 1.8s infinite;}
 .live-chip .sep{opacity:.4;}
+.live-chip{flex-wrap:wrap;row-gap:4px;}
+.live-chip > span{white-space:nowrap;}
 @keyframes rec{0%{box-shadow:0 0 0 0 rgba(255,59,47,.6);}70%{box-shadow:0 0 0 9px rgba(255,59,47,0);}100%{box-shadow:0 0 0 0 rgba(255,59,47,0);}}
 @media(prefers-reduced-motion:reduce){.live-chip .rec::before{animation:none;}}
 
@@ -145,20 +149,25 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 @media(max-width:1024px){
   .hero{display:block;min-height:0;}
   .hero .bg{position:relative;left:auto;inset:auto;}
-  .hero .bg img{height:auto;aspect-ratio:16/9;object-position:50% 30%;}
+  .hero .bg img{height:auto;aspect-ratio:16/9;object-position:60% 40%;}
   .hero .bg::after{background:
     linear-gradient(0deg,var(--night) 0%,rgba(13,11,8,.55) 18%,rgba(13,11,8,0) 42%),
     linear-gradient(180deg,rgba(13,11,8,.6) 0%,rgba(13,11,8,0) 22%);}
-  .hero-inner{margin-top:-48px;padding:0 0 52px;}
+  .hero-inner{margin-top:-48px;padding:0 24px 52px;}
   .hero-copy{max-width:680px;}
   .title-main{font-size:min(13.5vw,96px);}
 }
 @media(max-width:600px){
-  .hero .bg img{aspect-ratio:auto;height:58vh;min-height:340px;max-height:520px;object-position:50% 22%;}
-  .hero-inner{margin-top:-36px;}
-  .live-chip{font-size:10.5px;padding:7px 11px;gap:8px;}
+  .hero .bg img{aspect-ratio:auto;height:62vh;min-height:360px;max-height:560px;object-position:42% 30%;}
+  .hero-inner{margin-top:-36px;padding:0 20px 44px;}
+  .live-chip{font-size:10px;letter-spacing:.05em;padding:7px 10px;gap:7px;}
   .hm{min-width:0;padding:12px;}
   .hm b{font-size:17px;}
+  .hero-meta{display:grid;grid-template-columns:1fr 1fr;}
+  .hm{border-right:1px solid rgba(255,255,255,.14);}
+  .hm:nth-child(2n){border-right:0;}
+  .hm:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.14);}
+  .hero .cta-row .btn{width:100%;}
 }
 
 /* closed state */
@@ -217,9 +226,15 @@ body.is-closed .countdown{display:none;}
 @media(max-width:520px){.review-grid{columns:1;}}
 .review-card{break-inside:avoid;margin-bottom:16px;border-radius:8px;overflow:hidden;box-shadow:0 4px 18px rgba(29,24,18,.1);border:1px solid var(--line-2);background:#fff;}
 .review-card img{width:100%;height:auto;}
+.rv-more{display:none;margin:6px auto 0;}
+@media(max-width:700px){
+  .review-grid:not(.open) .review-card:nth-child(n+5){display:none;}
+  .review-grid:not(.open) + .rv-more{display:flex;}
+}
 
 /* ================= TEACHER ================= */
 .teacher{display:grid;grid-template-columns:280px 1fr;gap:48px;align-items:start;}
+.teacher > *{min-width:0;}
 @media(max-width:760px){.teacher{grid-template-columns:1fr;gap:24px;}}
 .teacher > img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 18%;border-radius:4px;border:1px solid var(--line-2);position:sticky;top:24px;}
 @media(max-width:760px){.teacher > img{max-width:340px;position:static;}}
@@ -235,26 +250,43 @@ body.is-closed .countdown{display:none;}
 .logos img:hover{filter:none;opacity:1;}
 
 /* ================= DETAILS + OFFER ================= */
-.offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch;}
-@media(max-width:860px){.offer-grid{grid-template-columns:1fr;}}
-.details{border:1px solid var(--line-2);border-radius:5px;padding:28px 26px;background:var(--paper);}
-.drow{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);}
-.drow:last-child{border-bottom:0;}
-.drow span{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
-.drow b{text-align:right;font-weight:600;}
-.offer{border:2px solid var(--gold);border-radius:5px;padding:32px 28px;background:var(--paper-2);box-shadow:0 14px 40px rgba(29,24,18,.08);display:flex;flex-direction:column;}
-.offer .price{font-family:var(--serif);font-weight:700;font-size:56px;line-height:1;margin:8px 0 4px;}
-.offer .pnote{font-family:var(--mono);font-size:12px;color:var(--muted);margin:0 0 20px;}
-.offer .pnote b{color:var(--gold);}
-.seatbar{height:6px;border-radius:3px;background:var(--line-2);overflow:hidden;margin:4px 0 8px;}
+.event-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line-2);border-radius:5px;background:var(--paper);margin-bottom:22px;}
+.event-strip div{padding:14px 18px;border-right:1px solid var(--line);min-width:0;}
+.event-strip div:last-child{border-right:0;}
+.event-strip span{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
+.event-strip b{display:block;font-weight:600;font-size:15px;margin-top:3px;}
+.opt-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch;}
+.opt{position:relative;border:1px solid var(--line-2);border-radius:5px;padding:30px 28px;background:var(--paper);display:flex;flex-direction:column;}
+.opt-best{border:2px solid var(--gold);background:#fffaf0;box-shadow:0 14px 40px rgba(29,24,18,.1);}
+.opt-badge{position:absolute;top:-13px;right:22px;background:linear-gradient(180deg,#e8b86a,#c9852e);color:#1d1206;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:2px;}
+.opt-kicker{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);}
+.opt h3{font-size:24px;margin:10px 0 0;}
+.opt .price{font-family:var(--serif);font-weight:700;font-size:54px;line-height:1;margin:16px 0 6px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;}
+.opt .price s{font-size:22px;font-weight:600;color:var(--muted);}
+.opt .pnote{font-family:var(--mono);font-size:12px;color:var(--muted);margin:0 0 16px;line-height:1.6;}
+.opt .pnote b{color:var(--gold);}
+.seatbar{height:6px;border-radius:3px;background:var(--line-2);overflow:hidden;margin:0 0 18px;}
 .seatbar i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--gold-2),var(--gold));}
 .plus{list-style:none;margin:0 0 24px;padding:0;flex:1;}
-.plus li{position:relative;padding:9px 0 9px 24px;border-bottom:1px solid var(--line);font-size:15px;color:var(--ink-soft);}
+.plus li{position:relative;padding:10px 0 10px 24px;border-bottom:1px solid var(--line);font-size:15px;color:var(--ink-soft);}
 .plus li:last-child{border-bottom:0;}
-.plus li::before{content:"+";position:absolute;left:2px;top:8px;color:var(--gold);font-weight:700;}
+.plus li::before{content:"+";position:absolute;left:2px;top:9px;color:var(--gold);font-weight:700;}
 .plus li b{color:var(--ink);}
-.offer .btn{width:100%;}
+.opt .btn{width:100%;text-align:center;}
 .fine{font-family:var(--mono);font-size:11.5px;color:var(--muted);text-align:center;margin:14px 0 0;line-height:1.7;}
+@media(max-width:860px){
+  .opt-grid{grid-template-columns:1fr;gap:30px;}
+  .event-strip{grid-template-columns:1fr 1fr;}
+  .event-strip div:nth-child(2){border-right:0;}
+  .event-strip div:nth-child(-n+2){border-bottom:1px solid var(--line);}
+}
+@media(max-width:520px){
+  .opt{padding:26px 20px;}
+  .opt .price{font-size:46px;}
+  .opt h3{font-size:21px;}
+  .event-strip div{padding:12px 14px;}
+  .event-strip b{font-size:14px;}
+}
 .s1-note{margin-top:22px;border-left:3px solid var(--gold);background:var(--paper-2);padding:14px 16px;font-size:14.5px;color:var(--ink-soft);border-radius:0 3px 3px 0;}
 .s1-note b{color:var(--ink);}
 
@@ -361,14 +393,17 @@ footer a:hover{color:var(--gold);}
   </nav>
 
   <picture class="bg">
-    <source media="(max-width: 600px)" srcset="/aurafarming/hero-mobile.jpg" />
-    <source media="(max-width: 1280px)" srcset="/aurafarming/hero-1200.jpg" />
-    <img src="/aurafarming/hero.jpg" alt="Cinematic AI portrait of a warrior in a snowstorm, fur hat and frost in his beard" width="1920" height="1080" fetchpriority="high" />
+    <source media="(max-width: 600px)" type="image/webp" srcset="/aurafarming/hero-v2-mobile.webp" />
+    <source media="(max-width: 600px)" srcset="/aurafarming/hero-v2-mobile.jpg" />
+    <source media="(max-width: 1024px)" type="image/webp" srcset="/aurafarming/hero-v2-1200.webp" />
+    <source media="(max-width: 1024px)" srcset="/aurafarming/hero-v2-1200.jpg" />
+    <source type="image/webp" srcset="/aurafarming/hero-v2.webp" />
+    <img src="/aurafarming/hero-v2.jpg" alt="Illustrated Khalid Bin Helaly in a black suit leaping between Dhaka rooftops at sunset, pigeons and red petals in the air" width="1920" height="1080" fetchpriority="high" />
   </picture>
 
   <div class="wrap hero-inner">
     <div class="hero-copy">
-      <div class="live-chip"><span class="rec">Live</span><span class="sep">|</span>Fri, Oct 23<span class="sep">·</span>9:00 PM Dhaka<span class="sep">·</span>Online</div>
+      <div class="live-chip"><span class="rec">Live</span><span class="sep">|</span><span>Fri, Oct 23</span><span class="sep">·</span><span>9:00 PM Dhaka</span><span class="sep">·</span><span>Online</span></div>
 
       <h1>
         <span class="title-kicker">Become an <mark>AI Influencer</mark> Today:</span>
@@ -605,6 +640,7 @@ footer a:hover{color:var(--gold);}
       <div class="review-card"><img src="/masterclass/assets/review-19.png" alt="Public LinkedIn review of a live session" loading="lazy" decoding="async" /></div>
       <div class="review-card"><img src="/masterclass/assets/review-01.png" alt="Public LinkedIn review of a live session" loading="lazy" decoding="async" /></div>
     </div>
+    <button type="button" class="btn btn-solid rv-more" onclick="this.previousElementSibling.classList.add('open')">Show all 12 posts</button>
   </div>
 </section>
 
@@ -642,25 +678,24 @@ footer a:hover{color:var(--gold);}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Reserve your seat</span>
-      <h2>One evening. 2,000 seats. ৳1,000.</h2>
+      <h2>Two ways in.</h2>
+      <p>Join the webinar on its own, or get the full Season 1 masterclass with the webinar included.</p>
     </div>
-    <div class="offer-grid">
-      <div class="details">
-        <div class="drow"><span>Session</span><b>Become an AI Influencer Today: Aurafarming!</b></div>
-        <div class="drow"><span>Date</span><b>Friday, October 23, 2026</b></div>
-        <div class="drow"><span>Time</span><b>9:00 PM Dhaka (GMT+6)</b></div>
-        <div class="drow"><span>Format</span><b>Live online</b></div>
-        <div class="drow"><span>Joining link</span><b>Sent on WhatsApp after payment is verified</b></div>
-        <div class="drow"><span>Host</span><b>Khalid Bin Helaly</b></div>
-        <div class="drow"><span>Co-host</span><b>VOSU</b></div>
-      </div>
 
-      <div class="offer">
-        <span class="eyebrow" style="margin-bottom:6px;">Live webinar</span>
+    <div class="event-strip">
+      <div><span>Date</span><b>Fri, Oct 23, 2026</b></div>
+      <div><span>Time</span><b>9:00 PM Dhaka</b></div>
+      <div><span>Format</span><b>Live online</b></div>
+      <div><span>Host</span><b>Khalid Bin Helaly · with VOSU</b></div>
+    </div>
+
+    <div class="opt-grid">
+      <div class="opt">
+        <span class="opt-kicker">Option 1 · Webinar only</span>
+        <h3>Aurafarming, live</h3>
         <div class="price">৳1,000</div>
-        <p class="pnote">Flat price · <b>Capped at <span data-seats>2,000</span> seats</b></p>
+        <p class="pnote"><b>Capped at <span data-seats>2,000</span> seats</b> · registration closes when full</p>
         <div class="seatbar" aria-hidden="true"><i></i></div>
-        <p class="pnote" style="margin-bottom:18px;">When <span data-seats>2,000</span> are confirmed, registration closes.</p>
         <ul class="plus">
           <li><b>Live session with Khalid</b> on October 23</li>
           <li><b>The full aurafarming workflow</b>: persona, cinematic content, hooks, posting system</li>
@@ -668,11 +703,28 @@ footer a:hover{color:var(--gold);}
           <li><b>Eligible for a VOSU Creator Grant</b>, <a class="link" href="#grants" style="text-transform:none;letter-spacing:0;">how grants are picked</a></li>
         </ul>
         <a class="btn btn-solid" href="/aurafarming/pay" data-cta="offer" data-reg>Reserve my seat · ৳1,000 &rarr;</a>
-        <p class="fine">bKash · Nagad · Bank transfer</p>
+        <p class="fine">bKash · Nagad · Bank transfer<br />Joining link on WhatsApp after payment is verified</p>
+      </div>
+
+      <div class="opt opt-best" id="bundle">
+        <span class="opt-badge">Best value</span>
+        <span class="opt-kicker">Option 2 · Masterclass + webinar</span>
+        <h3>Season 1 recordings + Aurafarming</h3>
+        <div class="price"><span data-s1-price>৳5,000</span> <s data-s1-was>৳15,000</s></div>
+        <p class="pnote" data-s1-note><b>Launch price</b> until Oct 20 · then ৳15,000</p>
+        <ul class="plus">
+          <li><b>All 8 sessions</b> of the One Man AI OS Masterclass, 32 hours recorded</li>
+          <li><b>Operator Prompt Library and Pipeline SOPs</b>, brief to final reel</li>
+          <li><b>The First Client module</b>: packaging, pricing and outreach</li>
+          <li data-bundle-webinar><b>Your Aurafarming webinar seat is included</b>, no extra payment</li>
+          <li data-bundle-webinar><b>Eligible for a VOSU Creator Grant</b>, send your portfolio link on WhatsApp</li>
+        </ul>
+        <a class="btn btn-gold" href="/masterclass/season1/pay" data-cta="offer_s1" data-s1-cta><span data-s1-label>Get Season 1 + webinar · <span data-s1-price>৳5,000</span></span> &rarr;</a>
+        <p class="fine">Watch at your own pace · <a class="link" href="/masterclass/season1" style="text-transform:none;letter-spacing:0;">See what is inside</a></p>
       </div>
     </div>
 
-    <div class="s1-note"><b>Bought the Season 1 recordings?</b> This webinar is already included for you. Do not pay again. Your joining link comes on WhatsApp. To be considered for a Creator Grant, send your portfolio link to us on WhatsApp so it is on the list.</div>
+    <div class="s1-note"><b>Already bought the Season 1 recordings?</b> The webinar is included for you. Do not pay again. Your joining link comes on WhatsApp. To be considered for a Creator Grant, send your portfolio link to us on WhatsApp so it is on the list.</div>
   </div>
 </section>
 
@@ -711,8 +763,8 @@ footer a:hover{color:var(--gold);}
   <div class="wrap">
     <p>AURAFARMING · LIVE WEBINAR · TOPZID × VOSU</p>
     <p class="disclose" style="margin-top:6px;">VOSU is a partner of this event.</p>
-    <p style="margin-top:10px;"><a href="/">TOPZID</a>·<a href="/masterclass/season1">Season 1 Recordings</a>·<a href="/masterclass">Masterclass</a>·<a href="/terms">Terms</a>·<a href="/refund-policy">Refunds</a>·<a href="/privacy-policy">Privacy Policy</a></p>
-    <p style="margin-top:6px;"><a href="https://www.instagram.com/thekhalidway" target="_blank" rel="noopener noreferrer">Instagram</a>·<a href="https://www.youtube.com/@thekhalidway" target="_blank" rel="noopener noreferrer">YouTube</a>·<a href="https://www.tiktok.com/@thekhalidway" target="_blank" rel="noopener noreferrer">TikTok</a>·<a href="https://www.facebook.com/thekhalidway" target="_blank" rel="noopener noreferrer">Facebook</a>·<a href="https://www.linkedin.com/in/thekhalidway" target="_blank" rel="noopener noreferrer">LinkedIn</a>·<a href="https://wa.me/8801681096975" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
+    <p style="margin-top:10px;"><a href="/">TOPZID</a> · <a href="/masterclass/season1">Season 1 Recordings</a> · <a href="/masterclass">Masterclass</a> · <a href="/terms">Terms</a> · <a href="/refund-policy">Refunds</a> · <a href="/privacy-policy">Privacy Policy</a></p>
+    <p style="margin-top:6px;"><a href="https://www.instagram.com/thekhalidway" target="_blank" rel="noopener noreferrer">Instagram</a> · <a href="https://www.youtube.com/@thekhalidway" target="_blank" rel="noopener noreferrer">YouTube</a> · <a href="https://www.tiktok.com/@thekhalidway" target="_blank" rel="noopener noreferrer">TikTok</a> · <a href="https://www.facebook.com/thekhalidway" target="_blank" rel="noopener noreferrer">Facebook</a> · <a href="https://www.linkedin.com/in/thekhalidway" target="_blank" rel="noopener noreferrer">LinkedIn</a> · <a href="https://wa.me/8801681096975" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
   </div>
 </footer>
 
@@ -760,10 +812,25 @@ footer a:hover{color:var(--gold);}
     show(gn);
   }
 
+  /* ---- Option 2: Season 1 bundle price follows /masterclass/season1/config.js ---- */
+  if(window.S1){
+    var s1p = S1.taka(S1.price());
+    document.querySelectorAll("[data-s1-price]").forEach(function(el){ el.textContent = s1p; });
+    if(!S1.isLaunch()){
+      document.querySelectorAll("[data-s1-was]").forEach(function(el){ el.hidden = true; });
+      var nt = document.querySelector("[data-s1-note]"); if(nt) nt.textContent = "Lifetime access to the recordings";
+    }
+  }
+  if(!AF.isOpen()){
+    document.querySelectorAll("[data-bundle-webinar]").forEach(function(el){ el.hidden = true; });
+    var sc = document.querySelector("[data-s1-label]"); if(sc) sc.firstChild.textContent = "Get Season 1 · ";
+  }
+
   /* ---- carry attribution into checkout links (belt and braces; config.js also stores it) ---- */
   var qs = window.location.search;
   if(qs && /utm_/.test(qs)){
     document.querySelectorAll('a[href="/aurafarming/pay"]').forEach(function(a){ a.href = "/aurafarming/pay" + qs; });
+    document.querySelectorAll('a[href="/masterclass/season1/pay"]').forEach(function(a){ a.href = "/masterclass/season1/pay" + qs; });
   }
 
   /* ---- registration state (sold out / started) ---- */
