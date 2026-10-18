@@ -347,6 +347,10 @@ footer a:hover{color:var(--gold);}
 .lockup{display:flex;align-items:center;gap:12px;color:#fff;font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;}
 .lockup .x{opacity:.55;font-size:14px;}
 .lockup img.vosu{height:20px;width:auto;}
+.lockup a{color:inherit;}
+.vosu-logo-link{display:inline-flex;align-items:center;transition:opacity .2s,transform .2s;}
+.vosu-logo-link:hover{opacity:.85;transform:translateY(-1px);}
+.vosu-logo-link.wm-link{display:inline-block;}
 @media(max-width:520px){.lockup .kbh{display:none;}}
 .cohost{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:15.5px;color:#d9d1c3;}
 .cohost img{height:18px;width:auto;}
@@ -418,7 +422,7 @@ footer a:hover{color:var(--gold);}
 <section class="hero" id="top">
   <nav aria-label="Primary">
     <div class="wrap">
-      <a class="lockup" href="https://www.topzid.com/" aria-label="Khalid Bin Helaly and VOSU"><span class="kbh">Khalid Bin Helaly</span><span class="x" aria-hidden="true">×</span><picture><source srcset="/aurafarming/vosu-wordmark-sm.webp" type="image/webp" /><img class="vosu" src="/aurafarming/vosu-wordmark-sm.png" alt="VOSU" width="300" height="66" /></picture></a>
+      <div class="lockup"><a class="kbh" href="https://www.topzid.com/">Khalid Bin Helaly</a><span class="x" aria-hidden="true">×</span><a class="vosu-logo-link" href="https://vosu.ai/?ref=thekhalidway&amp;utm_source=topzid&amp;utm_medium=referral&amp;utm_campaign=aurafarming&amp;utm_content=nav_logo" data-vosu-link="nav_logo" target="_blank" rel="noopener sponsored" aria-label="VOSU website (opens in a new tab)"><picture><source srcset="/aurafarming/vosu-wordmark-sm.webp" type="image/webp" /><img class="vosu" src="/aurafarming/vosu-wordmark-sm.png" alt="VOSU" width="300" height="66" /></picture></a></div>
       <a class="nav-cta" href="/aurafarming/pay" data-cta="nav" data-reg>Reserve seat · ৳1,000</a>
     </div>
   </nav>
@@ -441,7 +445,7 @@ footer a:hover{color:var(--gold);}
         <span class="title-main">Aurafarming!</span>
       </h1>
 
-      <p class="cohost">Co-hosted with <img src="/aurafarming/vosu-wordmark-sm.png" alt="VOSU" width="300" height="66" />, the AI creative platform I now build with.</p>
+      <p class="cohost">Co-hosted with <a class="vosu-logo-link" href="https://vosu.ai/?ref=thekhalidway&amp;utm_source=topzid&amp;utm_medium=referral&amp;utm_campaign=aurafarming&amp;utm_content=hero_cohost" data-vosu-link="hero_cohost" target="_blank" rel="noopener sponsored" aria-label="VOSU website (opens in a new tab)"><img src="/aurafarming/vosu-wordmark-sm.png" alt="VOSU" width="300" height="66" /></a>, the AI creative platform I now build with.</p>
       <span class="partner-badge" id="partnerBadge" hidden></span>
 
       <p class="hero-sub">A live session with Khalid Bin Helaly on building an AI persona people cannot scroll past: <b>the look, the cinematic content engine behind it, and the posting system that turns attention into reach.</b></p>
@@ -565,7 +569,7 @@ footer a:hover{color:var(--gold);}
   <div class="wrap vosu-grid">
     <div>
       <span class="eyebrow">Co-host</span>
-      <picture><source srcset="/aurafarming/vosu-wordmark.webp" type="image/webp" /><img class="wm" src="/aurafarming/vosu-wordmark.png" alt="VOSU" width="720" height="159" loading="lazy" /></picture>
+      <a class="vosu-logo-link wm-link" href="https://vosu.ai/?ref=thekhalidway&amp;utm_source=topzid&amp;utm_medium=referral&amp;utm_campaign=aurafarming&amp;utm_content=cohost_section" data-vosu-link="cohost_section" target="_blank" rel="noopener sponsored" aria-label="VOSU website (opens in a new tab)"><picture><source srcset="/aurafarming/vosu-wordmark.webp" type="image/webp" /><img class="wm" src="/aurafarming/vosu-wordmark.png" alt="VOSU" width="720" height="159" loading="lazy" /></picture></a>
       <h2>Why VOSU.</h2>
     </div>
     <div>
