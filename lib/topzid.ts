@@ -133,9 +133,10 @@ export const programs: Program[] = [
     title: "Become an AI Influencer Today: Aurafarming!",
     text: "Build an AI persona with presence: the look, the cinematic content engine, and the posting system. Plus The Aura Challenge: $800 in VOSU credits, only for people in the live. ৳1,000, co-hosted with VOSU.",
     href: "/aurafarming",
-    cta: "Reserve a seat",
+    cta: "See the event",
     image: "/aurafarming/hero-v2-1200.webp",
-    status: { kind: "until", label: "Registration open", after: "Registration closed", until: "2026-10-23T21:00:00+06:00" },
+    /* Registration closed manually on Oct 23 (also hides the homepage live bar). */
+    status: { kind: "until", label: "Registration open", after: "Registration closed", until: "2026-10-23T00:00:00+06:00" },
   },
   {
     id: "season1",

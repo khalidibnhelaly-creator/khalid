@@ -31,6 +31,11 @@
     /* Flip to true the moment all seats are confirmed. */
     soldOut: false,
 
+    /* Registration closed manually by Khalid (Oct 23). true = no new seats
+       anywhere; the page thanks registrants and points them to the live. */
+    closed: true,
+    closedMessage: "Thank you to everyone who registered. See you live tonight at 9 PM Dhaka.",
+
     whatsapp: "8801681096975",
     refPrefix: "AF",
     tier: "aurafarming",
@@ -77,7 +82,7 @@
   };
 
   AF.isOpen = function () {
-    return !AF.soldOut && Date.now() < new Date(AF.startsAt).getTime();
+    return !AF.closed && !AF.soldOut && Date.now() < new Date(AF.startsAt).getTime();
   };
   AF.taka = function (n) {
     return "৳" + Number(n).toLocaleString("en-US");

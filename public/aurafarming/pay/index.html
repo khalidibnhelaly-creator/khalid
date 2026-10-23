@@ -387,7 +387,7 @@
   if(!AF.isOpen()){
     $("detailForm").innerHTML =
       '<div class="callout" style="margin:0;"><b>Registration is closed.</b> ' +
-      (AF.soldOut ? "All " + AF.seats + " seats are taken." : "The webinar has already started.") +
+      (AF.soldOut ? "All " + AF.seats + " seats are taken." : AF.closed ? (AF.closedMessage || "") : "The webinar has already started.") +
       ' If you already paid, message us on WhatsApp with your reference code.</div>';
   }
 

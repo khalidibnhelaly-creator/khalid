@@ -897,7 +897,7 @@ footer a:hover{color:var(--gold);}
   if(!AF.isOpen()){
     document.body.classList.add("is-closed");
     var why = document.getElementById("closedWhy");
-    if(why && !AF.soldOut) why.textContent = "The webinar has started.";
+    if(why && !AF.soldOut) why.textContent = AF.closed && Date.now() < new Date(AF.startsAt).getTime() ? (AF.closedMessage || "") : "The webinar has started.";
     document.querySelectorAll("[data-reg]").forEach(function(a){
       a.setAttribute("aria-disabled","true");
       a.removeAttribute("href");
