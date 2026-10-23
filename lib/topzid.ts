@@ -143,10 +143,10 @@ export const programs: Program[] = [
     short: "Season 1 recordings",
     kicker: "Recorded course",
     title: "One Man AI OS Masterclass: Season 1 Recordings",
-    text: "All 8 sessions of the live masterclass, the prompt library and SOPs, plus a free Aurafarming seat and entry to The Aura Challenge.",
+    text: "All 8 sessions of the live masterclass, the prompt library, pipeline SOPs and the First Client module. Watch at your own pace.",
     href: "/masterclass/season1",
     cta: "Get the recordings",
-    status: { kind: "until", label: "৳5,000 launch price until Oct 20", after: "Available now", until: "2026-10-20T23:59:00+06:00" },
+    status: { kind: "static", label: "৳10,000 · save ৳5,000" },
   },
   {
     id: "unemployable",

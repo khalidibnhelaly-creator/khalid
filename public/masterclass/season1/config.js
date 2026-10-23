@@ -9,14 +9,21 @@
   var S1 = {
     product: "One Man AI OS Masterclass, Season 1 Recordings",
 
-    /* Pricing. Launch price holds until `deadline`, then `priceAfter` applies
-       on both pages automatically (sales page + payment amount). */
-    priceNow: 5000,
+    /* Pricing. priceNow is what everyone sees and pays; priceAfter is the
+       regular price shown struck through (৳5,000 saving).
+       Optional `deadline` (Dhaka time) ends priceNow and switches to priceAfter;
+       null = no deadline, no countdown. */
+    priceNow: 10000,
     priceAfter: 15000,
-    deadline: "2026-10-20T23:59:00+06:00", // Dhaka time
+    deadline: null,
 
-    /* Webinar (Fri Oct 23, 9:00 PM Dhaka, "Become an AI Influencer Today: Aurafarming!")
-       is written into the page copy in index.html. */
+    /* Checkout-only codes. The code itself is never stored in the page: only
+       its SHA-256 hash. Buyers who enter it see `price` at checkout; everyone
+       else keeps seeing priceNow. `until` (optional, Dhaka time) ends a code.
+       To add a code: hash it (uppercase) with SHA-256 and add a line here. */
+    codes: [
+      { hash: "ae6ebf892f745b2be5b7f547ee83c3de6b9abf561c6befb7cc01288c7b1ef7db", price: 7000, until: null }, // webinar offer, Oct 23
+    ],
 
     whatsapp: "8801681096975",
     refPrefix: "S1",
@@ -24,7 +31,7 @@
   };
 
   S1.isLaunch = function () {
-    return Date.now() < new Date(S1.deadline).getTime();
+    return !S1.deadline || Date.now() < new Date(S1.deadline).getTime();
   };
   S1.price = function () {
     return S1.isLaunch() ? S1.priceNow : S1.priceAfter;

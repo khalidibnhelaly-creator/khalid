@@ -777,10 +777,10 @@ footer a:hover{color:var(--gold);}
 
       <div class="opt opt-best" id="bundle">
         <span class="opt-badge">Best value</span>
-        <span class="opt-kicker">Option 2 · Masterclass + webinar</span>
-        <h3>Season 1 recordings + Aurafarming</h3>
-        <div class="price"><span data-s1-price>৳5,000</span> <s data-s1-was>৳15,000</s></div>
-        <p class="pnote" data-s1-note><b>Launch price</b> until Oct 20 · then ৳15,000</p>
+        <span class="opt-kicker" data-s1-kicker>Option 2 · Masterclass + webinar</span>
+        <h3 data-s1-title>Season 1 recordings + Aurafarming</h3>
+        <div class="price"><span data-s1-price>৳10,000</span> <s data-s1-was>৳15,000</s></div>
+        <p class="pnote" data-s1-note><b>Save ৳5,000</b> on the regular ৳15,000</p>
         <ul class="plus">
           <li><b>All 8 sessions</b> of the One Man AI OS Masterclass, 32 hours recorded</li>
           <li><b>Operator Prompt Library and Pipeline SOPs</b>, brief to final reel</li>
@@ -788,7 +788,7 @@ footer a:hover{color:var(--gold);}
           <li data-bundle-webinar><b>Your Aurafarming webinar seat is included</b>, no extra payment</li>
           <li data-bundle-webinar><b>Entry to The Aura Challenge</b>: $800 in VOSU credits, picked live</li>
         </ul>
-        <a class="btn btn-gold" href="/masterclass/season1/pay" data-cta="offer_s1" data-s1-cta><span data-s1-label>Get Season 1 + webinar · <span data-s1-price>৳5,000</span></span> &rarr;</a>
+        <a class="btn btn-gold" href="/masterclass/season1/pay" data-cta="offer_s1" data-s1-cta><span data-s1-label>Get Season 1 + webinar · <span data-s1-price>৳10,000</span></span> &rarr;</a>
         <p class="fine">Watch at your own pace · <a class="link" href="/masterclass/season1" style="text-transform:none;letter-spacing:0;">See what is inside</a></p>
       </div>
     </div>
@@ -884,6 +884,8 @@ footer a:hover{color:var(--gold);}
   if(!AF.isOpen()){
     document.querySelectorAll("[data-bundle-webinar]").forEach(function(el){ el.hidden = true; });
     var sc = document.querySelector("[data-s1-label]"); if(sc) sc.firstChild.textContent = "Get Season 1 · ";
+    var sk = document.querySelector("[data-s1-kicker]"); if(sk) sk.textContent = "Recorded masterclass";
+    var st = document.querySelector("[data-s1-title]"); if(st) st.textContent = "One Man AI OS · Season 1 recordings";
   }
 
   /* ---- carry attribution into checkout links (belt and braces; config.js also stores it) ---- */
