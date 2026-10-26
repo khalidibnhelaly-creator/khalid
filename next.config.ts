@@ -6,6 +6,10 @@ const nextConfig: NextConfig = {
   distDir: process.env.NEXT_DIST_DIR || ".next",
   // Static pages in /public. Production also has these in vercel.json;
   // mirrored here so `npm run dev` serves them locally.
+  // Short link for the One Man Agency class; the old long URL keeps working.
+  async redirects() {
+    return [{ source: "/onemanagency", destination: "/oma", permanent: true }];
+  },
   async rewrites() {
     return [
       { source: "/masterclass", destination: "/masterclass/index.html" },

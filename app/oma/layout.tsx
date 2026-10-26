@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./oma.css";
 
 /**
- * One Man Agency (/onemanagency). Monochrome, poster-style system that
+ * One Man Agency (/oma). Monochrome, poster-style system that
  * matches the campaign banners: heavy condensed Archivo for display,
  * regular Archivo for reading. Scoped under .oma.
  */

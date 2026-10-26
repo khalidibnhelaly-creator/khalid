@@ -5,7 +5,7 @@
  */
 export const OMA = {
   title: "One Man Agency",
-  url: "https://www.topzid.com/onemanagency",
+  url: "https://www.topzid.com/oma",
   /** 8:00 PM Dhaka (GMT+6), Friday 27 November 2026. */
   startsAt: "2026-11-27T20:00:00+06:00",
   durationMin: 240,

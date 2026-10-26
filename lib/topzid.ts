@@ -132,7 +132,7 @@ export const programs: Program[] = [
     kicker: "Free live class · Fri, 27 Nov · 8 PM Dhaka · with VOSU",
     title: "One Man Agency",
     text: "How one person with AI does the work of a whole agency: how clients find me, what I charge, and how the work gets made, live on screen. Free.",
-    href: "/onemanagency",
+    href: "/oma",
     cta: "Register free",
     image: "/onemanagency/office.webp",
     status: { kind: "until", label: "Registration open", after: "Registration closed", until: "2026-11-27T20:00:00+06:00" },
