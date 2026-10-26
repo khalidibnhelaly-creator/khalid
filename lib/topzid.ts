@@ -127,16 +127,15 @@ export type Program = {
 
 export const programs: Program[] = [
   {
-    id: "aurafarming",
-    short: "Aurafarming webinar",
-    kicker: "Live webinar · Fri, Oct 23 · 9 PM Dhaka",
-    title: "Become an AI Influencer Today: Aurafarming!",
-    text: "Build an AI persona with presence: the look, the cinematic content engine, and the posting system. Plus The Aura Challenge: $800 in VOSU credits, only for people in the live. ৳1,000, co-hosted with VOSU.",
-    href: "/aurafarming",
-    cta: "See the event",
-    image: "/aurafarming/hero-v2-1200.webp",
-    /* Registration closed manually on Oct 23 (also hides the homepage live bar). */
-    status: { kind: "until", label: "Registration open", after: "Registration closed", until: "2026-10-23T00:00:00+06:00" },
+    id: "onemanagency",
+    short: "One Man Agency (free live class)",
+    kicker: "Free live class · Fri, 27 Nov · 8 PM Dhaka · with VOSU",
+    title: "One Man Agency",
+    text: "How one person with AI does the work of a whole agency: how clients find me, what I charge, and how the work gets made, live on screen. Free.",
+    href: "/onemanagency",
+    cta: "Register free",
+    image: "/onemanagency/office.webp",
+    status: { kind: "until", label: "Registration open", after: "Registration closed", until: "2026-11-27T20:00:00+06:00" },
   },
   {
     id: "season1",

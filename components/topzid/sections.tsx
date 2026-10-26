@@ -6,19 +6,19 @@ import { TimeStatus, Until } from "./time-aware";
 
 /* eslint-disable @next/next/no-img-element -- static brand assets; next/image adds nothing for these sizes */
 
-const AURA = programs.find((p) => p.id === "aurafarming")!;
-const aurafarmingUntil = AURA.status.kind === "until" ? AURA.status.until : "1970-01-01";
+const LIVE = programs.find((p) => p.id === "onemanagency")!;
+const liveUntil = LIVE.status.kind === "until" ? LIVE.status.until : "1970-01-01";
 
 export function LiveBar() {
   return (
-    <Until until={aurafarmingUntil}>
+    <Until until={liveUntil}>
       <div className="livebar">
-        <a href="/aurafarming">
+        <a href={LIVE.href}>
           <span className="rec">LIVE</span>
           <span>
-            Fri, Oct 23 · 9 PM: <b>Become an AI Influencer Today: Aurafarming!</b> · <b>$800 VOSU challenge</b>, live only · ৳1,000
+            Fri, 27 Nov · 8 PM: <b>One Man Agency</b> · Free live class with VOSU
           </span>
-          <span className="go">Reserve →</span>
+          <span className="go">Register free →</span>
         </a>
       </div>
     </Until>

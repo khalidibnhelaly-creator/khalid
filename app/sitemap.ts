@@ -9,6 +9,7 @@ const SITE = "https://www.topzid.com";
 const PAGES: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
   { path: "/", priority: 1.0, changeFrequency: "weekly" },
   { path: "/about", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/onemanagency", priority: 0.9, changeFrequency: "weekly" },
   { path: "/studio", priority: 0.9, changeFrequency: "monthly" },
   { path: "/consult", priority: 0.9, changeFrequency: "monthly" },
   { path: "/ai", priority: 0.8, changeFrequency: "monthly" },
