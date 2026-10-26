@@ -222,7 +222,7 @@ export default async function Consult({
               <p>
                 Seven years at Chaldal PLC (Y Combinator S15), rising to Assistant Director of Marketing. Founder of
                 TOPZID, the AI production studio behind 500+ commercials. Generative AI Consultant to one of
-                Bangladesh&apos;s largest marketing groups. More than 1,000 people taught live.
+                Bangladesh&apos;s largest marketing groups. More than 30,000 people taught live.
               </p>
               <Link className="link" href="/about">More about Khalid ↗</Link>
             </div>

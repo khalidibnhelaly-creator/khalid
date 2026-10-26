@@ -8,7 +8,7 @@ export const OMA = {
   url: "https://www.topzid.com/onemanagency",
   /** 8:00 PM Dhaka (GMT+6), Friday 27 November 2026. */
   startsAt: "2026-11-27T20:00:00+06:00",
-  durationMin: 150,
+  durationMin: 240,
   /** Registration closes when the class starts. Set true to close early. */
   closed: false,
   /** Where people watch. Fill in the stream links when they exist. */

@@ -131,7 +131,7 @@ export default function About() {
               and works as a <b>Generative AI Consultant</b> to one of Bangladesh&apos;s largest marketing groups.
             </p>
             <p>
-              He has produced more than 500 AI commercials, taught more than 1,000 people in live sessions, and ran
+              He has produced more than 500 AI commercials, taught more than 30,000 people in free live classes and workshops, and ran
               Season 1 of the One Man AI OS Masterclass with 41 paid students.
             </p>
             <div className="rooms">

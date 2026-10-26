@@ -28,7 +28,7 @@ export const socials = [
 export const proof = [
   { value: "500+", label: "AI commercials produced" },
   { value: "15+", label: "Brands served" },
-  { value: "1,000+", label: "People trained live" },
+  { value: "30,000+", label: "People taught live" },
   { value: "13 yrs", label: "In marketing" },
 ] as const;
 

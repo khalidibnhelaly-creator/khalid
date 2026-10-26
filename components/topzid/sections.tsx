@@ -212,7 +212,7 @@ export function Learn() {
           <span className="eyebrow">Learn with TOPZID</span>
           <h2>The studio&apos;s system, <span className="it">taught.</span></h2>
           <p>
-            Everything we use to make films, taught live and on demand by Khalid Bin Helaly. Over 1,000 people have
+            Everything we use to make films, taught live and on demand by Khalid Bin Helaly. Over 30,000 people have
             attended the live sessions.
           </p>
         </div>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { Countdown, LocalTime } from "@/components/oma/client";
 import { RegisterForm } from "@/components/oma/register-form";
+import { VideoTestimonial } from "@/components/oma/video";
 import { OMA, omaTimes, vosuLink } from "@/lib/oma";
 import { cleanCountry } from "@/lib/pricing";
 import { brand, socials } from "@/lib/topzid";
@@ -33,17 +34,17 @@ const MOMENTS = [
   {
     t: "A real client message and invoice",
     d: "In the first five minutes: a client who found me, not the other way round. Names and amounts blurred. Everything else real.",
-    when: "0:00 · Cold open",
+    when: "Part 1 · Cold open",
   },
   {
     t: "A real AI commercial, made in front of you",
     d: "You vote for a real local business. We brainstorm, storyboard, lock and render the ad live, with the studio pipeline I use for clients.",
-    when: "0:45 · Live production",
+    when: "Part 4 · Live production",
   },
   {
     t: "An AI agent drafts a Meta ads campaign",
     d: "From a one-paragraph brief, the agent builds the campaign, ad set and targeting. The campaign stays paused and a human approves every taka.",
-    when: "1:40 · AI marketing stack",
+    when: "Part 6 · AI marketing stack",
   },
 ];
 
@@ -66,19 +67,46 @@ const PIPE = [
 ] as const;
 
 const AGENDA = [
-  ["0:00", "Cold open", "A real inbound message and invoice, blurred", true],
-  ["0:05", "Honest maths", "Who this is for, and what month one really looks like", false],
-  ["0:15", "The client system", "The inbound loop, stage by stage, with real examples", false],
-  ["0:45", "Live production", "You vote, we make a real AI ad from brainstorm to render", true],
-  ["1:35", "Break", "The challenge prompt goes into the chat", false],
-  ["1:40", "The AI marketing stack", "Search after AI, a Meta ads agent, ChatGPT ads", true],
-  ["2:05", "Failures", "Pitches that got ignored, a client I lost, what I would change", false],
-  ["2:15", "The 30-day challenge", "Rules, deadlines and the public results board", false],
-  ["2:25", "Short offer and close", "Five minutes at most. You do not need it", false],
+  ["01", "Cold open", "A real inbound message and invoice, blurred", true],
+  ["02", "Honest maths", "Who this is for, and what month one really looks like", false],
+  ["03", "The client system", "The inbound loop, stage by stage, with real examples", false],
+  ["04", "Live production", "You vote, we make a real AI ad from brainstorm to render", true],
+  ["05", "Break", "The challenge prompt goes into the chat", false],
+  ["06", "The AI marketing stack", "Search after AI, a Meta ads agent, ChatGPT ads", true],
+  ["07", "Failures", "Pitches that got ignored, a client I lost, what I would change", false],
+  ["08", "The 30-day challenge", "Rules, deadlines and the public results board", false],
+  ["09", "Short offer", "A few minutes at most. You do not need it", false],
+  ["10", "Giveaway", "At the very end, only for the people still in the room", true],
+] as const;
+
+const QUOTES = [
+  {
+    name: "Mehenaz Khan Sorna",
+    role: "Visualizer · BSc in Computer Science",
+    text: "A 4-hour webinar, and I didn't fall asleep? That's a first for me! … What I appreciated was that the session wasn't just about AI tools. Khalid also explained budgeting, how to calculate production costs, and why we should think beyond creating content and focus on building ourselves as brands.",
+  },
+  {
+    name: "Sharif Talukder",
+    role: "Production & Data Coordinator",
+    text: "Most AI tutorials focus on surface-level prompt tricks, but Khalid Bin Helaly's 4-hour \"Aurafarming\" masterclass delivered a complete creative engine. … The clarity, depth, and practical systems made every minute count.",
+  },
+  {
+    name: "Mohammad Anisur Rahman",
+    role: "Full-stack developer · Next.js & Django",
+    text: "It's true that the live session took quite a while – around 4 hours. But what made the session worth all that time is the way he teaches everything. He doesn't just teach theories but explains the entire process of creating an AI persona and creating cinematic content through that process.",
+  },
+] as const;
+
+const VIDEOS = [
+  { id: "pPoyOadGE4U", label: "Paid student · Masterclass Season 1" },
+  { id: "PDi5xcZt8jE", label: "Paid student · Masterclass Season 1" },
+  { id: "pPGlOl_repE", label: "Paid student · Masterclass Season 1", vertical: true },
 ] as const;
 
 const FAQ = [
-  ["Is it really free?", "Yes. Registration is free and so is the class. There is a short offer in the last five minutes, and you get everything in the class without it."],
+  ["Is it really free?", "Yes. Registration is free and so is the class. There is a short offer near the end, and you get everything in the class without it."],
+  ["Why is it so long?", "Because I show the whole system, not a highlight reel: the client loop, a full live production and the marketing stack. Plan for four hours or more. If that is too long for you, you are welcome to leave at any point, no hard feelings."],
+  ["Is there a giveaway?", "Yes, at the very end of the class, only for the people who are still live in the room. It is not announced in advance and it is not sent to the recording."],
   ["Why do I need a VOSU account?", "The live production runs on VOSU, and so does the 30-day challenge. A free account means you can follow along on the night and take part afterwards. It takes about two minutes to create."],
   ["Where do I watch?", "Live on YouTube and Facebook. The joining links come to your WhatsApp the day before, 2 hours before and 10 minutes before. A small interactive Zoom room is offered to some registrants based on the work they share."],
   ["Do I need a company, a team or experience?", "No. This is for people working alone. If you are starting from zero, the class shows you how to build your first portfolio with free samples for real businesses."],
@@ -180,12 +208,12 @@ export default async function OneManAgency() {
               <div className="oma-facts">
                 <div><span className="lbl">Date</span><b>Fri, 27 Nov</b></div>
                 <div><span className="lbl">Time</span><b>8:00 PM Dhaka</b><LocalTime /></div>
-                <div><span className="lbl">Length</span><b>2.5 hours, live</b></div>
+                <div><span className="lbl">Length</span><b>4+ hours, live</b></div>
                 <div><span className="lbl">Price</span><b>Free</b></div>
               </div>
               <a className="btn btn-fg" href="#register">Register free <span className="arr">→</span></a>
               <Countdown />
-              <p className="note">Live on YouTube and Facebook · Links on WhatsApp</p>
+              <p className="note">Live on YouTube and Facebook · Giveaway at the end for people still live</p>
             </div>
           </div>
         </section>
@@ -328,7 +356,8 @@ export default async function OneManAgency() {
           <div className="wrap">
             <div className="oma-head">
               <span className="lbl">Run of show</span>
-              <h2 className="disp">Two and a half hours. <span className="soft">Minute by minute.</span></h2>
+              <h2 className="disp">Four hours and more. <span className="soft">In this order.</span></h2>
+              <p className="lede">This is long on purpose. If you want a quick tip, this is not it, and you are welcome to leave at any point. The people who stay to the end get the giveaway.</p>
             </div>
             <div className="oma-agenda reveal">
               {AGENDA.map(([t, b, s, hl]) => (
@@ -372,8 +401,8 @@ export default async function OneManAgency() {
               <span className="lbl" style={{ color: "var(--fg)", paddingTop: 3 }}>No income promise</span>
               <p>
                 <b>I show what happened to me. It is not a forecast for you.</b> Client names, faces and amounts stay
-                blurred unless the client has approved them in writing. There is a short offer in the last five
-                minutes, and nobody needs it to get everything from this class.
+                blurred unless the client has approved them in writing. There is a short offer near the end, and
+                nobody needs it to get everything from this class.
               </p>
             </div>
           </div>
@@ -422,11 +451,43 @@ export default async function OneManAgency() {
               <div className="oma-nums">
                 <div><b>500+</b><span>AI commercials produced</span></div>
                 <div><b>13</b><span>Years in marketing</span></div>
-                <div><b>1,000+</b><span>People taught in live sessions</span></div>
-                <div><b>41</b><span>Paid students in Season 1</span></div>
+                <div><b>30,000+</b><span>People taught live, free classes and workshops</span></div>
+                <div><b>250+</b><span>Paid students</span></div>
               </div>
               <p className="brands oma-brands">Work for {BRANDS.join(" · ")}</p>
               <a className="lbl" href={linkedin.href} target="_blank" rel="noopener noreferrer" style={{ color: "var(--fg)", textDecoration: "none", borderBottom: "1px solid var(--line-2)", paddingBottom: 3 }}>LinkedIn ↗</a>
+            </div>
+          </div>
+        </section>
+
+        {/* ---------- proof from the room ---------- */}
+        <section className="oma-sec alt" id="proof">
+          <div className="wrap">
+            <div className="oma-head">
+              <span className="lbl">From the last webinar · Aurafarming, Oct 2026</span>
+              <h2 className="disp">Four hours long. <span className="soft">Here is what people posted after.</span></h2>
+              <p className="lede">Public LinkedIn posts from people who sat through the whole Aurafarming session. Not testimonials we asked for.</p>
+            </div>
+            <div className="oma-quotes">
+              {QUOTES.map((q) => (
+                <figure className="oma-quote reveal" key={q.name}>
+                  <blockquote>{q.text}</blockquote>
+                  <figcaption>
+                    <span className="av" aria-hidden="true">{q.name.split(" ").map((w) => w[0]).slice(0, 2).join("")}</span>
+                    <span><b>{q.name}</b><small>{q.role} · on LinkedIn</small></span>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+
+            <div className="oma-head" style={{ marginTop: "clamp(64px, 8vw, 104px)" }}>
+              <span className="lbl">From the paid masterclass</span>
+              <h2 className="disp">Paid students, <span className="soft">on camera.</span></h2>
+            </div>
+            <div className="oma-vids reveal">
+              {VIDEOS.map((v) => (
+                <VideoTestimonial key={v.id} id={v.id} label={v.label} vertical={"vertical" in v && v.vertical} />
+              ))}
             </div>
           </div>
         </section>
@@ -465,7 +526,8 @@ export default async function OneManAgency() {
               <span className="lbl">Register</span>
               <h2 className="disp" style={{ marginTop: 14 }}>Save your seat. <span className="soft">It&apos;s free.</span></h2>
               <ul className="oma-after">
-                <li><b>Fri, 27 Nov · 8:00 PM Dhaka</b>2.5 hours, live on YouTube and Facebook</li>
+                <li><b>Fri, 27 Nov · 8:00 PM Dhaka</b>4+ hours, live on YouTube and Facebook</li>
+                <li><b>Giveaway at the end</b>Only for the people still in the room</li>
                 <li><b>Links on WhatsApp</b>The day before, 2 hours before and 10 minutes before</li>
                 <li><b>Small Zoom room</b>Offered to registrants who share real work in their profiles</li>
                 <li><b>Need help?</b><a href={`https://wa.me/${brand.whatsapp}`} target="_blank" rel="noopener noreferrer" style={{ color: "var(--fg)" }}>Message us on WhatsApp</a></li>
@@ -499,7 +561,7 @@ export default async function OneManAgency() {
           <div className="wrap">
             <span className="lbl">Friday, 27 November · 8:00 PM Dhaka</span>
             <h2 className="disp" style={{ marginTop: 18 }}>One man.<br /><span className="soft">Whole agency.</span></h2>
-            <p>Two and a half hours, live, with the proof on screen. Free, with VOSU.</p>
+            <p>Four hours and more, live, with the proof on screen. Giveaway at the end for the people still in the room. Free, with VOSU.</p>
             <a className="btn btn-fg" href="#register">Register free <span className="arr">→</span></a>
           </div>
         </section>
