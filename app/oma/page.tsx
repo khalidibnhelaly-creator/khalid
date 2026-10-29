@@ -5,18 +5,18 @@ import { ScrollReveal } from "@/components/scroll-reveal";
 import { Countdown, LocalTime } from "@/components/oma/client";
 import { RegisterForm } from "@/components/oma/register-form";
 import { VideoTestimonial } from "@/components/oma/video";
-import { OMA, omaTimes, vosuLink } from "@/lib/oma";
+import { OMA, omaTimes } from "@/lib/oma";
 import { cleanCountry } from "@/lib/pricing";
 import { brand, socials } from "@/lib/topzid";
 
 export const metadata: Metadata = {
-  title: { absolute: "One Man Agency | Free Live Class with Khalid Bin Helaly, with VOSU | 27 Nov, 8 PM" },
+  title: { absolute: "One Man Agency | Free Live Class with Khalid Bin Helaly | 27 Nov, 8 PM" },
   description:
-    "How one person with AI does the work of a whole agency: how clients find me, what I charge, and how the work gets made, live on screen. Free live class, Friday 27 November, 8 PM Dhaka. With VOSU.",
+    "How one person with AI does the work of a whole agency: how clients find me, what I charge, and how the work gets made, live on screen. Free live class, Friday 27 November, 8 PM Dhaka.",
   alternates: { canonical: OMA.url },
   openGraph: {
     title: "ONE MAN AGENCY · Free live class · 27 Nov · 8 PM",
-    description: "How one person with AI does the work of a whole agency, live on screen. Free. With VOSU.",
+    description: "How one person with AI does the work of a whole agency, live on screen. Free.",
     url: OMA.url,
     siteName: "TOPZID",
     type: "website",
@@ -62,8 +62,8 @@ const PIPE = [
   ["10 min", "Brainstorm", "Three story ideas, each with a hook in the first 2 seconds", "Claude"],
   ["5 min", "Pitch", "The one-page pitch the client would actually receive", "Claude"],
   ["10 min", "Storyboard", "Board frames and the beats, walked through", "GPT Image 2.5"],
-  ["5 min", "Lock", "Character, location and props approved before anything renders", "VOSU"],
-  ["15 min", "Produce", "Render the shots and cut a rough edit", "Seedance 2.5 on VOSU"],
+  ["5 min", "Lock", "Character, location and props approved before anything renders", "Asset sheet"],
+  ["15 min", "Produce", "Render the shots and cut a rough edit", "Seedance 2.5"],
 ] as const;
 
 const AGENDA = [
@@ -107,8 +107,7 @@ const FAQ = [
   ["Is it really free?", "Yes. Registration is free and so is the class. There is a short offer near the end, and you get everything in the class without it."],
   ["Why is it so long?", "Because I show the whole system, not a highlight reel: the client loop, a full live production and the marketing stack. Plan for four hours or more. If that is too long for you, you are welcome to leave at any point, no hard feelings."],
   ["Is there a giveaway?", "Yes, at the very end of the class, only for the people who are still live in the room. It is not announced in advance and it is not sent to the recording."],
-  ["Why do I need a VOSU account?", "The live production runs on VOSU, and so does the 30-day challenge. A free account means you can follow along on the night and take part afterwards. It takes about two minutes to create."],
-  ["Where do I watch?", "Live on YouTube and Facebook. The joining links come to your WhatsApp the day before, 2 hours before and 10 minutes before. A small interactive Zoom room is offered to some registrants based on the work they share."],
+  ["How do I join?", "Register on this page. We add you to the class WhatsApp group and email you the joining link before the class. A small interactive room is offered to some registrants based on the work they share."],
   ["Do I need a company, a team or experience?", "No. This is for people working alone. If you are starting from zero, the class shows you how to build your first portfolio with free samples for real businesses."],
   ["Will you promise me an income?", "No. I show what happened to me, with proof, and I say plainly that it is not a forecast for you. Anyone who promises you a number is guessing."],
   ["Will there be a recording?", "Plan to join live. The vote, the live production and the challenge prompt only happen in the room."],
@@ -137,7 +136,6 @@ export default async function OneManAgency() {
     offers: { "@type": "Offer", price: "0", priceCurrency: "BDT", url: OMA.url, availability: "https://schema.org/InStock" },
     organizer: { "@type": "Organization", "@id": `${brand.url}/#org`, name: "TOPZID", url: brand.url },
     performer: { "@type": "Person", "@id": `${brand.url}/about#khalid`, name: "Khalid Bin Helaly" },
-    sponsor: { "@type": "Organization", name: "VOSU", url: "https://vosu.ai" },
   };
 
   return (
@@ -150,14 +148,9 @@ export default async function OneManAgency() {
       <header className="oma-top">
         <div className="wrap">
           <div className="oma-lock">
-            <Link className="kbh" href="/">TOPZID</Link>
-            <span className="x" aria-hidden="true">×</span>
-            <a className="vosu-link" href={vosuLink("nav_logo")} target="_blank" rel="noopener sponsored" aria-label="VOSU website (opens in a new tab)">
-              <picture>
-                <source srcSet="/aurafarming/vosu-wordmark-sm.webp" type="image/webp" />
-                <img src="/aurafarming/vosu-wordmark-sm.png" alt="VOSU" width={300} height={66} />
-              </picture>
-            </a>
+            <Link href="/">TOPZID</Link>
+            <span className="x" aria-hidden="true">·</span>
+            <span>One Man Agency</span>
           </div>
           <a className="cta" href="#register">Register free</a>
         </div>
@@ -184,16 +177,10 @@ export default async function OneManAgency() {
         <section className="oma-intro">
           <div className="wrap oma-intro-grid">
             <div>
-              <h1 className="sr">One Man Agency: a free live class with Khalid Bin Helaly, with VOSU</h1>
+              <h1 className="sr">One Man Agency: a free live class with Khalid Bin Helaly</h1>
               <div className="oma-chips">
                 <span className="oma-chip"><span className="dot" />Free live class</span>
-                <span className="oma-chip">
-                  With
-                  <picture>
-                    <source srcSet="/aurafarming/vosu-wordmark-sm.webp" type="image/webp" />
-                    <img src="/aurafarming/vosu-wordmark-sm.png" alt="VOSU" width={300} height={66} />
-                  </picture>
-                </span>
+                <span className="oma-chip">Fri, 27 Nov · 8 PM Dhaka</span>
               </div>
               <p className="promise">
                 How one person with AI does the work <span>of a whole agency.</span>
@@ -213,7 +200,7 @@ export default async function OneManAgency() {
               </div>
               <a className="btn btn-fg" href="#register">Register free <span className="arr">→</span></a>
               <Countdown />
-              <p className="note">Live on YouTube and Facebook · Giveaway at the end for people still live</p>
+              <p className="note">Live online · Joining link by email · Giveaway at the end for people still live</p>
             </div>
           </div>
         </section>
@@ -492,33 +479,6 @@ export default async function OneManAgency() {
           </div>
         </section>
 
-        {/* ---------- VOSU ---------- */}
-        <section className="oma-sec alt" id="vosu">
-          <div className="wrap oma-vosu">
-            <div className="reveal">
-              <span className="lbl">In collaboration with</span>
-              <div style={{ marginTop: 22 }}>
-                <a className="wm" href={vosuLink("vosu_section_logo")} target="_blank" rel="noopener sponsored" aria-label="VOSU website (opens in a new tab)">
-                  <picture>
-                    <source srcSet="/aurafarming/vosu-wordmark.webp" type="image/webp" />
-                    <img src="/aurafarming/vosu-wordmark.png" alt="VOSU" width={720} height={159} loading="lazy" />
-                  </picture>
-                </a>
-              </div>
-              <p className="lede" style={{ marginTop: 22 }}>VOSU is the AI creative platform the live production runs on. It is where the storyboard is locked and the ad is rendered.</p>
-            </div>
-            <div className="reveal">
-              <h2 className="disp" style={{ fontSize: "clamp(34px, 4.6vw, 56px)", marginBottom: 24 }}>A free VOSU account <span className="soft">is required.</span></h2>
-              <ol>
-                <li><b>Create a free account</b> on VOSU. It takes about two minutes.</li>
-                <li><b>Register below</b> with the same email you used on VOSU.</li>
-                <li><b>Follow along live</b> on the night, and use it for the 30-day challenge.</li>
-              </ol>
-              <a className="btn btn-line" href={vosuLink("vosu_section_cta")} target="_blank" rel="noopener sponsored">Create a VOSU account ↗</a>
-            </div>
-          </div>
-        </section>
-
         {/* ---------- register ---------- */}
         <section className="oma-sec" id="register" style={{ scrollMarginTop: 12 }}>
           <div className="wrap oma-reg">
@@ -526,9 +486,9 @@ export default async function OneManAgency() {
               <span className="lbl">Register</span>
               <h2 className="disp" style={{ marginTop: 14 }}>Save your seat. <span className="soft">It&apos;s free.</span></h2>
               <ul className="oma-after">
-                <li><b>Fri, 27 Nov · 8:00 PM Dhaka</b>4+ hours, live on YouTube and Facebook</li>
+                <li><b>Fri, 27 Nov · 8:00 PM Dhaka</b>4+ hours, live online</li>
                 <li><b>Giveaway at the end</b>Only for the people still in the room</li>
-                <li><b>Links on WhatsApp</b>The day before, 2 hours before and 10 minutes before</li>
+                <li><b>WhatsApp group and email</b>We add you to the class group and email you the joining link</li>
                 <li><b>Small Zoom room</b>Offered to registrants who share real work in their profiles</li>
                 <li><b>Need help?</b><a href={`https://wa.me/${brand.whatsapp}`} target="_blank" rel="noopener noreferrer" style={{ color: "var(--fg)" }}>Message us on WhatsApp</a></li>
               </ul>
@@ -561,7 +521,7 @@ export default async function OneManAgency() {
           <div className="wrap">
             <span className="lbl">Friday, 27 November · 8:00 PM Dhaka</span>
             <h2 className="disp" style={{ marginTop: 18 }}>One man.<br /><span className="soft">Whole agency.</span></h2>
-            <p>Four hours and more, live, with the proof on screen. Giveaway at the end for the people still in the room. Free, with VOSU.</p>
+            <p>Four hours and more, live, with the proof on screen. Giveaway at the end for the people still in the room. Free.</p>
             <a className="btn btn-fg" href="#register">Register free <span className="arr">→</span></a>
           </div>
         </section>
@@ -569,8 +529,7 @@ export default async function OneManAgency() {
 
       <footer className="oma-foot">
         <div className="wrap">
-          <p>ONE MAN AGENCY · FREE LIVE CLASS · TOPZID × VOSU</p>
-          <p>VOSU is a partner of this class.</p>
+          <p>ONE MAN AGENCY · FREE LIVE CLASS · TOPZID</p>
           <p style={{ marginTop: 12 }}>
             <Link href="/">TOPZID</Link>
             <Link href="/masterclass/season1">Season 1 recordings</Link>
@@ -582,7 +541,7 @@ export default async function OneManAgency() {
       </footer>
 
       <div className="oma-mbar">
-        <div className="p">Free · 27 Nov<small>8:00 PM DHAKA · WITH VOSU</small></div>
+        <div className="p">Free · 27 Nov<small>8:00 PM DHAKA · 4+ HOURS LIVE</small></div>
         <a className="btn btn-fg" href="#register">Register →</a>
       </div>
       <ScrollReveal />

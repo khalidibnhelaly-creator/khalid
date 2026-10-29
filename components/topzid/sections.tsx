@@ -16,7 +16,7 @@ export function LiveBar() {
         <a href={LIVE.href}>
           <span className="rec">LIVE</span>
           <span>
-            Fri, 27 Nov · 8 PM: <b>One Man Agency</b> · Free live class with VOSU
+            Fri, 27 Nov · 8 PM: <b>One Man Agency</b> · Free live class with Khalid
           </span>
           <span className="go">Register free →</span>
         </a>

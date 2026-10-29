@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { SUPABASE_PUBLISHABLE_KEY, SUPABASE_URL } from "@/lib/public-supabase";
 import { brand } from "@/lib/topzid";
-import { OMA, omaTimes, vosuLink } from "@/lib/oma";
+import { OMA, omaTimes } from "@/lib/oma";
 
 const OCCUPATIONS = [
   ["freelancer", "Freelancer"],
@@ -33,7 +33,7 @@ const push = (o: object) => (window as unknown as { dataLayer?: object[] }).data
 function calendarLinks() {
   const { startUtc, endUtc } = omaTimes();
   const title = "One Man Agency: free live class with Khalid Bin Helaly";
-  const details = `Free live class with Khalid Bin Helaly, with VOSU. Joining links come on WhatsApp. ${OMA.url}`;
+  const details = `Free live class with Khalid Bin Helaly. The joining link comes by email. ${OMA.url}`;
   const google =
     "https://calendar.google.com/calendar/render?action=TEMPLATE" +
     `&text=${encodeURIComponent(title)}&dates=${startUtc}/${endUtc}` +
@@ -67,11 +67,9 @@ function calendarLinks() {
  * back as 409 and is treated as success.
  */
 export function RegisterForm({ country }: { country: string | null }) {
-  const [f, setF] = useState({ name: "", whatsapp: "", note: "", vosuEmail: "", hp: "" });
+  const [f, setF] = useState({ name: "", whatsapp: "", email: "", note: "", hp: "" });
   const [occ, setOcc] = useState<Occ>("");
   const [soc, setSoc] = useState<Record<SocialKey, string>>({ instagram: "", tiktok: "", youtube: "", linkedin: "", facebook: "" });
-  const [vosu, setVosu] = useState<"" | "has_account" | "created_now">("");
-  const [consent, setConsent] = useState(false);
   const [bad, setBad] = useState<Record<string, boolean>>({});
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
@@ -87,15 +85,12 @@ export function RegisterForm({ country }: { country: string | null }) {
 
     const waDigits = f.whatsapp.replace(/\D/g, "");
     const anySocial = Object.values(soc).some((v) => v.trim());
-    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.vosuEmail.trim());
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email.trim());
     const b: Record<string, boolean> = {
       name: f.name.trim().length < 2,
       whatsapp: waDigits.length < 10 || waDigits.length > 15,
+      email: !emailOk,
       occ: !occ,
-      socials: !anySocial,
-      vosu: !vosu,
-      vosuEmail: !emailOk,
-      consent: !consent,
     };
     setBad(b);
     const firstBad = Object.keys(b).find((k) => b[k]);
@@ -116,9 +111,7 @@ export function RegisterForm({ country }: { country: string | null }) {
       youtube: clean(soc.youtube),
       linkedin: clean(soc.linkedin),
       facebook: clean(soc.facebook),
-      vosu_status: vosu,
-      vosu_email: f.vosuEmail.trim(),
-      consent_vosu: true,
+      email: f.email.trim(),
       country,
       utm_source: params.get("utm_source")?.slice(0, 120) || null,
       utm_medium: params.get("utm_medium")?.slice(0, 120) || null,
@@ -140,7 +133,7 @@ export function RegisterForm({ country }: { country: string | null }) {
       });
       const repeat = res.status === 409;
       if (!res.ok && !repeat) throw new Error(await res.text());
-      push({ event: "oma_registered", occupation: occ, vosu: vosu, repeat });
+      push({ event: "oma_registered", occupation: occ, socials: anySocial, repeat });
       setDone({ first: row.name.split(/\s+/)[0], repeat });
       requestAnimationFrame(() => document.getElementById("register")?.scrollIntoView({ behavior: "smooth", block: "start" }));
     } catch {
@@ -153,7 +146,7 @@ export function RegisterForm({ country }: { country: string | null }) {
 
   if (done) {
     const { google, icsHref } = calendarLinks();
-    const shareText = `I'm joining ONE MAN AGENCY, a free live class by Khalid Bin Helaly with VOSU. Fri 27 Nov, 8 PM. Register free: ${OMA.url}`;
+    const shareText = `I'm joining ONE MAN AGENCY, a free live class by Khalid Bin Helaly. Fri 27 Nov, 8 PM. Register free: ${OMA.url}`;
     return (
       <div className="oma-done" role="status">
         <span className="lbl" style={{ color: "var(--ok)" }}>{done.repeat ? "Already registered" : "Registered"}</span>
@@ -162,8 +155,8 @@ export function RegisterForm({ country }: { country: string | null }) {
           {done.repeat
             ? "This WhatsApp number is already on the list, so you are all set. "
             : "Your seat is confirmed. "}
-          The joining links come on WhatsApp: the day before, 2 hours before and 10 minutes before we go live on
-          Friday, 27 November at 8:00 PM Dhaka.
+          We will add you to the class WhatsApp group and email you the joining link before we go live on Friday,
+          27 November at 8:00 PM Dhaka.
         </p>
         <div className="acts">
           <a className="btn btn-fg" href={google} target="_blank" rel="noopener noreferrer">Add to Google Calendar</a>
@@ -181,8 +174,8 @@ export function RegisterForm({ country }: { country: string | null }) {
           </button>
         </div>
         <p className="tip">
-          <b>Save {brand.whatsappDisplay} in your contacts.</b> WhatsApp only delivers our reminders reliably to
-          people who have the number saved.
+          <b>Save {brand.whatsappDisplay} in your contacts</b> so you can be added to the group, and check your
+          email (and spam folder) for the joining link.
         </p>
       </div>
     );
@@ -211,8 +204,15 @@ export function RegisterForm({ country }: { country: string | null }) {
         <div className={cls("whatsapp")} id="oma-f-whatsapp">
           <label htmlFor="oma-wa">WhatsApp number</label>
           <input id="oma-wa" type="tel" inputMode="tel" autoComplete="tel" placeholder="01XXXXXXXXX" value={f.whatsapp} onChange={(e) => setF({ ...f, whatsapp: e.target.value })} />
-          <span className="err">Enter a valid WhatsApp number. Your joining link is sent here.</span>
+          <span className="err">Enter a valid WhatsApp number. We add you to the class group with it.</span>
         </div>
+      </div>
+
+      <div className={cls("email")} id="oma-f-email">
+        <label htmlFor="oma-email">Email</label>
+        <input id="oma-email" type="email" autoComplete="email" placeholder="you@example.com" value={f.email} onChange={(e) => setF({ ...f, email: e.target.value })} />
+        <span className="hint">Your joining link is sent here.</span>
+        <span className="err">Enter a valid email address. Your joining link is sent here.</span>
       </div>
 
       <div className={cls("occ")} id="oma-f-occ">
@@ -230,7 +230,7 @@ export function RegisterForm({ country }: { country: string | null }) {
       </div>
 
       <fieldset className={cls("socials")} id="oma-f-socials">
-        <legend>Your social profiles <span>(at least one)</span></legend>
+        <legend>Your social profiles <span>(optional)</span></legend>
         <div className="oma-socials">
           {SOCIALS.map(([k, label, ph]) => (
             <div className="s" key={k}>
@@ -240,49 +240,7 @@ export function RegisterForm({ country }: { country: string | null }) {
           ))}
         </div>
         <span className="hint">We look at real work to pick the people for the small interactive Zoom room.</span>
-        <span className="err">Add at least one profile, a handle or a link.</span>
       </fieldset>
-
-      <fieldset className={cls("vosu")} id="oma-f-vosu">
-        <legend>VOSU account <span>(required, free)</span></legend>
-        <div className="oma-radios">
-          <label>
-            <input type="radio" name="oma-vosu" checked={vosu === "has_account"} onChange={() => setVosu("has_account")} />
-            <span>Yes, I have a VOSU account</span>
-          </label>
-          <label>
-            <input type="radio" name="oma-vosu" checked={vosu === "created_now"} onChange={() => setVosu("created_now")} />
-            <span>
-              Not yet, I will create one now
-              <small>It is free and takes about two minutes.</small>
-            </span>
-          </label>
-        </div>
-        {vosu === "created_now" && (
-          <div className="oma-vosu-cta">
-            <p>Create your account in a new tab, then come back and enter the email you used.</p>
-            <a className="btn btn-fg" href={vosuLink("register_form")} target="_blank" rel="noopener sponsored" onClick={() => push({ event: "oma_vosu_signup_click" })}>
-              Create VOSU account ↗
-            </a>
-          </div>
-        )}
-        <span className="err">Choose one. A free VOSU account is required to register.</span>
-      </fieldset>
-
-      <div className={cls("vosuEmail")} id="oma-f-vosuEmail">
-        <label htmlFor="oma-vemail">Email on your VOSU account</label>
-        <input id="oma-vemail" type="email" autoComplete="email" placeholder="you@example.com" value={f.vosuEmail} onChange={(e) => setF({ ...f, vosuEmail: e.target.value })} />
-        <span className="hint">The same email you signed up to VOSU with.</span>
-        <span className="err">Enter the email address on your VOSU account.</span>
-      </div>
-
-      <div className={cls("consent")} id="oma-f-consent">
-        <label className="oma-check">
-          <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} />
-          <span>I agree that my registration details can be shared with VOSU, the partner of this class.</span>
-        </label>
-        <span className="err">Please agree to continue. VOSU partners this class.</span>
-      </div>
 
       <div className="oma-hp" aria-hidden="true">
         <label htmlFor="oma-company">Company</label>

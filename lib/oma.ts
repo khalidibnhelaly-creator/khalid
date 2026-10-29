@@ -1,5 +1,5 @@
 /**
- * One Man Agency: free live class (with VOSU). Single source of truth for
+ * One Man Agency: free live class. Single source of truth for
  * dates, links and the optional live prize. Used by /onemanagency and the
  * homepage live bar / program card.
  */
@@ -18,6 +18,7 @@ export const OMA = {
    * line only renders when this has text.
    */
   prize: "",
+  /** VOSU is paused for this class (not on the page). Kept for a quick re-add. */
   vosu: {
     signup:
       "https://vosu.ai/?ref=thekhalidway&utm_source=topzid&utm_medium=referral&utm_campaign=onemanagency",

@@ -129,7 +129,7 @@ export const programs: Program[] = [
   {
     id: "onemanagency",
     short: "One Man Agency (free live class)",
-    kicker: "Free live class · Fri, 27 Nov · 8 PM Dhaka · with VOSU",
+    kicker: "Free live class · Fri, 27 Nov · 8 PM Dhaka",
     title: "One Man Agency",
     text: "How one person with AI does the work of a whole agency: how clients find me, what I charge, and how the work gets made, live on screen. Free.",
     href: "/oma",
