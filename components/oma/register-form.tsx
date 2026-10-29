@@ -177,6 +177,10 @@ export function RegisterForm({ country }: { country: string | null }) {
           <b>Save {brand.whatsappDisplay} in your contacts</b> so you can be added to the group, and check your
           email (and spam folder) for the joining link.
         </p>
+        <p style={{ marginTop: 16, fontSize: 14 }}>
+          The class is free. If you want to support it, there is an optional{" "}
+          <a href="/oma/support" style={{ color: "var(--fg)" }}>donation box</a>.
+        </p>
       </div>
     );
   }

@@ -20,6 +20,7 @@ const nextConfig: NextConfig = {
       { source: "/aurafarming/code", destination: "/aurafarming/code/index.html" },
       { source: "/aurafarming/challenge", destination: "/aurafarming/challenge/index.html" },
       { source: "/unemployable", destination: "/unemployable/index.html" },
+      { source: "/oma/support", destination: "/oma/support/index.html" },
       { source: "/student", destination: "/student/index.html" },
       { source: "/masterclass-payment", destination: "/masterclass-payment/index.html" },
     ];

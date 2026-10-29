@@ -288,6 +288,12 @@ html:has(.oma) { background: #0a0a0a; }
 .oma-done .tip { margin-top: 18px; padding: 14px 16px; border-left: 2px solid var(--fg); background: var(--bg-3); font-size: 14.5px; color: var(--mute); }
 .oma-done .tip b { color: var(--fg); }
 
+/* donation box */
+.oma-donate { margin-top: 28px; padding: 22px; border: 1px dashed var(--line-2); display: grid; gap: 12px; }
+.oma-donate p { margin: 0; color: var(--mute); font-size: 15px; }
+.oma-donate b { color: var(--fg); }
+.oma-donate .btn { justify-self: start; min-height: 48px; }
+
 /* faq */
 .oma-faq { max-width: 860px; border-top: 1px solid var(--line); }
 .oma-faq details { border-bottom: 1px solid var(--line); }

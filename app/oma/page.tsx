@@ -104,7 +104,7 @@ const VIDEOS = [
 ] as const;
 
 const FAQ = [
-  ["Is it really free?", "Yes. Registration is free and so is the class. There is a short offer near the end, and you get everything in the class without it."],
+  ["Is it really free?", "Yes. Registration is free and so is the class. There is a short offer near the end, and you get everything in the class without it. If you want to support the class, there is an optional donation box, any amount, no difference to your seat."],
   ["Why is it so long?", "Because I show the whole system, not a highlight reel: the client loop, a full live production and the marketing stack. Plan for four hours or more. If that is too long for you, you are welcome to leave at any point, no hard feelings."],
   ["Is there a giveaway?", "Yes, at the very end of the class, only for the people who are still live in the room. It is not announced in advance and it is not sent to the recording."],
   ["How do I join?", "Register on this page. We add you to the class WhatsApp group and email you the joining link before the class. A small interactive room is offered to some registrants based on the work they share."],
@@ -492,6 +492,11 @@ export default async function OneManAgency() {
                 <li><b>Small Zoom room</b>Offered to registrants who share real work in their profiles</li>
                 <li><b>Need help?</b><a href={`https://wa.me/${brand.whatsapp}`} target="_blank" rel="noopener noreferrer" style={{ color: "var(--fg)" }}>Message us on WhatsApp</a></li>
               </ul>
+              <div className="oma-donate">
+                <span className="lbl">Donation box · optional</span>
+                <p><b>The class is free and stays free.</b> If it is worth something to you, chip in any amount by bKash, Nagad or bank. It does not change your seat.</p>
+                <a className="btn btn-line" href="/oma/support">Support the class <span className="arr">→</span></a>
+              </div>
             </div>
             <div className="reveal">
               <RegisterForm country={country} />
