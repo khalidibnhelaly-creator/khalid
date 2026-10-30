@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { SUPABASE_PUBLISHABLE_KEY, SUPABASE_URL } from "@/lib/public-supabase";
 import { brand } from "@/lib/topzid";
-import { OMA, omaTimes } from "@/lib/oma";
+import { OMA, calendarLinks } from "@/lib/oma";
 
 const OCCUPATIONS = [
   ["freelancer", "Freelancer"],
@@ -30,49 +29,28 @@ type Occ = (typeof OCCUPATIONS)[number][0] | "";
 
 const push = (o: object) => (window as unknown as { dataLayer?: object[] }).dataLayer?.push(o);
 
-function calendarLinks() {
-  const { startUtc, endUtc } = omaTimes();
-  const title = "One Man Agency: free live class with Khalid Bin Helaly";
-  const details = `Free live class with Khalid Bin Helaly. The joining link comes by email. ${OMA.url}`;
-  const google =
-    "https://calendar.google.com/calendar/render?action=TEMPLATE" +
-    `&text=${encodeURIComponent(title)}&dates=${startUtc}/${endUtc}` +
-    `&details=${encodeURIComponent(details)}&location=${encodeURIComponent(OMA.url)}`;
-  const ics = [
-    "BEGIN:VCALENDAR",
-    "VERSION:2.0",
-    "PRODID:-//TOPZID//One Man Agency//EN",
-    "BEGIN:VEVENT",
-    `UID:oma-20261127@topzid.com`,
-    `DTSTAMP:${startUtc}`,
-    `DTSTART:${startUtc}`,
-    `DTEND:${endUtc}`,
-    `SUMMARY:${title}`,
-    `DESCRIPTION:${details}`,
-    `URL:${OMA.url}`,
-    "BEGIN:VALARM",
-    "TRIGGER:-PT30M",
-    "ACTION:DISPLAY",
-    "DESCRIPTION:One Man Agency starts in 30 minutes",
-    "END:VALARM",
-    "END:VEVENT",
-    "END:VCALENDAR",
-  ].join("\r\n");
-  return { google, icsHref: `data:text/calendar;charset=utf-8,${encodeURIComponent(ics)}` };
-}
 
 /**
- * Registration. Saves to Supabase public.oma_registrations (insert-only for
- * the public key, one row per WhatsApp number). A repeat registration comes
- * back as 409 and is treated as success.
+ * Registration form. Posts to /api/oma/register, which saves to Supabase.
+ * Works with and without JavaScript: every field has a name and the form has
+ * a real action, so phones whose browser cannot run the page's scripts still
+ * register through a normal form post (and land on /oma/registered).
+ * No hidden honeypot: phone autofill was filling it and silently blocking
+ * real people.
  */
-export function RegisterForm({ country }: { country: string | null }) {
-  const [f, setF] = useState({ name: "", whatsapp: "", email: "", note: "", hp: "" });
+export function RegisterForm({ error }: { error?: string | null }) {
+  const [f, setF] = useState({ name: "", whatsapp: "", email: "", note: "" });
   const [occ, setOcc] = useState<Occ>("");
   const [soc, setSoc] = useState<Record<SocialKey, string>>({ instagram: "", tiktok: "", youtube: "", linkedin: "", facebook: "" });
   const [bad, setBad] = useState<Record<string, boolean>>({});
   const [busy, setBusy] = useState(false);
-  const [err, setErr] = useState<string | null>(null);
+  const [err, setErr] = useState<string | null>(
+    error === "save" || error === "1"
+      ? "We could not save your registration. Please try again, or message us on WhatsApp."
+      : error
+        ? "Please check the highlighted fields and try again."
+        : null
+  );
   const [done, setDone] = useState<{ first: string; repeat: boolean } | null>(null);
   const [copied, setCopied] = useState(false);
 
@@ -81,7 +59,6 @@ export function RegisterForm({ country }: { country: string | null }) {
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setErr(null);
-    if (f.hp) return; // honeypot
 
     const waDigits = f.whatsapp.replace(/\D/g, "");
     const anySocial = Object.values(soc).some((v) => v.trim());
@@ -95,6 +72,7 @@ export function RegisterForm({ country }: { country: string | null }) {
     setBad(b);
     const firstBad = Object.keys(b).find((k) => b[k]);
     if (firstBad) {
+      setErr("Please fill in the highlighted fields.");
       document.getElementById(`oma-f-${firstBad}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
       return;
     }
@@ -112,7 +90,6 @@ export function RegisterForm({ country }: { country: string | null }) {
       linkedin: clean(soc.linkedin),
       facebook: clean(soc.facebook),
       email: f.email.trim(),
-      country,
       utm_source: params.get("utm_source")?.slice(0, 120) || null,
       utm_medium: params.get("utm_medium")?.slice(0, 120) || null,
       utm_campaign: params.get("utm_campaign")?.slice(0, 160) || null,
@@ -121,18 +98,14 @@ export function RegisterForm({ country }: { country: string | null }) {
 
     setBusy(true);
     try {
-      const res = await fetch(`${SUPABASE_URL}/rest/v1/oma_registrations`, {
+      const res = await fetch("/api/oma/register", {
         method: "POST",
-        headers: {
-          apikey: SUPABASE_PUBLISHABLE_KEY,
-          Authorization: `Bearer ${SUPABASE_PUBLISHABLE_KEY}`,
-          "Content-Type": "application/json",
-          Prefer: "return=minimal",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(row),
       });
-      const repeat = res.status === 409;
-      if (!res.ok && !repeat) throw new Error(await res.text());
+      const data = (await res.json().catch(() => ({}))) as { ok?: boolean; repeat?: boolean };
+      if (!res.ok || !data.ok) throw new Error(String(res.status));
+      const repeat = !!data.repeat;
       push({ event: "oma_registered", occupation: occ, socials: anySocial, repeat });
       setDone({ first: row.name.split(/\s+/)[0], repeat });
       requestAnimationFrame(() => document.getElementById("register")?.scrollIntoView({ behavior: "smooth", block: "start" }));
@@ -195,40 +168,41 @@ export function RegisterForm({ country }: { country: string | null }) {
     );
   }
 
-  const cls = (k: string) => `oma-f${bad[k] ? " bad" : ""}`;
+  const preBad = new Set((error || "").split(","));
+  const cls = (k: string) => `oma-f${bad[k] || (!Object.keys(bad).length && preBad.has(k)) ? " bad" : ""}`;
 
   return (
-    <form className="oma-form" onSubmit={submit} noValidate>
+    <form className="oma-form" action="/api/oma/register" method="post" onSubmit={submit} noValidate>
       <div className="row2">
         <div className={cls("name")} id="oma-f-name">
           <label htmlFor="oma-name">Full name</label>
-          <input id="oma-name" type="text" autoComplete="name" maxLength={120} placeholder="e.g. Rakib Hasan" value={f.name} onChange={(e) => setF({ ...f, name: e.target.value })} />
+          <input id="oma-name" name="name" type="text" autoComplete="name" maxLength={120} placeholder="e.g. Rakib Hasan" value={f.name} onChange={(e) => setF({ ...f, name: e.target.value })} />
           <span className="err">Please enter your name.</span>
         </div>
         <div className={cls("whatsapp")} id="oma-f-whatsapp">
           <label htmlFor="oma-wa">WhatsApp number</label>
-          <input id="oma-wa" type="tel" inputMode="tel" autoComplete="tel" placeholder="01XXXXXXXXX" value={f.whatsapp} onChange={(e) => setF({ ...f, whatsapp: e.target.value })} />
+          <input id="oma-wa" name="whatsapp" type="tel" inputMode="tel" autoComplete="tel" placeholder="01XXXXXXXXX" value={f.whatsapp} onChange={(e) => setF({ ...f, whatsapp: e.target.value })} />
           <span className="err">Enter a valid WhatsApp number. We add you to the class group with it.</span>
         </div>
       </div>
 
       <div className={cls("email")} id="oma-f-email">
         <label htmlFor="oma-email">Email</label>
-        <input id="oma-email" type="email" autoComplete="email" placeholder="you@example.com" value={f.email} onChange={(e) => setF({ ...f, email: e.target.value })} />
+        <input id="oma-email" name="email" type="email" autoComplete="email" placeholder="you@example.com" value={f.email} onChange={(e) => setF({ ...f, email: e.target.value })} />
         <span className="hint">Your joining link is sent here.</span>
         <span className="err">Enter a valid email address. Your joining link is sent here.</span>
       </div>
 
       <div className={cls("occ")} id="oma-f-occ">
         <label htmlFor="oma-occ">What do you do?</label>
-        <select id="oma-occ" value={occ} onChange={(e) => setOcc(e.target.value as Occ)}>
+        <select id="oma-occ" name="occupation" value={occ} onChange={(e) => setOcc(e.target.value as Occ)}>
           <option value="" disabled>Choose one</option>
           {OCCUPATIONS.map(([v, t]) => (
             <option key={v} value={v}>{t}</option>
           ))}
         </select>
         {occ === "other" && (
-          <input type="text" maxLength={120} placeholder="Tell us in a few words" aria-label="Your occupation" value={f.note} onChange={(e) => setF({ ...f, note: e.target.value })} />
+          <input type="text" name="occupation_note" maxLength={120} placeholder="Tell us in a few words" aria-label="Your occupation" value={f.note} onChange={(e) => setF({ ...f, note: e.target.value })} />
         )}
         <span className="err">Choose the closest option.</span>
       </div>
@@ -239,17 +213,12 @@ export function RegisterForm({ country }: { country: string | null }) {
           {SOCIALS.map(([k, label, ph]) => (
             <div className="s" key={k}>
               <span>{label}</span>
-              <input type="text" aria-label={label} placeholder={ph} maxLength={200} value={soc[k]} onChange={(e) => setSoc({ ...soc, [k]: e.target.value })} />
+              <input type="text" name={k} aria-label={label} placeholder={ph} maxLength={200} value={soc[k]} onChange={(e) => setSoc({ ...soc, [k]: e.target.value })} />
             </div>
           ))}
         </div>
         <span className="hint">We look at real work to pick the people for the small interactive Zoom room.</span>
       </fieldset>
-
-      <div className="oma-hp" aria-hidden="true">
-        <label htmlFor="oma-company">Company</label>
-        <input id="oma-company" type="text" tabIndex={-1} autoComplete="off" value={f.hp} onChange={(e) => setF({ ...f, hp: e.target.value })} />
-      </div>
 
       {err && <p className="ferr" role="alert">{err}</p>}
 

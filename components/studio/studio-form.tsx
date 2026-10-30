@@ -40,7 +40,7 @@ const push = (o: object) => (window as unknown as { dataLayer?: object[] }).data
  * pre-select the engagement.
  */
 export function StudioForm({ country }: { country: string | null }) {
-  const [f, setF] = useState({ name: "", email: "", phone: "", brand: "", website: "", vision: "", company_url: "" });
+  const [f, setF] = useState({ name: "", email: "", phone: "", brand: "", website: "", vision: "" });
   const [revenue, setRevenue] = useState<Revenue | "">("");
   const [engagement, setEngagement] = useState<Engagement | "">("");
   const [error, setError] = useState<string | null>(null);
@@ -65,7 +65,6 @@ export function StudioForm({ country }: { country: string | null }) {
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError(null);
-    if (f.company_url) return; // honeypot: bots fill every field
     if (!revenue || !engagement) {
       setError(!revenue ? "Choose your annual revenue." : "Choose the engagement you are interested in.");
       return;
@@ -211,10 +210,6 @@ export function StudioForm({ country }: { country: string | null }) {
         <textarea id="sf-vision" required minLength={20} maxLength={2000} rows={5} {...bind("vision")} />
       </div>
 
-      <div className="st-hp" aria-hidden="true">
-        <label htmlFor="sf-company-url">Company URL</label>
-        <input id="sf-company-url" type="text" tabIndex={-1} autoComplete="off" {...bind("company_url")} />
-      </div>
 
       {error && <p className="st-form-err" role="alert">{error}</p>}
 

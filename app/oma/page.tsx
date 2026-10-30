@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import Link from "next/link";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { Countdown, LocalTime } from "@/components/oma/client";
 import { RegisterForm } from "@/components/oma/register-form";
 import { VideoTestimonial } from "@/components/oma/video";
 import { OMA, omaTimes } from "@/lib/oma";
-import { cleanCountry } from "@/lib/pricing";
 import { brand, socials } from "@/lib/topzid";
 
 export const metadata: Metadata = {
@@ -116,8 +114,13 @@ const FAQ = [
 
 const BRANDS = ["Berger", "Marico", "Chaldal", "UPS", "Nutrition Depot", "Vision", "Khaas Food"];
 
-export default async function OneManAgency() {
-  const country = cleanCountry((await headers()).get("x-vercel-ip-country"));
+export default async function OneManAgency({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  const e = (await searchParams).error;
+  const error = (Array.isArray(e) ? e[0] : e)?.slice(0, 60) || null;
   const { start, end } = omaTimes();
   const linkedin = socials.find((s) => s.key === "LinkedIn")!;
 
@@ -499,7 +502,7 @@ export default async function OneManAgency() {
               </div>
             </div>
             <div className="reveal">
-              <RegisterForm country={country} />
+              <RegisterForm error={error} />
             </div>
           </div>
         </section>

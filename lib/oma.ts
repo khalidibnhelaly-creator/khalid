@@ -36,3 +36,35 @@ export function omaTimes() {
   const fmt = (d: Date) => d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
   return { start, end, startUtc: fmt(start), endUtc: fmt(end) };
 }
+
+/** Google Calendar link and an .ics data URL for the class. */
+export function calendarLinks() {
+  const { startUtc, endUtc } = omaTimes();
+  const title = "One Man Agency: free live class with Khalid Bin Helaly";
+  const details = `Free live class with Khalid Bin Helaly. The joining link comes by email. ${OMA.url}`;
+  const google =
+    "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+    `&text=${encodeURIComponent(title)}&dates=${startUtc}/${endUtc}` +
+    `&details=${encodeURIComponent(details)}&location=${encodeURIComponent(OMA.url)}`;
+  const ics = [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "PRODID:-//TOPZID//One Man Agency//EN",
+    "BEGIN:VEVENT",
+    `UID:oma-20261127@topzid.com`,
+    `DTSTAMP:${startUtc}`,
+    `DTSTART:${startUtc}`,
+    `DTEND:${endUtc}`,
+    `SUMMARY:${title}`,
+    `DESCRIPTION:${details}`,
+    `URL:${OMA.url}`,
+    "BEGIN:VALARM",
+    "TRIGGER:-PT30M",
+    "ACTION:DISPLAY",
+    "DESCRIPTION:One Man Agency starts in 30 minutes",
+    "END:VALARM",
+    "END:VEVENT",
+    "END:VCALENDAR",
+  ].join("\r\n");
+  return { google, icsHref: `data:text/calendar;charset=utf-8,${encodeURIComponent(ics)}` };
+}

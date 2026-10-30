@@ -220,7 +220,6 @@
           <input id="wl-email" type="email" autocomplete="email" maxlength="254">
         </div>
         <label class="wl-check"><input id="wl-s1" type="checkbox"> I was in Season 01 or bought the recordings</label>
-        <div class="hp" aria-hidden="true"><label for="wl-web">Website</label><input id="wl-web" type="text" tabindex="-1" autocomplete="off"></div>
         <div class="wl-error" id="wlError" role="alert"></div>
         <button class="btn block" type="submit" data-track="waitlist_submit">Get on the list</button>
         <p class="fine">No spam. One message when it opens, on WhatsApp.</p>
@@ -298,7 +297,6 @@
   form.addEventListener('submit', function(e){
     e.preventDefault();
     err.textContent = '';
-    if (document.getElementById('wl-web').value) return; // honeypot
     var name = document.getElementById('wl-name').value.trim();
     var wa = document.getElementById('wl-wa').value.trim();
     var email = document.getElementById('wl-email').value.trim();
