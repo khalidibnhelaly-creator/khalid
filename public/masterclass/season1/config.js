@@ -13,7 +13,7 @@
        regular price shown struck through.
        Optional `deadline` (Dhaka time) ends priceNow and switches to priceAfter;
        null = no deadline, no countdown. */
-    priceNow: 5000,
+    priceNow: 7000,
     priceAfter: 15000,
     deadline: null,
 

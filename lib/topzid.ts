@@ -145,7 +145,7 @@ export const programs: Program[] = [
     text: "All 8 sessions of the live masterclass, the prompt library, pipeline SOPs and the First Client module, plus the 4-hour Aurafarming webinar recording free.",
     href: "/masterclass/season1",
     cta: "Get the recordings",
-    status: { kind: "static", label: "৳5,000 · Aurafarming recording free" },
+    status: { kind: "static", label: "৳7,000 · Aurafarming recording free" },
   },
   {
     id: "unemployable",
