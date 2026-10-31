@@ -10,20 +10,15 @@
     product: "One Man AI OS Masterclass, Season 1 Recordings",
 
     /* Pricing. priceNow is what everyone sees and pays; priceAfter is the
-       regular price shown struck through (৳5,000 saving).
+       regular price shown struck through.
        Optional `deadline` (Dhaka time) ends priceNow and switches to priceAfter;
        null = no deadline, no countdown. */
-    priceNow: 10000,
+    priceNow: 5000,
     priceAfter: 15000,
     deadline: null,
 
-    /* Checkout-only codes. The code itself is never stored in the page: only
-       its SHA-256 hash. Buyers who enter it see `price` at checkout; everyone
-       else keeps seeing priceNow. `until` (optional, Dhaka time) ends a code.
-       To add a code: hash it (uppercase) with SHA-256 and add a line here. */
-    codes: [
-      { hash: "ae6ebf892f745b2be5b7f547ee83c3de6b9abf561c6befb7cc01288c7b1ef7db", price: 7000, until: null }, // webinar offer, Oct 23
-    ],
+    /* Checkout codes removed Oct 31: one price for everyone. */
+    codes: [],
 
     whatsapp: "8801681096975",
     refPrefix: "S1",

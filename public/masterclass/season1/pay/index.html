@@ -159,9 +159,9 @@
       <div class="order">
         <div>
           <div class="on">Season 1 Recordings</div>
-          <div class="od">8 recorded sessions + Prompt Library, SOPs and First Client module</div>
+          <div class="od">8 recorded sessions + Prompt Library, SOPs, First Client module + Aurafarming webinar recording (bonus)</div>
         </div>
-        <div class="op"><b data-amount>৳10,000</b><s id="wasPrice">৳15,000</s><span class="saved hide" id="codeSaved"></span></div>
+        <div class="op"><b data-amount>৳5,000</b><s id="wasPrice">৳15,000</s></div>
       </div>
 
       <h2>Your details</h2>
@@ -185,18 +185,6 @@
           <div class="hint">For your receipt and access records.</div>
         </div>
 
-        <div class="field" id="f-code">
-          <button type="button" class="code-toggle" id="codeToggle">Have a code?</button>
-          <div class="hide" id="codeRow">
-            <label for="promo">Code</label>
-            <div class="code-in">
-              <input id="promo" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="40" placeholder="Enter your code" />
-              <button type="button" id="codeApply">Apply</button>
-            </div>
-            <span class="code-msg" id="codeMsg" role="status"></span>
-          </div>
-        </div>
-
         <div class="callout">Next you get a <b>unique reference code</b>. Write it in the reference field when you pay so we can match it to you. Nothing is charged automatically.</div>
         <button type="submit" class="btn">Get my reference code &rarr;</button>
         <p style="font-size:12.5px;color:var(--muted);text-align:center;margin:12px 0 0;">By continuing, you agree to the <a href="/terms" style="color:var(--gold);">Terms</a> and <a href="/refund-policy" style="color:var(--gold);">Refund Policy</a>.</p>
@@ -215,7 +203,7 @@
     </div>
 
     <div class="card">
-      <h2>Pay <span class="em" data-amount>৳10,000</span></h2>
+      <h2>Pay <span class="em" data-amount>৳5,000</span></h2>
       <p style="color:var(--ink-soft); font-size:14.5px; margin:8px 0 18px;">Choose your method.</p>
 
       <div class="methods" role="tablist" aria-label="Payment method">
@@ -228,7 +216,7 @@
         <div class="warn-box">⚠️ <b>Use "Send Money" only.</b> Do <span class="no">NOT</span> use "Make Payment" or the bKash payment gateway. It will go to the wrong place and we cannot match it.</div>
         <div class="detailrow"><span class="k">bKash number</span><span class="v big">01779176848</span><button type="button" class="copybtn" data-copy="01779176848">Copy</button></div>
         <div class="detailrow"><span class="k">Type</span><span class="v">Send Money</span></div>
-        <div class="detailrow"><span class="k">Amount</span><span class="v big" data-amount>৳10,000</span></div>
+        <div class="detailrow"><span class="k">Amount</span><span class="v big" data-amount>৳5,000</span></div>
         <ol class="instructions">
           <li>Open bKash, choose <b>Send Money</b>, enter the number above.</li>
           <li>Send the <b>exact amount</b>.</li>
@@ -241,7 +229,7 @@
         <div class="warn-box">⚠️ <b>Use "Send Money" only.</b> Do <span class="no">NOT</span> use "Make Payment" or the Nagad payment gateway. It will go to the wrong place and we cannot match it.</div>
         <div class="detailrow"><span class="k">Nagad number</span><span class="v big">01779176848</span><button type="button" class="copybtn" data-copy="01779176848">Copy</button></div>
         <div class="detailrow"><span class="k">Type</span><span class="v">Send Money</span></div>
-        <div class="detailrow"><span class="k">Amount</span><span class="v big" data-amount>৳10,000</span></div>
+        <div class="detailrow"><span class="k">Amount</span><span class="v big" data-amount>৳5,000</span></div>
         <ol class="instructions">
           <li>Open Nagad, choose <b>Send Money</b>, enter the number above.</li>
           <li>Send the <b>exact amount</b>.</li>
@@ -257,7 +245,7 @@
         <div class="detailrow"><span class="k">Bank</span><span class="v">BRAC Bank PLC</span></div>
         <div class="detailrow"><span class="k">Branch</span><span class="v">Banani Branch</span></div>
         <div class="detailrow"><span class="k">Routing no.</span><span class="v big">060260435</span><button type="button" class="copybtn" data-copy="060260435">Copy</button></div>
-        <div class="detailrow"><span class="k">Amount</span><span class="v big" data-amount>৳10,000</span></div>
+        <div class="detailrow"><span class="k">Amount</span><span class="v big" data-amount>৳5,000</span></div>
         <ol class="instructions">
           <li>Transfer the <b>exact amount</b> from your bank app or branch.</li>
           <li>In the reference or note field, write <b data-ref>S1-0000</b>.</li>
@@ -358,63 +346,9 @@
   if(S1.isLaunch()){ $("wasPrice").textContent = S1.taka(S1.priceAfter); }
   else { $("wasPrice").remove(); }
 
-  /* ---- checkout codes ----
-     Only the SHA-256 hash of each code lives in config.js. A valid code
-     changes the amount for this buyer only; the sales page never shows it.
-     The amount locks once the reference code is created (step 1). */
-  function sha256(text){
-    if(!(window.crypto && crypto.subtle && window.TextEncoder)) return Promise.reject(new Error("no-subtle"));
-    return crypto.subtle.digest("SHA-256", new TextEncoder().encode(text)).then(function(buf){
-      return Array.prototype.map.call(new Uint8Array(buf), function(b){ return ("0" + b.toString(16)).slice(-2); }).join("");
-    });
-  }
-  function setCodeMsg(text, kind){ var m = $("codeMsg"); m.textContent = text; m.className = "code-msg" + (kind ? " " + kind : ""); }
-  function renderAmount(){
-    all("[data-amount]", function(el){ el.textContent = S1.taka(state.amount); });
-    var was = $("wasPrice"), saved = $("codeSaved");
-    if(state.promo){
-      if(was){ was.textContent = S1.taka(S1.price()); }
-      saved.textContent = state.promo + " applied · " + S1.taka(S1.price() - state.amount) + " off";
-      saved.classList.remove("hide");
-    } else {
-      if(was){ was.textContent = S1.taka(S1.priceAfter); }
-      saved.classList.add("hide");
-    }
-  }
-  function applyCode(raw, quiet){
-    var code = String(raw || "").trim().toUpperCase();
-    if(state.ref){ return; } /* amount is locked after step 1 */
-    if(!code){ if(!quiet) setCodeMsg("Enter a code first.", "bad"); return; }
-    sha256(code).then(function(h){
-      var now = Date.now(), hit = null;
-      (S1.codes || []).forEach(function(c){
-        if(c.hash === h && (!c.until || now < new Date(c.until).getTime())) hit = c;
-      });
-      if(!hit){
-        state.promo = ""; state.amount = S1.price(); renderAmount();
-        if(!quiet) setCodeMsg("That code is not valid.", "bad");
-        return;
-      }
-      state.promo = code;
-      state.amount = hit.price;
-      renderAmount();
-      setCodeMsg("Code applied. You pay " + S1.taka(hit.price) + ".", "ok");
-      $("promo").value = code;
-      track("s1_code_applied", { s1_code: state.promo });
-    }, function(){
-      if(!quiet) setCodeMsg("Codes need a secure (https) connection. Please reload topzid.com.", "bad");
-    });
-  }
-  $("codeToggle").addEventListener("click", function(){
-    $("codeToggle").classList.add("hide"); $("codeRow").classList.remove("hide"); $("promo").focus();
-  });
-  $("codeApply").addEventListener("click", function(){ applyCode($("promo").value); });
-  $("promo").addEventListener("keydown", function(e){ if(e.key === "Enter"){ e.preventDefault(); applyCode($("promo").value); } });
-  /* share-link support: /masterclass/season1/pay?code=XXXX */
-  (function(){
-    var c = new URLSearchParams(window.location.search).get("code");
-    if(c){ $("codeToggle").classList.add("hide"); $("codeRow").classList.remove("hide"); $("promo").value = c.toUpperCase(); applyCode(c, false); }
-  })();
+  /* checkout codes removed (Oct 31): one price for everyone */
+  function renderAmount(){ all("[data-amount]", function(el){ el.textContent = S1.taka(state.amount); }); }
+  renderAmount();
 
   /* ref code: S1-XXXX, no ambiguous characters */
   function makeRef(){
